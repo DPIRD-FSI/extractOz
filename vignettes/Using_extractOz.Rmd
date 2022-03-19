@@ -1,0 +1,66 @@
+---
+title: "Using extractOz"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using_extractOz}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding
+  %\VignetteDepends{dplyr}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(extractOz)
+```
+
+## Create locations in WA and NSW
+
+```{r create-location}
+locs <- data.frame(
+  site = c("Merredin", "Corrigin", "Tamworth"),
+  "x" = c(118.28, 117.87, 150.84),
+  "y" = c(-31.48, -32.33, -31.07)
+)
+```
+
+## Assign the GRDC AgroEcological Zones
+
+See `?assign_zone()` for more help on how to use this function.
+
+```{r assign-zones}
+z <- assign_zone(x = locs, coords = c("x", "y"))
+```
+
+## Get Temperature, Rain and RH for these Locations in 2020
+
+Using the previously created data frame, fetch weather data from SILO for 2020.
+This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
+See `?get_multi_silodata()` from _cropgrowdays_ for more help on how to use this function.
+
+```{r get-weather, eval=FALSE}
+two_sites  <-
+  get_multi_silodata(
+    latitude = locs$y,
+    longitude = locs$x,
+    Sitename = locs$site,
+    START = "20200101",
+    FINISH = "20201231",
+    email = "MY_EMAIL_ADDRESS"
+  )
+```
+
+## Join the Weather Data with AE Zone and Site Information
+
+Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
+
+```{r join, eval=FALSE}
+library(dplyr)
+
+left_join(z, two_sites, by = c("site" = "Sitename"))
+```
