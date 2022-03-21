@@ -34,7 +34,7 @@ locs <- data.frame(
 See `?assign_zone()` for more help on how to use this function.
 
 ```{r assign-zones}
-z <- assign_zone(x = locs, coords = c("x", "y"))
+z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 ```
 
 ## Get Temperature, Rain and RH for these Locations in 2020
