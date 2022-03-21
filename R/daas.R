@@ -2,7 +2,7 @@
 #'
 #' @description
 #' The digital version of the Atlas of Australian Soils was created by
-#' \acronum{NRIC} (National Resource Information Centre) in 1991 from scanned
+#' \acronym{NRIC} (National Resource Information Centre) in 1991 from scanned
 #' tracings of the published hardcopy maps (1 - 10), Northcote et al. (1960 -
 #' 1968).
 #'
