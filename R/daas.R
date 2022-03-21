@@ -60,7 +60,8 @@
 #' introduced by subsequent processes, beginning with the natural process of
 #' paper stretch. This was followed by the data processing steps which were, in
 #' order of execution: tracing, manual digitizing, transformation of coordinates
-#' and rubber sheeting to edge-match the digital versions of the adjacent sheets.
+#' and rubber sheeting to edge-match the digital versions of the adjacent
+#' sheets.
 #'
 #' @section Dataset Citation:
 #' Bureau of Rural Sciences (2009) Digital Atlas of Australian Soils.
