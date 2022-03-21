@@ -1,5 +1,5 @@
 
-#' Extract GRDC Agroecological Zones from Australian GPS Coordinates
+#' Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 #'
 #' @param x a `data.frame` of \acronym{GPS} coordinates in two columns.
 #' @param coords names or numbers of the numeric columns holding coordinates in

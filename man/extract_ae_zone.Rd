@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_ae_zone.R
 \name{extract_ae_zone}
 \alias{extract_ae_zone}
-\title{Extract GRDC Agroecological Zones from Australian GPS Coordinates}
+\title{Extract GRDC Agroecological Zones Using Australian GPS Coordinates}
 \usage{
 extract_ae_zone(x, coords)
 }
@@ -17,7 +17,7 @@ a \code{data.frame} with the provided \acronym{GPS} coordinates and the
 respective \acronym{GRDC} agroecological zone.
 }
 \description{
-Extract GRDC Agroecological Zones from Australian GPS Coordinates
+Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 }
 \examples{
 locs <- data.frame(

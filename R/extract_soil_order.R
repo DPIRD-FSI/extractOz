@@ -1,5 +1,5 @@
 
-#' Extract Soil Order from Australian GPS Coordinates
+#' Extract Soil Order from DAAS using Australian GPS Coordinates
 #'
 #' @param x a `data.frame` of \acronym{GPS} coordinates in two columns.
 #' @param coords names or numbers of the numeric columns holding coordinates in
