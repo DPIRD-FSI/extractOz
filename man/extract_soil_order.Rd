@@ -29,6 +29,7 @@ extract_soil_order(x = locs, coords = c("x", "y"))
 }
 \seealso{
 Other extract functions: 
-\code{\link{extract_ae_zone}()}
+\code{\link{extract_ae_zone}()},
+\code{\link{extract_area}()}
 }
 \concept{extract functions}
