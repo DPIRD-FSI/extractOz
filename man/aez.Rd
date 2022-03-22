@@ -9,7 +9,7 @@ An \code{\link[sf:sf]{sf::sf()}} polygon object
 }
 \source{
 The Australian Grains Research and Development Corporation,
-\acronym{GRDC}, \url{https://grdc.com.au/}
+\acronym{GRDC}, \url{https://grdc.com.au/} under CC0 licence.
 }
 \usage{
 aez

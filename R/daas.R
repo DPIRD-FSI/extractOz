@@ -1,10 +1,12 @@
 #' Digital Atlas of Australian Soils
 #'
 #' @description
-#' The digital version of the Atlas of Australian Soils was created by
-#' \acronym{NRIC} (National Resource Information Centre) in 1991 from scanned
-#' tracings of the published hardcopy maps (1 - 10), Northcote et al. (1960 -
-#' 1968).
+#' A modified version of the digital version of the Atlas of Australian Soils
+#' that contains only soils within the \acronym{GRDC} agroecological zone
+#' boundaries. The original version was created by \acronym{NRIC} (National
+#' Resource Information Centre) in 1991 from scanned tracings of the published
+#' hardcopy maps (1 - 10), Northcote et al. (1960 - 1968). The modified version
+#' here is created by Adam Sparks, \acronym{DPIRD} for use in \pkg{extractOz}.
 #'
 #' @details
 #' The Atlas of Australian Soils (Northcote et al, 1960-68) was compiled by
@@ -79,4 +81,5 @@
 #'   \item{SOIL}{Soil classification}
 #' }
 #' @source \url{http://data.bioregionalassessments.gov.au/dataset/9e7d2f5b-ff51-4f0f-898a-a55be8837828}
+#'
 "daas"

@@ -9,6 +9,6 @@
 #' @format An [sf::sf()] polygon object
 #'
 #' @source The Australian Grains Research and Development Corporation,
-#'  \acronym{GRDC}, \url{https://grdc.com.au/}
+#'  \acronym{GRDC}, \url{https://grdc.com.au/} under CC0 licence.
 #'
 "aez"
