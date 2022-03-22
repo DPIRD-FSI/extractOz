@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(extractOz)
+library(dplyr)
 ```
 
 ## Create locations in WA and NSW
@@ -29,38 +30,47 @@ locs <- data.frame(
 )
 ```
 
-## Assign the GRDC AgroEcological Zones
+## Extract the GRDC AgroEcological Zones
 
-See `?assign_zone()` for more help on how to use this function.
+See `?extract_ae_zone()` for more help on how to use this function.
 
-```{r assign-zones}
+```{r extract-zones}
 z <- extract_ae_zone(x = locs, coords = c("x", "y"))
+```
+
+## Extract the soil order
+
+See `?extract_soil_order()` for more help on how to use this function.
+
+```{r extract-soil}
+s <- extract_soil_order(x = locs, coords = c("x", "y"))
 ```
 
 ## Get Temperature, Rain and RH for these Locations in 2020
 
 Using the previously created data frame, fetch weather data from SILO for 2020.
 This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
-See `?get_multi_silodata()` from _cropgrowdays_ for more help on how to use this function.
+See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this function.
 
 ```{r get-weather, eval=FALSE}
-two_sites  <-
+three_sites  <-
   get_multi_silodata(
     latitude = locs$y,
     longitude = locs$x,
     Sitename = locs$site,
     START = "20200101",
     FINISH = "20201231",
-    email = "MY_EMAIL_ADDRESS"
+    email = "adam.sparks@dpird.wa.gov.au"
   )
 ```
 
-## Join the Weather Data with AE Zone and Site Information
+## Join the Weather Data with AE Zone, Soil Order and Site Information
 
 Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
 
 ```{r join, eval=FALSE}
 library(dplyr)
 
-left_join(z, two_sites, by = c("site" = "Sitename"))
+left_join(z, three_sites, by = c("site" = "Sitename")) %>% 
+  left_join(s)
 ```
