@@ -1,3 +1,7 @@
+---
+output: github_document
+---
+
 # extractOz
 
 Extract the GRDC agroecological zone, major soil order and weather data from your GPS sampling points.
