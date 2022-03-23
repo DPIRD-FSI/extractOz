@@ -27,14 +27,17 @@
 #' @export
 
 extract_area <- function(x, coords, spatial, area) {
+  spatial <- sf::st_transform(spatial, crs = 4326)
 
   points_sf <- sf::st_as_sf(x = x,
                             coords = coords,
                             crs = sf::st_crs(spatial))
 
   intersection <- as.integer(sf::st_intersects(points_sf, spatial))
-  area <- ifelse(is.na(intersection), "",
-                 as.character(spatial[[area]][intersection]))
+  a <- ifelse(is.na(intersection), "",
+              as.character(spatial[[area]][intersection]))
 
-  return(cbind(x, area))
+  x <- cbind(x, a)
+  names(x)[names(x) == "a"] <- area
+  return(x)
 }
