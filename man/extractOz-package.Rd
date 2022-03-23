@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Extracts point data for a given GPS coordinate that includes major soil classification, weather and GRDC agro-ecological zone information at that point.
+Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.
 }
 \author{
 \strong{Maintainer}: Adam H. Sparks \email{adam.sparks@dpird.wa.gov.au} (\href{https://orcid.org/0000-0002-0061-8359}{ORCID})
