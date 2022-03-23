@@ -1,5 +1,5 @@
 
-test_that("extract_soil_order() extracts proper orders", {
+test_that("extract_ae_zone() extracts proper orders", {
   locs <- data.frame(
     site = c("Merredin", "Corrigin", "Tamworth"),
     "x" = c(118.28, 117.87, 150.84),

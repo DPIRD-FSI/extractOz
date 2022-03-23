@@ -20,11 +20,6 @@
 #' @export
 
 extract_ae_zone <- function(x, coords) {
-  if (missing(x)) {
-    stop(call. = FALSE,
-         "You must provide a `data.frame` of GPS coordinates.")
-  }
-
   points_sf <- sf::st_as_sf(x = x,
                             coords = coords,
                             crs = sf::st_crs(aez))
