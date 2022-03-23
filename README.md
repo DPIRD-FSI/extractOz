@@ -7,20 +7,20 @@ You may also use your own geospatial vector format file to extract similar infor
 
 ## Quick start
 
-`r
+```r
 library(extractOz)
 library(dplyr)
-`
+```
 
 ## Create locations in WA and NSW
 
-`r
+```r
 locs <- data.frame(
   site = c("Merredin", "Corrigin", "Tamworth"),
   "x" = c(118.28, 117.87, 150.84),
   "y" = c(-31.48, -32.33, -31.07)
 )
-`
+```
 
 ## Extract the GRDC AgroEcological Zones
 
