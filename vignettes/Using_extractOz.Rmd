@@ -25,8 +25,8 @@ library(dplyr)
 ```{r create-location}
 locs <- data.frame(
   site = c("Merredin", "Corrigin", "Tamworth"),
-  "x" = c(118.28, 117.87, 150.84),
-  "y" = c(-31.48, -32.33, -31.07)
+  x = c(118.28, 117.87, 150.84),
+  y = c(-31.48, -32.33, -31.07)
 )
 ```
 
