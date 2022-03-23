@@ -38,7 +38,7 @@ See `?extract_soil_order()` for more help on how to use this function.
 s <- extract_soil_order(x = locs, coords = c("x", "y"))
 ```
 
-## Get Temperature, Rain and RH for these Locations in 2020
+## Get Weather Data for these Locations in 2020
 
 Using the previously created data frame, fetch weather data from SILO for 2020.
 This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
