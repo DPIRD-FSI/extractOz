@@ -60,7 +60,7 @@ three_sites  <-
     Sitename = locs$site,
     START = "20200101",
     FINISH = "20201231",
-    email = "adam.sparks@dpird.wa.gov.au"
+    email = MY_EMAIL_ADDRESS
   )
 ```
 
