@@ -1,8 +1,8 @@
 ---
-title: "Using extractOz"
+title: "extractOz"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using_extractOz}
+  %\VignetteIndexEntry{extractOz}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding
   %\VignetteDepends{dplyr}
