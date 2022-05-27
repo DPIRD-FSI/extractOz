@@ -20,7 +20,7 @@
 #'
 #' @family extract functions
 #'
-#' @examples
+#' @examplesIf interactive()
 #' locs <- data.frame(
 #'   site = c("Merredin", "Corrigin", "Tamworth"),
 #'   "x" = c(118.28, 117.87, 150.84),

@@ -32,12 +32,14 @@ soils data and cache it locally for future use. Any use after this will be
 much faster due to the locally cached geospatial soils data.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 locs <- data.frame(
   site = c("Merredin", "Corrigin", "Tamworth"),
   "x" = c(118.28, 117.87, 150.84),
   "y" = c(-31.48, -32.33, -31.07)
 )
 extract_soil_order(x = locs, coords = c("x", "y"))
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other extract functions: 
