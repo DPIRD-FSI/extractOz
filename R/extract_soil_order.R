@@ -21,6 +21,7 @@
 
 extract_soil_order <- function(x, coords) {
 
+  daas <- ...
   points_sf <- sf::st_as_sf(x = x,
                             coords = coords,
                             crs = sf::st_crs(daas))
