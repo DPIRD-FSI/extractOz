@@ -5,7 +5,7 @@ vignette: >
   %\VignetteIndexEntry{extractOz}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding
-  %\VignetteDepends{dplyr}
+  %\VignetteDepends{tidyverse}
 ---
 
 ```{r, include = FALSE}
@@ -15,9 +15,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+## Load libraries
+
+```{r setup, message=FALSE}
 library(extractOz)
-library(dplyr)
+library(tidyverse)
 ```
 
 ## Create locations in WA and NSW
@@ -34,7 +36,7 @@ locs <- data.frame(
 
 See `?extract_ae_zone()` for more help on how to use this function.
 
-```{r extract-zones}
+```{r extract-zones, message=FALSE}
 z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 ```
 
@@ -71,4 +73,39 @@ Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS 
 ```{r join, eval=FALSE}
 left_join(z, three_sites, by = c("site" = "Sitename")) %>% 
   left_join(s)
+```
+
+## Creating a Pipeline
+
+You can use the pipe, `%>%` or `|>` (for R >= 4.1), to string the whole set of commands together into a singular pipeline to ingest, extract information and download weather data for your GPS points.
+Here, we will import data from a CSV file, extract the values, fetch the weather data and create a `data.frame` object with all of the AE Zone, soil order, weather and site information.
+
+The CSV file is included in this package so that you can run this example yourself by providing your own e-mail address for the SILO API key.
+
+The `left_join()` takes the existing `data.frame` that has the location information, AE Zone and soil order as `x = .`.
+The `y` for the left join is then the `get_multi_silodata()` and details are provided to that API, again the original `data.frame` that has the `x` and `y` information and `Sitename` are provided as `.$colname`.
+
+The final step is to save the `data.frame` as an object, `complete_data`.
+
+```{r pipeline, eval=FALSE, message=FALSE}
+read_csv(system.file(
+  "extdata",
+  "sample_points.csv",
+  package = "extractOz",
+  mustWork = TRUE
+)) %>%
+  extract_ae_zone(coords = c("x", "y")) %>%
+  extract_soil_order(coords = c("x", "y")) %>%
+  left_join(
+    x = .,
+    y = get_multi_silodata(
+      latitude = .$y,
+      longitude = .$x,
+      Sitename = .$site,
+      START = "20200101",
+      FINISH = "20201231",
+      email = "adam.sparks@dpird.wa.gov.au"
+    ),
+    by = c("site" = "Sitename")
+  ) -> complete_data
 ```
