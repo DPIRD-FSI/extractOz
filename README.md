@@ -8,6 +8,12 @@ You may also use your own geospatial vector format file to extract similar infor
 ## Quick start
 
 ```r
+if (!require("remotes")) {
+  install.packages("remotes")
+}
+
+remotes::install_github("adamhsparks/extractOz", build_vignettes = TRUE)
+
 library(extractOz)
 library(dplyr)
 ```
