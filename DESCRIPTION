@@ -1,5 +1,5 @@
 Package: extractOz
-Title: Extract Australian Soil, Weather and Agro-ecological Zone
+Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone
         Information from GPS Points
 Version: 0.0.2.9000
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
