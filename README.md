@@ -1,6 +1,10 @@
 
 # _extractOz_ <img src="man/figures/logo.png" align="right" />
 
+<!-- badges: start -->
+[![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/adamhsparks/extractOz/actions)
+<!-- badges: end -->
+
 Extract the GRDC agroecological zone, major soil order and weather data from your GPS sampling points.
 Datasets for the GRDC agroecological zones and a modified Digital Atlas of Australian Soils are included in this package for ease of use.
 You may also use your own geospatial vector format file to extract similar information using the generic function, `extract_area()`.
