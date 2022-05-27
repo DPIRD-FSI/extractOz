@@ -5,8 +5,18 @@
 #' @param coords names or numbers of the numeric columns holding coordinates in
 #'  `lonlat`.
 #'
+#' Extracts the major soil order at the GPS points provided.
+#'
+#' @note The first run will take additional time to download and extract the
+#' soils data and cache it locally for future use. Any use after this will be
+#' much faster due to the locally cached geospatial soils data.
+#'
 #' @return a `data.frame` with the provided \acronym{GPS} coordinates and the
-#'  respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order).
+#'  respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
+#'  "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
+#'  Soil Classification v01".
+#'
+#' @source \url{https://data.gov.au/dataset/ds-dga-5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/distribution/dist-dga-56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/details?q=}
 #'
 #' @family extract functions
 #'
