@@ -6,3 +6,6 @@
 LICENSE.md
 ^CODE_OF_CONDUCT\.md$
 ^codemeta\.json$
+^\.ccache$
+^\.github$
+^tic\.R$
