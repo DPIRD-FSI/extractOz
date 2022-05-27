@@ -20,8 +20,13 @@
 #' @export
 
 extract_soil_order <- function(x, coords) {
+  # check if the DAAS data exists in the local cache and if not, download and
+  # mask it before saving in the user cache
 
-  daas <- ...
+  .check_for_cache()
+
+  load(.get_cache_file())
+
   points_sf <- sf::st_as_sf(x = x,
                             coords = coords,
                             crs = sf::st_crs(daas))
@@ -31,4 +36,67 @@ extract_soil_order <- function(x, coords) {
                  as.character(daas$SOIL[intersection]))
 
   return(cbind(x, soil))
+}
+
+
+# general functions for using the user cache taken from:
+# https://github.com/sonatype-nexus-community/extractOz/blob/master/R/cache.R
+
+#' @noRd
+.get_cache_dir <- function() {
+  R_user_dir = utils::getFromNamespace("R_user_dir", "tools")
+  R_user_dir("extractOz", which = "cache")
+}
+
+.get_cache_file = function() {
+  dir = .get_cache_dir()
+  path = file.path(dir, "daas.RData")
+  return(path)
+}
+
+#' @noRd
+.check_for_cache <- function() {
+  if (!file.exists(.get_cache_file())) {
+    if (!dir.exists(.get_cache_dir())) {
+      dir.create(path = .get_cache_dir(), recursive = TRUE)
+    }
+    u_remote <-
+      "https://data.gov.au/data/"
+    d_remote <-
+      "dataset/5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/resource/56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/download/"
+    filename <- "6f804e8b-2de9-4c88-adfa-918ec327c32f.zip"
+
+    url <- paste0(u_remote, d_remote, filename)
+    tryCatch(
+      # check for an http error b4 proceeding
+      if (!httr::http_error(url)) {
+        h <- curl::new_handle()
+        curl::handle_setopt(h, CONNECTTIMEOUT = 120L)
+        curl::curl_download(
+          url = url,
+          destfile = file.path(tempdir(), filename),
+          quiet = FALSE,
+          handle = h,
+          mode = "wb"
+        )
+
+        unzip(file.path(tempdir(), filename), exdir = tempdir())
+
+        x <- sf::st_read(
+          dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
+          layer = "soilAtlas2M_ASC_Conversion"
+        )
+        x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"),]
+        x <- sf::st_transform(x, crs = sf::st_crs(aez))
+        daas <- sf::st_intersection(x = x, y = aez)
+        save(daas, file = .get_cache_file())
+      },
+      error = function(x)
+        stop(
+          call. = FALSE,
+          "\nThe file download for DAAS has failed. Please try again.\n"
+        )
+    )
+  }
+  return(invisible(NULL))
 }
