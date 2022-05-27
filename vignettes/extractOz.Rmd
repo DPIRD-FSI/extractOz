@@ -36,7 +36,7 @@ locs <- data.frame(
 
 See `?extract_ae_zone()` for more help on how to use this function.
 
-```{r extract-zones, message=FALSE}
+```{r extract-zones, message=FALSE, eval=FALSE}
 z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 ```
 
@@ -44,7 +44,7 @@ z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 
 See `?extract_soil_order()` for more help on how to use this function.
 
-```{r extract-soil}
+```{r extract-soil, eval=FALSE}
 s <- extract_soil_order(x = locs, coords = c("x", "y"))
 ```
 
