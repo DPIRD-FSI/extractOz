@@ -1,0 +1,146 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "extractOz",
+  "description": "Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.",
+  "name": "extractOz: Extract Australian Soil, Weather and Agro-ecological Zone\n        Information from GPS Points",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "0.0.2",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Adam H.",
+      "familyName": "Sparks",
+      "email": "adam.sparks@dpird.wa.gov.au",
+      "@id": "https://orcid.org/0000-0002-0061-8359"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Organization",
+      "name": "Western Australia Department of Primary Industries\n                    and Regional Development"
+    },
+    {
+      "@type": "Organization",
+      "name": "Grains Research and Development Corporation"
+    }
+  ],
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "Grains Research and Development Corporation"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Adam H.",
+      "familyName": "Sparks",
+      "email": "adam.sparks@dpird.wa.gov.au",
+      "@id": "https://orcid.org/0000-0002-0061-8359"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyverse",
+      "name": "tidyverse",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyverse"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "cropgrowdays",
+      "name": "cropgrowdays",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=cropgrowdays"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.5.0"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "6495.783KB"
+}
