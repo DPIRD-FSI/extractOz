@@ -4,7 +4,7 @@
 \name{extractOz-package}
 \alias{extractOz}
 \alias{extractOz-package}
-\title{extractOz: Extract Australian Soil, Weather and Agro-ecological Zone Information from GPS Points}
+\title{extractOz: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
