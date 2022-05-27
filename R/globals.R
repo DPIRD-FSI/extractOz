@@ -1,2 +1,2 @@
 # CRAN NOTE avoidance
-utils::globalVariables(c("aez"))
+utils::globalVariables(c("aez", "daas"))

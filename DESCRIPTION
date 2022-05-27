@@ -22,7 +22,8 @@ Imports:
   cropgrowdays,
   curl,
   httr,
-  sf
+  sf,
+  utils
 Suggests:
     knitr,
     rmarkdown,

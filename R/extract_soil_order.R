@@ -90,7 +90,7 @@ extract_soil_order <- function(x, coords) {
           mode = "wb"
         )
 
-        unzip(file.path(tempdir(), filename), exdir = tempdir())
+        utils::unzip(file.path(tempdir(), filename), exdir = tempdir())
 
         x <- sf::st_read(
           dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
