@@ -15,7 +15,8 @@ Extracts point data for a given GPS coordinate that includes major soil order, w
 
 Other contributors:
 \itemize{
-  \item Western Australia Department of Primary Industries and Regional Development [copyright holder]
+  \item Western Australia Department of Primary Industries and Regional Development (Provided support through Adam Sparks's time.) [copyright holder]
+  \item Grains Research and Development Corporation (GRDC Project GRI2007-001RTX) [funder, copyright holder]
 }
 
 }
