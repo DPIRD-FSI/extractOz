@@ -6,7 +6,7 @@
 \alias{extractOz-package}
 \title{extractOz: Extract Australian Soil, Weather and Agro-ecological Zone Information from GPS Points}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.
 }
