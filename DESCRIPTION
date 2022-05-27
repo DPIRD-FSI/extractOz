@@ -7,7 +7,11 @@ Authors@R: c(person(given = "Adam H.", family = "Sparks",
                      role = c("aut", "cre"),
                      comment = c(ORCID = "0000-0002-0061-8359")),
              person(given = "Western Australia Department of Primary Industries
-                    and Regional Development", role = "cph")
+                    and Regional Development", role = "cph",
+                    comment = "Provided support through Adam Sparks's time."),
+             person(given = "Grains Research and Development Corporation",
+             role = c("fnd", "cph"),
+             comment = "GRDC Project GRI2007-001RTX")
    )
 Description: Extracts point data for a given GPS coordinate that includes major
   soil order, weather and GRDC agro-ecological zone information at that point.
