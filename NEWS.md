@@ -1,6 +1,6 @@
 # extractOz (development version)
 
-# extractOz 0.0.1.9000
+# extractOz 0.0.2
 
 -   Add an example to vignette that illustrates how to import and create an object in a pipeline.
 
