@@ -3,9 +3,9 @@
   "@type": "SoftwareSourceCode",
   "identifier": "extractOz",
   "description": "Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.",
-  "name": "extractOz: Extract Australian Soil, Weather and Agro-ecological Zone\n        Information from GPS Points",
+  "name": "extractOz: Extract Australian Soil, Weather and GRDC Agro-ecological Zone\n        Information from GPS Points",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -124,6 +124,30 @@
     },
     "2": {
       "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
       "provider": {
@@ -134,13 +158,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "3": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 3.5.0"
+      "version": ">= 4.0.0"
     },
     "SystemRequirements": null
   },
-  "fileSize": "6495.783KB"
+  "fileSize": "1266.893KB"
 }
