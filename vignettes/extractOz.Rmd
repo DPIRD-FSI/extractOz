@@ -87,7 +87,7 @@ The `y` for the left join is then the `get_multi_silodata()` and details are pro
 
 The final step is to save the `data.frame` as an object, `complete_data`.
 
-```{r pipeline, eval=FALSE, message=FALSE}
+```{r pipeline, eval=FALSE}
 read_csv(system.file(
   "extdata",
   "sample_points.csv",
@@ -104,7 +104,7 @@ read_csv(system.file(
       Sitename = .$site,
       START = "20200101",
       FINISH = "20201231",
-      email = "adam.sparks@dpird.wa.gov.au"
+      email = MY_EMAIL_ADDRESS
     ),
     by = c("site" = "Sitename")
   ) -> complete_data
