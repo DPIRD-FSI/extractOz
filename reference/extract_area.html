@@ -52,7 +52,7 @@ GPS coordinates."><meta property="og:image" content="/logo.png"><!-- mathjax -->
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">extract_area</span><span class="op">(</span><span class="va">x</span>, <span class="va">coords</span>, <span class="va">spatial</span>, <span class="va">area</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">extract_area</span><span class="op">(</span><span class="va">x</span>, <span class="va">coords</span>, <span class="va">spatial</span>, <span class="va">area</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -91,13 +91,13 @@ respective <code>area</code> value from <code>spatial</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">spatial</span> <span class="op">&lt;-</span> <span class="va">aez</span></span>
-<span class="r-in"><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span class="r-in">  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Merredin"</span>, <span class="st">"Corrigin"</span>, <span class="st">"Tamworth"</span><span class="op">)</span>,</span>
-<span class="r-in">  <span class="st">"x"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">118.28</span>, <span class="fl">117.87</span>, <span class="fl">150.84</span><span class="op">)</span>,</span>
-<span class="r-in">  <span class="st">"y"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">31.48</span>, <span class="op">-</span><span class="fl">32.33</span>, <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">extract_area</span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span>, spatial <span class="op">=</span> <span class="va">spatial</span>, area <span class="op">=</span> <span class="st">"AEZ"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">spatial</span> <span class="op">&lt;-</span> <span class="va">aez</span></span></span>
+<span class="r-in"><span><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Merredin"</span>, <span class="st">"Corrigin"</span>, <span class="st">"Tamworth"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"x"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">118.28</span>, <span class="fl">117.87</span>, <span class="fl">150.84</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"y"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">31.48</span>, <span class="op">-</span><span class="fl">32.33</span>, <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">extract_area</span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span>, spatial <span class="op">=</span> <span class="va">spatial</span>, area <span class="op">=</span> <span class="st">"AEZ"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> st_as_s2(): dropping Z and/or M coordinate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       site      x      y           AEZ</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Merredin 118.28 -31.48    WA Eastern</span>

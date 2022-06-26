@@ -81,61 +81,61 @@
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"adamhsparks/extractOz"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">extractOz</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"adamhsparks/extractOz"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">extractOz</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="create-locations-in-wa-and-nsw">Create locations in WA and NSW<a class="anchor" aria-label="anchor" href="#create-locations-in-wa-and-nsw"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
-  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Merredin"</span>, <span class="st">"Corrigin"</span>, <span class="st">"Tamworth"</span><span class="op">)</span>,
-  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">118.28</span>, <span class="fl">117.87</span>, <span class="fl">150.84</span><span class="op">)</span>,
-  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">31.48</span>, <span class="op">-</span><span class="fl">32.33</span>, <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Merredin"</span>, <span class="st">"Corrigin"</span>, <span class="st">"Tamworth"</span><span class="op">)</span>,</span>
+<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">118.28</span>, <span class="fl">117.87</span>, <span class="fl">150.84</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">31.48</span>, <span class="op">-</span><span class="fl">32.33</span>, <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="extract-the-grdc-agroecological-zones">Extract the GRDC AgroEcological Zones<a class="anchor" aria-label="anchor" href="#extract-the-grdc-agroecological-zones"></a>
 </h2>
 <p>See <code>?extract_ae_zone()</code> for more help on how to use this function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="extract-the-soil-order">Extract the soil order<a class="anchor" aria-label="anchor" href="#extract-the-soil-order"></a>
 </h2>
 <p>See <code>?extract_soil_order()</code> for more help on how to use this function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data for these Locations in 2020<a class="anchor" aria-label="anchor" href="#get-weather-data-for-these-locations-in-2020"></a>
 </h2>
 <p>Using the previously created data frame, fetch weather data from SILO for 2020. This is just an example, replace <code>MY_EMAIL_ADDRESS</code> with your email address below. See <code>?cropgrowdays::get_multi_silodata()</code> from for more help on how to use this function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">three_sites</span>  <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/cropgrowdays/man/get_multi_silodata.html" class="external-link">get_multi_silodata</a></span><span class="op">(</span>
-    latitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">y</span>,
-    longitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">x</span>,
-    Sitename <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">site</span>,
-    START <span class="op">=</span> <span class="st">"20200101"</span>,
-    FINISH <span class="op">=</span> <span class="st">"20201231"</span>,
-    email <span class="op">=</span> <span class="va">MY_EMAIL_ADDRESS</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">three_sites</span>  <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/cropgrowdays/man/get_multi_silodata.html" class="external-link">get_multi_silodata</a></span><span class="op">(</span></span>
+<span>    latitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">y</span>,</span>
+<span>    longitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">x</span>,</span>
+<span>    Sitename <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">site</span>,</span>
+<span>    START <span class="op">=</span> <span class="st">"20200101"</span>,</span>
+<span>    FINISH <span class="op">=</span> <span class="st">"20201231"</span>,</span>
+<span>    email <span class="op">=</span> <span class="va">MY_EMAIL_ADDRESS</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="join-the-weather-data-with-ae-zone-soil-order-and-site-information">Join the Weather Data with AE Zone, Soil Order and Site Information<a class="anchor" aria-label="anchor" href="#join-the-weather-data-with-ae-zone-soil-order-and-site-information"></a>
 </h2>
 <p>Now using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::left_join()</a></code>, create a single <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the Site, GPS coordinates, agroecological zone and weather data.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
