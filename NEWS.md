@@ -1,4 +1,6 @@
-# extractOz (development version)
+# extractOz 0.1.1
+
+-   Save spatial data as a geopackage object to save issues with *sf*, per <https://www.mm218.dev/posts/2022-12-01-sf-in-packages/>.
 
 # extractOz 0.1.0
 
