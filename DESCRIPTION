@@ -25,13 +25,11 @@ Imports:
   sf,
   utils
 Suggests:
-    knitr,
-    rmarkdown,
-    spelling,
-    testthat (>= 3.0.0),
-    tidyverse
-LazyData: true
-LazyDataCompression: xz
+  knitr,
+  rmarkdown,
+  spelling,
+  testthat (>= 3.0.0),
+  tidyverse
 Depends: R (>= 4.0.0)
 VignetteBuilder: knitr
 License: GPL (>= 3)
