@@ -71,6 +71,11 @@ jobs:
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{steps.date.outputs.date}}
           restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-${{steps.date.outputs.date}}
 
+      - name: "[Custom Stage] Install spatial libs"
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt install -y libgdal-dev libproj-dev libgeos-dev
+
       - name: "[Stage] Install pak"
         run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
 
