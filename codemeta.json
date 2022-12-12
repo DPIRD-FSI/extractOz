@@ -11,7 +11,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -171,8 +171,10 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1267.673KB",
+  "fileSize": "3314.701KB",
   "codeRepository": "https://github.com/adamhsparks/extractOz",
   "releaseNotes": "https://github.com/adamhsparks/extractOz/blob/master/NEWS.md",
-  "readme": "https://github.com/adamhsparks/extractOz/blob/main/README.md"
+  "readme": "https://github.com/adamhsparks/extractOz/blob/main/README.md",
+  "contIntegration": ["https://github.com/adamhsparks/extractOz/actions", "https://codecov.io/gh/adamhsparks/extractoz"],
+  "developmentStatus": "https://www.repostatus.org/#active"
 }
