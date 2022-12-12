@@ -9,14 +9,14 @@ An \code{\link[sf:sf]{sf::sf()}} polygon object
 }
 \source{
 The Australian Grains Research and Development Corporation,
-\acronym{GRDC}, \url{https://grdc.com.au/} under CC0 licence.
+\acronym{GRDC}, \url{https://grdc.com.au/}, under CC0 licence.
 }
 \usage{
 aez
 }
 \description{
 An \code{\link[sf:sf]{sf::sf()}} object for displaying GRDC Australian Grains Agroecological
-Zones
+Zones.
 }
 \section{Coordinate Reference System}{
 
