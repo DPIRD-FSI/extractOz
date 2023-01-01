@@ -17,13 +17,22 @@
 #' @family extract functions
 #'
 #' @examples
-#' spatial <- aez
+#' # load the `aez` data included in the package for use in example only.
+#' # the `extract_ae_zone()` performs this exact task, this is strictly
+#' # for demonstration purposes only
+#' library(sf)
+#' aez <- read_sf(system.file(
+#' "extdata",
+#' "aez.gpkg",
+#' package = "extractOz",
+#' mustWork = TRUE
+#' ))
 #' locs <- data.frame(
 #'   site = c("Merredin", "Corrigin", "Tamworth"),
 #'   "x" = c(118.28, 117.87, 150.84),
 #'   "y" = c(-31.48, -32.33, -31.07)
 #' )
-#' extract_area(x = locs, coords = c("x", "y"), spatial = spatial, area = "AEZ")
+#' extract_area(x = locs, coords = c("x", "y"), spatial = aez, area = "AEZ")
 #' @export
 
 extract_area <- function(x, coords, spatial, area) {
