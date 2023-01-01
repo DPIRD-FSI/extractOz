@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 [![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/adamhsparks/extractOz/actions)
-[![codecov](https://codecov.io/gh/adamhsparks/extractoz/branch/master/graph/badge.svg?token=PBtL3rNIYb)](https://codecov.io/gh/adamhsparks/extractoz)
+[![codecov](https://codecov.io/gh/adamhsparks/extractoz/branch/main/graph/badge.svg?token=PBtL3rNIYb)](https://codecov.io/gh/adamhsparks/extractoz)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
