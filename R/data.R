@@ -13,11 +13,4 @@
 #' @source The Australian Grains Research and Development Corporation,
 #'  \acronym{GRDC}, \url{https://grdc.com.au/}, under CC0 licence.
 #'
-delayedAssign("aez", local({
-  try(
-    sf::read_sf(
-      system.file("extdata/aez.gpkg", package = "extractOz")
-    ),
-    silent = TRUE
-  )
-}))
+"aez"

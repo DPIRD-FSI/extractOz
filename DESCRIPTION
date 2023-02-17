@@ -35,3 +35,4 @@ VignetteBuilder: knitr
 License: GPL (>= 3)
 NeedsCompilation: no
 Language: en-US
+LazyData: true
