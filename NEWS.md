@@ -1,3 +1,9 @@
+# extractOz 0.1.2
+
+## Bug fixes
+
+-   Fixes bug where data wasn't properly loaded or documented for the `aez` object.
+
 # extractOz 0.1.1
 
 -   Save spatial data as a geopackage object to save issues with *sf*, per <https://www.mm218.dev/posts/2022-12-01-sf-in-packages/>.
