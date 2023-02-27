@@ -1,3 +1,9 @@
+# extractOz 0.1.3
+
+## Bug fixes
+
+-   Fixes bug where external data would load, but tests were not passing.
+
 # extractOz 0.1.2
 
 ## Bug fixes
