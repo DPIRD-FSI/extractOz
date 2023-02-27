@@ -171,7 +171,10 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3315.754KB",
+  "applicationCategory": "Tools",
+  "isPartOf": "https://www.agric.wa.gov.au/",
+  "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather"],
+  "fileSize": "3315.921KB",
   "codeRepository": "https://github.com/adamhsparks/extractOz",
   "releaseNotes": "https://github.com/adamhsparks/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/adamhsparks/extractOz/blob/main/README.md",
