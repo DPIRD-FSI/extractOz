@@ -1,5 +1,5 @@
 
-# _extractOz_ <img src="man/figures/logo.png" align="right" />
+# {extractOz} <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 [![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/adamhsparks/extractOz/actions)
