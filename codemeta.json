@@ -172,7 +172,7 @@
     "SystemRequirements": null
   },
   "applicationCategory": "Tools",
-  "isPartOf": "https://www.agric.wa.gov.au/",
+  "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather"],
   "fileSize": "3315.921KB",
   "codeRepository": "https://github.com/adamhsparks/extractOz",

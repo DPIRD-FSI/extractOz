@@ -38,4 +38,4 @@ Language: en-US
 LazyData: true
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: agriculture, Australia, agroecology, soils, weather
-X-schema.org-isPartOf: https://www.agric.wa.gov.au/
+X-schema.org-isPartOf: https://www.dpird.wa.gov.au/
