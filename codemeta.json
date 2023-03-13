@@ -173,11 +173,11 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
-  "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather"],
-  "fileSize": "3315.921KB",
+  "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
+  "fileSize": "3315.969KB",
   "codeRepository": "https://github.com/adamhsparks/extractOz",
   "releaseNotes": "https://github.com/adamhsparks/extractOz/blob/master/NEWS.md",
-  "readme": "https://github.com/adamhsparks/extractOz/blob/main/README.md",
+  "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/adamhsparks/extractOz/actions", "https://codecov.io/gh/adamhsparks/extractoz"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
