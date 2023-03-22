@@ -18,7 +18,7 @@ if (!require("remotes")) {
   install.packages("remotes")
 }
 
-remotes::install_github("adamhsparks/extractOz", build_vignettes = TRUE)
+remotes::install_github("DPIRD-FSI/extractOz", build_vignettes = TRUE)
 
 library(extractOz)
 library(dplyr)
