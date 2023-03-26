@@ -1,7 +1,8 @@
-#' @importFrom cropgrowdays get_silodata
-#' @export
-cropgrowdays::get_silodata
 
-#' @importFrom cropgrowdays get_multi_silodata
+#' @importFrom weatherOz get_silo
 #' @export
-cropgrowdays::get_multi_silodata
+weatherOz::get_silo
+
+#' @importFrom weatherOz get_dpird_summaries
+#' @export
+weatherOz::get_dpird_summaries

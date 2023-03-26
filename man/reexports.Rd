@@ -3,8 +3,8 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
-\alias{get_silodata}
-\alias{get_multi_silodata}
+\alias{get_silo}
+\alias{get_dpird_summaries}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,6 +12,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{cropgrowdays}{\code{\link[cropgrowdays]{get_multi_silodata}}, \code{\link[cropgrowdays]{get_silodata}}}
+  \item{weatherOz}{\code{\link[weatherOz]{get_dpird_summaries}}, \code{\link[weatherOz]{get_silo}}}
 }}
 
