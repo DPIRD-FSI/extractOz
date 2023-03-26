@@ -122,7 +122,7 @@ with your email address below. See
 how to use this function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">three_sites</span>  <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/cropgrowdays/man/get_multi_silodata.html" class="external-link">get_multi_silodata</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_multi_silodata</span><span class="op">(</span></span>
 <span>    latitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">y</span>,</span>
 <span>    longitude <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">x</span>,</span>
 <span>    Sitename <span class="op">=</span> <span class="va">locs</span><span class="op">$</span><span class="va">site</span>,</span>
@@ -158,7 +158,7 @@ key.</p>
 <p>The <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> takes the existing
 <code>data.frame</code> that has the location information, AE Zone and
 soil order as <code>x = .</code>. The <code>y</code> for the left join
-is then the <code><a href="https://rdrr.io/pkg/cropgrowdays/man/get_multi_silodata.html" class="external-link">get_multi_silodata()</a></code> and details are provided
+is then the <code>get_multi_silodata()</code> and details are provided
 to that API, again the original <code>data.frame</code> that has the
 <code>x</code> and <code>y</code> information and <code>Sitename</code>
 are provided as <code>.$colname</code>.</p>
@@ -175,7 +175,7 @@ are provided as <code>.$colname</code>.</p>
 <span>  <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">.</span>,</span>
-<span>    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/cropgrowdays/man/get_multi_silodata.html" class="external-link">get_multi_silodata</a></span><span class="op">(</span></span>
+<span>    y <span class="op">=</span> <span class="fu">get_multi_silodata</span><span class="op">(</span></span>
 <span>      latitude <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">y</span>,</span>
 <span>      longitude <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">x</span>,</span>
 <span>      Sitename <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">site</span>,</span>
