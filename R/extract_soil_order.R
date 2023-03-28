@@ -1,9 +1,12 @@
 
 #' Extract Soil Order from DAAS using Australian GPS Coordinates
 #'
-#' @param x a `data.frame` of \acronym{GPS} coordinates in two columns.
-#' @param coords names or numbers of the numeric columns holding coordinates in
-#'  `lonlat`.
+#' @param x `Vector` of length 2 with longitude and latitude values expressed as
+#'  decimal degree values in that order, named "x" and "y". Or a named `list`
+#'  object of `vectors` each as previously described where each vector is a
+#'  different location or point.  When a named `list` object is provided a
+#'  "location" column will include the name values, else it will default to an
+#'  integer referring to the order in the list in which the location occurred.
 #'
 #' Extracts the major soil order at the GPS points provided.
 #'
@@ -11,7 +14,7 @@
 #' soils data and cache it locally for future use. Any use after this will be
 #' much faster due to the locally cached geospatial soils data.
 #'
-#' @return a `data.frame` with the provided \acronym{GPS} coordinates and the
+#' @return a `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
 #'  "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
 #'  Soil Classification v01".
@@ -21,15 +24,15 @@
 #' @family extract functions
 #'
 #' @examplesIf interactive()
-#' locs <- data.frame(
-#'   site = c("Merredin", "Corrigin", "Tamworth"),
-#'   "x" = c(118.28, 117.87, 150.84),
-#'   "y" = c(-31.48, -32.33, -31.07)
-#' )
-#' extract_soil_order(x = locs, coords = c("x", "y"))
+#' locs <- list(
+#'   "Merredin" = c(x = 118.28, y = -31.48),
+#'   "Corrigin" = c(x = 117.87, -32.33),
+#'   "Tamworth" = c(x = 150.84, y = -31.07)
+#'
+#' extract_soil_order(x = locs)
 #' @export
 
-extract_soil_order <- function(x, coords) {
+extract_soil_order <- function(x) {
   # check if the DAAS data exists in the local cache and if not, download and
   # mask it before saving in the user cache
 
@@ -37,8 +40,8 @@ extract_soil_order <- function(x, coords) {
 
   load(.get_cache_file())
 
-  points_sf <- sf::st_as_sf(x = x,
-                            coords = coords,
+  points_sf <- sf::st_as_sf(x = .create_dt(x),
+                            coords = c("x", "y"),
                             crs = sf::st_crs(daas))
 
   intersection <- as.integer(sf::st_intersects(points_sf, daas))

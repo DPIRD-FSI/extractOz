@@ -7,18 +7,20 @@
 \url{https://data.gov.au/dataset/ds-dga-5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/distribution/dist-dga-56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/details?q=}
 }
 \usage{
-extract_soil_order(x, coords)
+extract_soil_order(x)
 }
 \arguments{
-\item{x}{a \code{data.frame} of \acronym{GPS} coordinates in two columns.}
-
-\item{coords}{names or numbers of the numeric columns holding coordinates in
-\code{lonlat}.
+\item{x}{\code{Vector} of length 2 with longitude and latitude values expressed as
+decimal degree values in that order, named "x" and "y". Or a named \code{list}
+object of \code{vectors} each as previously described where each vector is a
+different location or point.  When a named \code{list} object is provided a
+"location" column will include the name values, else it will default to an
+integer referring to the order in the list in which the location occurred.
 
 Extracts the major soil order at the GPS points provided.}
 }
 \value{
-a \code{data.frame} with the provided \acronym{GPS} coordinates and the
+a \code{data.table} with the provided \acronym{GPS} coordinates and the
 respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
 "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
 Soil Classification v01".
@@ -33,12 +35,12 @@ much faster due to the locally cached geospatial soils data.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-locs <- data.frame(
-  site = c("Merredin", "Corrigin", "Tamworth"),
-  "x" = c(118.28, 117.87, 150.84),
-  "y" = c(-31.48, -32.33, -31.07)
-)
-extract_soil_order(x = locs, coords = c("x", "y"))
+locs <- list(
+  "Merredin" = c(x = 118.28, y = -31.48),
+  "Corrigin" = c(x = 117.87, -32.33),
+  "Tamworth" = c(x = 150.84, y = -31.07)
+
+extract_soil_order(x = locs)
 \dontshow{\}) # examplesIf}
 }
 \seealso{

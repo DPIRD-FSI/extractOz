@@ -2,27 +2,17 @@
 % Please edit documentation in R/get_silo_multi.R
 \name{get_silo_multi}
 \alias{get_silo_multi}
-\title{Retrieve data from SILO (Scientific Information for Land Owners) API}
+\title{Extract Weather from SILO PatchedPointData using Australian GPS Coordinates}
 \usage{
-get_silo_multi(
-  lonlat = NULL,
-  first = NULL,
-  last = NULL,
-  data_format = "alldata",
-  email = NULL
-)
+get_silo_multi(x, first, last, data_format = "alldata", email)
 }
 \arguments{
-\item{lonlat}{\code{Vector} of length 2 with longitude and latitude values in that
-order expressed as decimal degrees, optionally named, \emph{e.g.}, "lon" or "x"
-(\verb{[1]}) and "lat" or "y" (\verb{[2]}), or a named \code{list} object of \code{vectors}.  A
-single \code{vector} representing a single point-of-interest (longitude and
-latitude in that order) or a preferably named \code{list} of longitude and
-latitude \code{vectors} representing the points-of-interest.  When a named \code{list}
+\item{x}{\code{Vector} of length 2 with longitude and latitude values expressed as
+decimal degree values in that order, named "x" and "y". Or a named \code{list}
+object of \code{vectors} each as previously described.  When a named \code{list}
 object is provided the "location" column will include the name values, else
-it will default to an integer referring to the order in the list in which a
-location occurred.  Defaults to \code{NULL}.  If this argument is used in
-conjunction with the argument, \code{station_id}, this argument will be ignored.}
+it will default to an integer referring to the order in the list in which
+the location occurred.}
 
 \item{first}{\code{Integer}. A string representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).}
@@ -45,18 +35,17 @@ A \code{data.table} containing the retrieved data from the \acronym{SILO}
 }
 \description{
 A modified wrapper version of \link[weatherOz:get_silo]{weatherOz::get_silo} that allows for fetching
-many geophysical points or a single geophysical point.  Download weather data
+many geophysical points or a single geophysical point.  Extracts weather data
 from the \acronym{SILO} \acronym{API} from the gridded data
-(PatchedPointData) only.  There are three formats available: 'alldata' and
-'apsim' with daily frequency and 'monthly' with, that's right, monthly
-frequency.
+(PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
+with daily frequency and 'monthly' with, that's right, monthly frequency.
 }
 \note{
 Where multiple \code{lonlat} values are provided in a single request and the
 \code{data_format} is \code{apsim}, an extra column, "location" will be provided with
 the list names names as the values.  Users may then use \code{split()} to create a
-list of \code{data.table} objects that drops this column or subset and remove the
-"location" column and enable the use of the data in APSIM modelling work.
+list of \code{data.table} objects that drops this column or \code{subset()} and remove
+the "location" column and enable the use of the data in APSIM modelling work.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
@@ -74,7 +63,7 @@ locs <- list(
   "Tamworth" = c(x = 150.84, y = -31.07)
 )
 
-wd <- get_silo_multi(lonlat = locs,
+wd <- get_silo_multi(x = locs,
                     first = "20211001",
                     last = "20211201",
                     data_format = "apsim",

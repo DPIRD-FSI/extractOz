@@ -4,14 +4,17 @@
 #' A generic function to extract an area of interest for user-provided
 #' \acronym{GPS} coordinates.
 #'
-#' @param x a `data.frame` of \acronym{GPS} coordinates in two columns.
-#' @param coords names or numbers of the numeric columns holding coordinates in
-#'  `lonlat`.
+#' @param x `Vector` of length 2 with longitude and latitude values expressed as
+#'  decimal degree values in that order, named "x" and "y". Or a named `list`
+#'  object of `vectors` each as previously described.  When a named `list`
+#'  object is provided the "location" column will include the name values, else
+#'  it will default to an integer referring to the order in the list in which
+#'  the location occurred.
 #' @param spatial a user-supplied [sf] object that contains information to
 #'  derive location information from.
 #' @param area the field in `spatial` that should be returned.
 #'
-#' @return a `data.frame` with the provided \acronym{GPS} coordinates and the
+#' @return a `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective `area` value from `spatial`.
 #'
 #' @family extract functions
@@ -27,19 +30,20 @@
 #' package = "extractOz",
 #' mustWork = TRUE
 #' ))
-#' locs <- data.frame(
-#'   site = c("Merredin", "Corrigin", "Tamworth"),
-#'   "x" = c(118.28, 117.87, 150.84),
-#'   "y" = c(-31.48, -32.33, -31.07)
+#' locs <- list(
+#'   "Merredin" = c(x = 118.28, y = -31.48),
+#'   "Corrigin" = c(x = 117.87, -32.33),
+#'   "Tamworth" = c(x = 150.84, y = -31.07)
 #' )
-#' extract_area(x = locs, coords = c("x", "y"), spatial = aez, area = "AEZ")
+#'
+#' extract_area(x = locs, spatial = aez, area = "AEZ")
 #' @export
 
 extract_area <- function(x, coords, spatial, area) {
   spatial <- sf::st_transform(spatial, crs = 4326)
 
-  points_sf <- sf::st_as_sf(x = x,
-                            coords = coords,
+  points_sf <- sf::st_as_sf(x = create_dt(x),
+                            coords = c("x", "y"),,
                             crs = sf::st_crs(spatial))
 
   intersection <- as.integer(sf::st_intersects(points_sf, spatial))

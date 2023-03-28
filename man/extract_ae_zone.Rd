@@ -7,25 +7,27 @@
 extract_ae_zone(x, coords)
 }
 \arguments{
-\item{x}{a \code{data.frame} of \acronym{GPS} coordinates in two columns.}
-
-\item{coords}{names or numbers of the numeric columns holding coordinates in
-\code{lonlat}.}
+\item{x}{\code{Vector} of length 2 with longitude and latitude values expressed as
+decimal degree values in that order, named "x" and "y". Or a named \code{list}
+object of \code{vectors} each as previously described.  When a named \code{list}
+object is provided the "location" column will include the name values, else
+it will default to an integer referring to the order in the list in which
+the location occurred.}
 }
 \value{
-a \code{data.frame} with the provided \acronym{GPS} coordinates and the
+a \code{data.table} with the provided \acronym{GPS} coordinates and the
 respective \acronym{GRDC} agroecological zone.
 }
 \description{
 Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 }
 \examples{
-locs <- data.frame(
-  site = c("Merredin", "Corrigin", "Tamworth"),
-  "x" = c(118.28, 117.87, 150.84),
-  "y" = c(-31.48, -32.33, -31.07)
-)
-extract_ae_zone(x = locs, coords = c("x", "y"))
+locs <- list(
+  "Merredin" = c(x = 118.28, y = -31.48),
+  "Corrigin" = c(x = 117.87, -32.33),
+  "Tamworth" = c(x = 150.84, y = -31.07)
+
+extract_ae_zone(x = locs)
 }
 \seealso{
 Other extract functions: 

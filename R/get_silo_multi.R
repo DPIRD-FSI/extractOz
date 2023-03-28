@@ -1,23 +1,18 @@
 
-#' Retrieve data from SILO (Scientific Information for Land Owners) API
+#' Extract Weather from SILO PatchedPointData using Australian GPS Coordinates
 #'
 #' A modified wrapper version of [weatherOz::get_silo] that allows for fetching
-#' many geophysical points or a single geophysical point.  Download weather data
+#' many geophysical points or a single geophysical point.  Extracts weather data
 #' from the \acronym{SILO} \acronym{API} from the gridded data
-#' (PatchedPointData) only.  There are three formats available: 'alldata' and
-#' 'apsim' with daily frequency and 'monthly' with, that's right, monthly
-#' frequency.
+#' (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
+#' with daily frequency and 'monthly' with, that's right, monthly frequency.
 #'
-#' @param lonlat `Vector` of length 2 with longitude and latitude values in that
-#'  order expressed as decimal degrees, optionally named, *e.g.*, "lon" or "x"
-#'  (`[1]`) and "lat" or "y" (`[2]`), or a named `list` object of `vectors`.  A
-#'  single `vector` representing a single point-of-interest (longitude and
-#'  latitude in that order) or a preferably named `list` of longitude and
-#'  latitude `vectors` representing the points-of-interest.  When a named `list`
+#' @param x `Vector` of length 2 with longitude and latitude values expressed as
+#'  decimal degree values in that order, named "x" and "y". Or a named `list`
+#'  object of `vectors` each as previously described.  When a named `list`
 #'  object is provided the "location" column will include the name values, else
-#'  it will default to an integer referring to the order in the list in which a
-#'  location occurred.  Defaults to `NULL`.  If this argument is used in
-#'  conjunction with the argument, `station_id`, this argument will be ignored.
+#'  it will default to an integer referring to the order in the list in which
+#'  the location occurred.
 #' @param first `Integer`. A string representing the start date of the query in
 #'  the format 'yyyymmdd' (ISO-8601).
 #' @param last `Integer`. A string representing the end date of the query in the
@@ -33,8 +28,8 @@
 #' @note Where multiple `lonlat` values are provided in a single request and the
 #' `data_format` is `apsim`, an extra column, "location" will be provided with
 #' the list names names as the values.  Users may then use `split()` to create a
-#' list of `data.table` objects that drops this column or subset and remove the
-#' "location" column and enable the use of the data in APSIM modelling work.
+#' list of `data.table` objects that drops this column or `subset()` and remove
+#' the "location" column and enable the use of the data in APSIM modelling work.
 #'
 #' @return A `data.table` containing the retrieved data from the \acronym{SILO}
 #'  \acronym{API}.
@@ -54,7 +49,7 @@
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #' )
 #'
-#' wd <- get_silo_multi(lonlat = locs,
+#' wd <- get_silo_multi(x = locs,
 #'                     first = "20211001",
 #'                     last = "20211201",
 #'                     data_format = "apsim",
@@ -62,15 +57,15 @@
 #'
 #' @export
 
-get_silo_multi <- function(lonlat = NULL,
-                           first = NULL,
-                           last = NULL,
+get_silo_multi <- function(x,
+                           first,
+                           last,
                            data_format = "alldata",
-                           email = NULL) {
+                           email) {
     return(data.table::rbindlist(
         purrr::map2(
-            .x = purrr::map(lonlat, 1),
-            .y = purrr::map(lonlat, 2),
+            .x = purrr::map(x, 1),
+            .y = purrr::map(x, 2),
             .f = ~ weatherOz::get_silo(
                 latitude = .y,
                 longitude = .x,
