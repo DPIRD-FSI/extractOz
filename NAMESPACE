@@ -3,7 +3,4 @@
 export(extract_ae_zone)
 export(extract_area)
 export(extract_soil_order)
-export(get_dpird_summaries)
-export(get_silo)
-importFrom(weatherOz,get_dpird_summaries)
-importFrom(weatherOz,get_silo)
+export(get_silo_multi)

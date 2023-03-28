@@ -56,12 +56,10 @@ See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this 
 
 ```{r get-weather, eval=FALSE}
 three_sites  <-
-  get_multi_silodata(
-    latitude = locs$y,
-    longitude = locs$x,
-    Sitename = locs$site,
-    START = "20200101",
-    FINISH = "20201231",
+  get_silo_many(
+    lonlat = locs,
+    first = "20200101",
+    last = "20201231",
     email = MY_EMAIL_ADDRESS
   )
 ```
