@@ -1,20 +1,15 @@
 
 #' Extract Soil Order from DAAS using Australian GPS Coordinates
 #'
-#' @param x `Vector` of length 2 with longitude and latitude values expressed as
-#'  decimal degree values in that order, named "x" and "y". Or a named `list`
-#'  object of `vectors` each as previously described where each vector is a
-#'  different location or point.  When a named `list` object is provided a
-#'  "location" column will include the name values, else it will default to an
-#'  integer referring to the order in the list in which the location occurred.
-#'
 #' Extracts the major soil order at the GPS points provided.
+#'
+#' @inheritParams extract_ae_zone
 #'
 #' @note The first run will take additional time to download and extract the
 #' soils data and cache it locally for future use. Any use after this will be
 #' much faster due to the locally cached geospatial soils data.
 #'
-#' @return a `data.table` with the provided \acronym{GPS} coordinates and the
+#' @return A `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
 #'  "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
 #'  Soil Classification v01".

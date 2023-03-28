@@ -10,23 +10,20 @@
 extract_soil_order(x)
 }
 \arguments{
-\item{x}{\code{Vector} of length 2 with longitude and latitude values expressed as
-decimal degree values in that order, named "x" and "y". Or a named \code{list}
-object of \code{vectors} each as previously described where each vector is a
-different location or point.  When a named \code{list} object is provided a
-"location" column will include the name values, else it will default to an
-integer referring to the order in the list in which the location occurred.
-
-Extracts the major soil order at the GPS points provided.}
+\item{x}{\code{List} object with names containing \code{vector} pairings of longitude
+and latitude values expressed as decimal degree values in that order, each
+vectors' items should be named "x" and "y".  The \code{list} item names should be
+descriptive of the individual \code{vector}'s and will be included in a
+"location" column of the output.}
 }
 \value{
-a \code{data.table} with the provided \acronym{GPS} coordinates and the
+A \code{data.table} with the provided \acronym{GPS} coordinates and the
 respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
 "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
 Soil Classification v01".
 }
 \description{
-Extract Soil Order from DAAS using Australian GPS Coordinates
+Extracts the major soil order at the GPS points provided.
 }
 \note{
 The first run will take additional time to download and extract the

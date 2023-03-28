@@ -7,12 +7,8 @@
 #' (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
 #' with daily frequency and 'monthly' with, that's right, monthly frequency.
 #'
-#' @param x `Vector` of length 2 with longitude and latitude values expressed as
-#'  decimal degree values in that order, named "x" and "y". Or a named `list`
-#'  object of `vectors` each as previously described.  When a named `list`
-#'  object is provided the "location" column will include the name values, else
-#'  it will default to an integer referring to the order in the list in which
-#'  the location occurred.
+#' @inheritParams extract_ae_zone
+#'
 #' @param first `Integer`. A string representing the start date of the query in
 #'  the format 'yyyymmdd' (ISO-8601).
 #' @param last `Integer`. A string representing the end date of the query in the

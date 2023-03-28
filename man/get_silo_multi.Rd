@@ -7,12 +7,11 @@
 get_silo_multi(x, first, last, data_format = "alldata", email)
 }
 \arguments{
-\item{x}{\code{Vector} of length 2 with longitude and latitude values expressed as
-decimal degree values in that order, named "x" and "y". Or a named \code{list}
-object of \code{vectors} each as previously described.  When a named \code{list}
-object is provided the "location" column will include the name values, else
-it will default to an integer referring to the order in the list in which
-the location occurred.}
+\item{x}{\code{List} object with names containing \code{vector} pairings of longitude
+and latitude values expressed as decimal degree values in that order, each
+vectors' items should be named "x" and "y".  The \code{list} item names should be
+descriptive of the individual \code{vector}'s and will be included in a
+"location" column of the output.}
 
 \item{first}{\code{Integer}. A string representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).}

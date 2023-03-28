@@ -4,17 +4,13 @@
 #' A generic function to extract an area of interest for user-provided
 #' \acronym{GPS} coordinates.
 #'
-#' @param x `Vector` of length 2 with longitude and latitude values expressed as
-#'  decimal degree values in that order, named "x" and "y". Or a named `list`
-#'  object of `vectors` each as previously described.  When a named `list`
-#'  object is provided the "location" column will include the name values, else
-#'  it will default to an integer referring to the order in the list in which
-#'  the location occurred.
+#' @inheritParams extract_ae_zone
+#'
 #' @param spatial a user-supplied [sf] object that contains information to
 #'  derive location information from.
 #' @param area the field in `spatial` that should be returned.
 #'
-#' @return a `data.table` with the provided \acronym{GPS} coordinates and the
+#' @return A `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective `area` value from `spatial`.
 #'
 #' @family extract functions
