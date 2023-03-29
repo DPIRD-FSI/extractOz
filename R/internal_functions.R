@@ -3,7 +3,7 @@
 #' Take a named list and convert it into a `data.table` by creating a
 #' long-format object and converting to a wide-format object and returning it.
 #'
-#' @param x `List` supplied by the user to convert into a `data.table` object
+#' @param x `List` with named locations to convert into a `data.table` object
 #'
 #' @return A `data.table` object
 #'
@@ -30,20 +30,21 @@
 #' @noRd
 #' @return invisible `NULL`, called for its side-effects
 
-.check_lonlat <- function(longitude, latitude) {
-  if (longitude < 114.5 || longitude > 152.5) {
+.check_lonlat <- function(x) {
+  for (i in x)
+  if (i[[1]] < 114.5 || i[[1]] > 152.5) {
     stop(
       call. = FALSE,
       "Please check your longitude, `",
-      paste0(longitude),
+      paste0(x[[1]]),
       "`, to be sure it is valid for Australian data.\n"
     )
   }
-  if (latitude < -38.5 || latitude > -23) {
+  if (i[[2]] < -38.5 || i[[2]] > -23) {
     stop(
       call. = FALSE,
       "Please check your latitude, `",
-      paste0(latitude),
+      paste0(x[[2]]),
       "`, value to be sure it is valid for Australian data.\n"
     )
     return(invisible(NULL))

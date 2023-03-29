@@ -31,6 +31,7 @@ extract_soil_order <- function(x) {
   # mask it before saving in the user cache
 
   .check_for_cache()
+  .check_lonlat(x)
 
   load(.get_cache_file())
 

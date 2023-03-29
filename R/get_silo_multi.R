@@ -58,6 +58,7 @@ get_silo_multi <- function(x,
                            last,
                            data_format = "alldata",
                            email) {
+    .check_lonlat(x)
     return(data.table::rbindlist(
         purrr::map2(
             .x = purrr::map(x, 1),

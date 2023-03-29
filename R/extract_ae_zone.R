@@ -23,12 +23,16 @@
 #' @export
 
 extract_ae_zone <- function(x) {
+  .check_lonlat(x)
+
   x <- .create_dt(x)
   points_sf <- sf::st_as_sf(
     x = x,
     coords = c("x", "y"),
     crs = sf::st_crs(aez)
   )
+
+
 
   intersection <- as.integer(sf::st_intersects(points_sf, aez))
   zone <- data.table::data.table(ifelse(is.na(intersection), "",

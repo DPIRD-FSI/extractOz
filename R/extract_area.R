@@ -37,6 +37,7 @@
 #' @export
 
 extract_area <- function(x, spatial, area) {
+  .check_lonlat(x)
   spatial <- sf::st_transform(spatial, crs = 4326)
 
   x <- .create_dt(x)
