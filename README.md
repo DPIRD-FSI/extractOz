@@ -8,7 +8,7 @@
 <!-- badges: end -->
 
 Extract the GRDC agroecological zone, major soil order and weather data from your GPS sampling points.
-Datasets for the GRDC agroecological zones and a modified Digital Atlas of Australian Soils are included in this package for ease of use.
+Datasets for the GRDC agroecological zones and functions that automatically download modified data from the Digital Atlas of Australian Soils are included in this package for ease of use.
 You may also use your own geospatial vector format file to extract similar information using the generic function, `extract_area()`.
 
 ## Quick start
