@@ -36,9 +36,10 @@
 #' @export
 
 extract_area <- function(x, coords, spatial, area) {
+
   spatial <- sf::st_transform(spatial, crs = 4326)
 
-  points_sf <- sf::st_as_sf(x = create_dt(x),
+  points_sf <- sf::st_as_sf(x = .create_dt(x),
                             coords = c("x", "y"),,
                             crs = sf::st_crs(spatial))
 
