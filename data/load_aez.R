@@ -1,6 +1,6 @@
 delayedAssign("aez", local({
   try(sf::read_sf(system.file(
-    "/extdata/aez.gpkg",
+    "extdata/aez.gpkg",
     package = "extractOz",
     mustWork = TRUE
   )),

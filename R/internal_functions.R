@@ -22,3 +22,30 @@
   x <- data.table::rbindlist(lapply(x, utils::stack), idcol = "location")
   return(data.table::dcast(x, location ~ ind, value.var = "values"))
 }
+
+#' Check user-input longitude and latitude values for validity
+#'
+#' @param longitude user provided numeric value as decimal degrees
+#' @param latitude user provided numeric value as decimal degrees
+#' @noRd
+#' @return invisible `NULL`, called for its side-effects
+
+.check_lonlat <- function(longitude, latitude) {
+  if (longitude < 114.5 || longitude > 152.5) {
+    stop(
+      call. = FALSE,
+      "Please check your longitude, `",
+      paste0(longitude),
+      "`, to be sure it is valid for Australian data.\n"
+    )
+  }
+  if (latitude < -38.5 || latitude > -23) {
+    stop(
+      call. = FALSE,
+      "Please check your latitude, `",
+      paste0(latitude),
+      "`, value to be sure it is valid for Australian data.\n"
+    )
+    return(invisible(NULL))
+  }
+}
