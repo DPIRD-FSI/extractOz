@@ -1,17 +1,11 @@
 
 test_that("extract_area() extracts proper areas", {
-  locs <- list(
-    "Merredin" = c(x = 118.28, y = -31.48),
-    "Corrigin" = c(x = 117.87, y = -32.33),
-    "Tamworth" = c(x = 150.84, y = -31.07)
-  )
+  # see "tests/helper_locs.R" for 'locs'
 
   ae_zones <-
-    extract_area(
-      x = locs,
-      spatial = aez,
-      area = "AEZ"
-    )
+    extract_area(x = locs,
+                 spatial = aez,
+                 area = "AEZ")
 
   expect_equal(ae_zones$location, c("Corrigin", "Merredin", "Tamworth"))
   expect_equal(ae_zones$AEZ, c("WA Central", "WA Eastern", "NSW NE/Qld SE"))
