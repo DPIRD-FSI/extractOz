@@ -34,8 +34,9 @@ much faster due to the locally cached geospatial soils data.
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 locs <- list(
   "Merredin" = c(x = 118.28, y = -31.48),
-  "Corrigin" = c(x = 117.87, -32.33),
+  "Corrigin" = c(x = 117.87, y = -32.33),
   "Tamworth" = c(x = 150.84, y = -31.07)
+  )
 
 extract_soil_order(x = locs)
 \dontshow{\}) # examplesIf}
