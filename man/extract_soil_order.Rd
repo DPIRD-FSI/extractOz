@@ -27,7 +27,7 @@ Extracts the major soil order at the GPS points provided.
 }
 \note{
 The first run will take additional time to download and extract the
-soils data and cache it locally for future use. Any use after this will be
+soils data and cache it locally for future use.  Any use after this will be
 much faster due to the locally cached geospatial soils data.
 }
 \examples{
@@ -40,9 +40,3 @@ locs <- list(
 extract_soil_order(x = locs)
 \dontshow{\}) # examplesIf}
 }
-\seealso{
-Other extract functions: 
-\code{\link{extract_ae_zone}()},
-\code{\link{extract_area}()}
-}
-\concept{extract functions}

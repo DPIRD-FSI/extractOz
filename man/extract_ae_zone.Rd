@@ -4,7 +4,7 @@
 \alias{extract_ae_zone}
 \title{Extract GRDC Agroecological Zones Using Australian GPS Coordinates}
 \usage{
-extract_ae_zone(x, coords)
+extract_ae_zone(x)
 }
 \arguments{
 \item{x}{\code{List} object with names containing \code{vector} pairings of longitude
@@ -14,23 +14,20 @@ respectively.  The \code{list} item names should be descriptive of the individua
 \code{vectors} and will be included in a "location" column of the output.}
 }
 \value{
-a \code{data.table} with the provided \acronym{GPS} coordinates and the
+A \code{data.table} with the provided \acronym{GPS} coordinates and the
 respective \acronym{GRDC} agroecological zone.
 }
 \description{
 Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 }
 \examples{
+
 locs <- list(
   "Merredin" = c(x = 118.28, y = -31.48),
-  "Corrigin" = c(x = 117.87, -32.33),
+  "Corrigin" = c(x = 117.87, y = -32.33),
   "Tamworth" = c(x = 150.84, y = -31.07)
+  )
 
 extract_ae_zone(x = locs)
+
 }
-\seealso{
-Other extract functions: 
-\code{\link{extract_area}()},
-\code{\link{extract_soil_order}()}
-}
-\concept{extract functions}

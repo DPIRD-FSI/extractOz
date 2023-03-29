@@ -4,7 +4,7 @@
 \alias{extract_area}
 \title{Extract an Area of Interest Using Australian GPS Coordinates}
 \usage{
-extract_area(x, coords, spatial, area)
+extract_area(x, spatial, area)
 }
 \arguments{
 \item{x}{\code{List} object with names containing \code{vector} pairings of longitude
@@ -30,13 +30,16 @@ A generic function to extract an area of interest for user-provided
 # load the `aez` data included in the package for use in example only.
 # the `extract_ae_zone()` performs this exact task, this is strictly
 # for demonstration purposes only
+
 library(sf)
+
 aez <- read_sf(system.file(
 "extdata",
 "aez.gpkg",
 package = "extractOz",
 mustWork = TRUE
 ))
+
 locs <- list(
   "Merredin" = c(x = 118.28, y = -31.48),
   "Corrigin" = c(x = 117.87, -32.33),
@@ -45,9 +48,3 @@ locs <- list(
 
 extract_area(x = locs, spatial = aez, area = "AEZ")
 }
-\seealso{
-Other extract functions: 
-\code{\link{extract_ae_zone}()},
-\code{\link{extract_soil_order}()}
-}
-\concept{extract functions}

@@ -6,7 +6,7 @@
 #' @inheritParams extract_ae_zone
 #'
 #' @note The first run will take additional time to download and extract the
-#' soils data and cache it locally for future use. Any use after this will be
+#' soils data and cache it locally for future use.  Any use after this will be
 #' much faster due to the locally cached geospatial soils data.
 #'
 #' @return A `data.table` with the provided \acronym{GPS} coordinates and the
@@ -15,8 +15,6 @@
 #'  Soil Classification v01".
 #'
 #' @source \url{https://data.gov.au/dataset/ds-dga-5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/distribution/dist-dga-56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/details?q=}
-#'
-#' @family extract functions
 #'
 #' @examplesIf interactive()
 #' locs <- list(
@@ -35,20 +33,27 @@ extract_soil_order <- function(x) {
 
   load(.get_cache_file())
 
-  points_sf <- sf::st_as_sf(x = .create_dt(x),
-                            coords = c("x", "y"),
-                            crs = sf::st_crs(daas))
+  x <- .create_dt(x)
+
+  points_sf <- sf::st_as_sf(
+    x = x,
+    coords = c("x", "y"),
+    crs = sf::st_crs(daas)
+  )
 
   intersection <- as.integer(sf::st_intersects(points_sf, daas))
-  soil <- ifelse(is.na(intersection), "",
-                 as.character(daas$SOIL[intersection]))
+  soil <- data.table::data.table(ifelse(is.na(intersection), "",
+                                   as.character(daas$SOIL[intersection])))
 
-  return(cbind(x, soil))
+  out <- cbind(x, soil)
+  data.table::setnames(out, old = "V1", new = "daas_soil_order")
+
+  return(out[])
 }
 
 
 # general functions for using the user cache taken from:
-# https://github.com/sonatype-nexus-community/extractOz/blob/master/R/cache.R
+# https://github.com/sonatype-nexus-community/oysteR/blob/master/R/cache.R
 
 #' @noRd
 .get_cache_dir <- function() {
@@ -94,7 +99,7 @@ extract_soil_order <- function(x) {
           dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
           layer = "soilAtlas2M_ASC_Conversion"
         )
-        x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"),]
+        x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"), ]
         x <- sf::st_transform(x, crs = sf::st_crs(aez))
         daas <- sf::st_intersection(x = x, y = aez)
         save(daas, file = .get_cache_file())
