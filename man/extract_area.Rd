@@ -9,9 +9,9 @@ extract_area(x, coords, spatial, area)
 \arguments{
 \item{x}{\code{List} object with names containing \code{vector} pairings of longitude
 and latitude values expressed as decimal degree values in that order, each
-vectors' items should be named "x" and "y".  The \code{list} item names should be
-descriptive of the individual \code{vector}'s and will be included in a
-"location" column of the output.}
+\code{vectors}' items should be named "x" (longitude) and "y" (latitude),
+respectively.  The \code{list} item names should be descriptive of the individual
+\code{vectors} and will be included in a "location" column of the output.}
 
 \item{spatial}{a user-supplied \link{sf} object that contains information to
 derive location information from.}

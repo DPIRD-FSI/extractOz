@@ -3,9 +3,9 @@
 #'
 #' @param x `List` object with names containing `vector` pairings of longitude
 #'  and latitude values expressed as decimal degree values in that order, each
-#'  vectors' items should be named "x" and "y".  The `list` item names should be
-#'  descriptive of the individual `vector`'s and will be included in a
-#'  "location" column of the output.
+#'  `vectors`' items should be named "x" (longitude) and "y" (latitude),
+#'  respectively.  The `list` item names should be descriptive of the individual
+#'  `vectors` and will be included in a "location" column of the output.
 #'
 #' @return a `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective \acronym{GRDC} agroecological zone.

@@ -9,9 +9,9 @@ get_silo_multi(x, first, last, data_format = "alldata", email)
 \arguments{
 \item{x}{\code{List} object with names containing \code{vector} pairings of longitude
 and latitude values expressed as decimal degree values in that order, each
-vectors' items should be named "x" and "y".  The \code{list} item names should be
-descriptive of the individual \code{vector}'s and will be included in a
-"location" column of the output.}
+\code{vectors}' items should be named "x" (longitude) and "y" (latitude),
+respectively.  The \code{list} item names should be descriptive of the individual
+\code{vectors} and will be included in a "location" column of the output.}
 
 \item{first}{\code{Integer}. A string representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).}
