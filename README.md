@@ -27,10 +27,10 @@ library(dplyr)
 ## Create locations in WA and NSW
 
 ```r
-locs <- data.frame(
-  site = c("Merredin", "Corrigin", "Tamworth"),
-  x = c(118.28, 117.87, 150.84),
-  y = c(-31.48, -32.33, -31.07)
+locs <- list(
+  "Merredin" = c(x = 118.28, y = -31.48),
+  "Corrigin" = c(x = 117.87, y = -32.33),
+  "Tamworth" = c(x = 150.84, y = -31.07)
 )
 ```
 
@@ -39,7 +39,7 @@ locs <- data.frame(
 See `?extract_ae_zone()` for more help on how to use this function.
 
 ```r
-z <- extract_ae_zone(x = locs, coords = c("x", "y"))
+z <- extract_ae_zone(x = locs)
 ```
 
 ## Extract the soil order
@@ -47,7 +47,7 @@ z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 See `?extract_soil_order()` for more help on how to use this function.
 
 ```r
-s <- extract_soil_order(x = locs, coords = c("x", "y"))
+s <- extract_soil_order(x = locs)
 ```
 
 ## Get Weather Data for these Locations in 2020
@@ -58,12 +58,10 @@ See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this 
 
 ```r
 three_sites  <-
-  get_multi_silodata(
-    latitude = locs$y,
-    longitude = locs$x,
-    Sitename = locs$site,
-    START = "20200101",
-    FINISH = "20201231",
+  get_silo_multi(
+    x = locs,
+    first = "20200101",
+    last = "20201231",
     email = MY_EMAIL_ADDRESS
   )
 ```
