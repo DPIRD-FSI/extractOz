@@ -51,26 +51,26 @@ s <- extract_soil_order(x = locs)
 
 ## Get Weather Data for these Locations in 2020
 
-Using the previously created data frame, fetch weather data from SILO for 2020.
-This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
-See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this function.
+Using the previously created list of GPS points, fetch weather data from SILO for 2020.
+This is a non-working example, replace `YOUR_EMAIL_ADDRESS` with your email address below.
+See `?get_silo_multi()` from for more help on how to use this function.
 
 ```{r get-weather, eval=FALSE}
 three_sites  <-
-  get_silo_many(
+  get_silo_multi(
     x = locs,
     first = "20200101",
     last = "20201231",
-    email = MY_EMAIL_ADDRESS
+    email = "YOUR_EMAIL_ADDRESS"
   )
 ```
 
 ## Join the Weather Data with AE Zone, Soil Order and Site Information
 
-Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
+Now using `dplyr::left_join()`, create a single `data.frame()` of the location, GPS coordinates, agroecological zone and weather data.
 
 ```{r join, eval=FALSE}
-left_join(z, three_sites, by = c("site" = "Sitename")) |> 
+left_join(z, three_sites, by = c("location" = "location")) %>%
   left_join(s)
 ```
 
