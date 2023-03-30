@@ -5,9 +5,11 @@
 #'  `data.frame`, *e.g.* [tibble::tibble()] or [data.table::data.table()] into
 #'  a list suitable for use in \pkg{extractOz} functions.
 #'
-#' @param x `data.frame` a three column object with the first column being the
+#' @param x `data.frame`. A three column object with the first column being the
 #'  location name, the second longitude, named "x", and the third, latitude,
-#'  named "y", as decimal degrees in `numeric` format
+#'  named "y", as decimal degrees in `numeric` format.
+#' @param indices `Integer`. A set of values indicating the column index in
+#'  which the longitude and latitude values are contained. Defaults to `2:3`.
 #'
 #' @examples
 #' library(readr)
@@ -18,7 +20,7 @@
 #'   package = "extractOz",
 #'   mustWork = TRUE
 #' )) |>
-#'   df_to_list()
+#'   df_to_list(indices = 2:3)
 #'
 #' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
 #'
@@ -27,7 +29,7 @@
 #'
 #' @export
 #'
-df_to_list <- function(x) {
+df_to_list <- function(x, indices = 2:3) {
   y <- asplit(x[, 2:3], 1)
 
   names(y) <- unlist(x[, 1])
