@@ -76,7 +76,7 @@ left_join(z, three_sites, by = c("site" = "Sitename")) |>
 
 ## Creating a Pipeline
 
-You can use the pipe, `%>%` or `|>` (for R >= 4.1), to string the whole set of commands together into a singular pipeline to ingest, extract information and download weather data for your GPS points.
+You can use {magrittr's} pipe, `%>%`, to string the whole set of commands together into a pipeline to ingest, extract information and download weather data for your GPS points.
 Here, we will import data from a CSV file, extract the values, fetch the weather data and create a `data.frame` object with all of the AE Zone, soil order, weather and site information.
 
 The CSV file is included in this package so that you can run this example yourself by providing your own e-mail address for the SILO API key.
@@ -89,25 +89,31 @@ The `y` for the left join is then the `get_multi_silodata()` and details are pro
 The final step is to save the `data.frame` as an object, `complete_data`.
 
 ```{r pipeline, eval=FALSE}
-read_csv(system.file(
+x <- read_csv(system.file(
   "extdata",
   "sample_points.csv",
   package = "extractOz",
   mustWork = TRUE
-)) |> 
-  df_to_list() |> 
-  extract_ae_zone() |> 
-  extract_soil_order() |> 
+))
+
+# create a data.frame of the soil order and AE Zone
+x %>%
+  df_to_list() %>%
   left_join(
-    x = .,
-    y = get_multi_silodata(
-      latitude = .$y,
-      longitude = .$x,
-      Sitename = .$site,
-      START = "20200101",
-      FINISH = "20201231",
-      email = MY_EMAIL_ADDRESS
+    x = extract_ae_zone(x = .),
+    y = extract_soil_order(x = .),
+    by = c("x", "y", "location")
+  ) -> soil_zone
+
+# join the `soil_zone` with weather data from SILO
+  left_join(
+    x = soil_zone,
+    y = get_silo_multi(
+      x = df_to_list(x),
+      first = "20200101",
+      last = "20201231",
+      email = "YOUR_EMAIL_ADDRESS"
     ),
-    by = c("site" = "Sitename")
+    by = c("location" = "location")
   ) -> complete_data
 ```
