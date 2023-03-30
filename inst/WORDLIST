@@ -19,6 +19,7 @@ alldata
 apsim
 centroid
 codecov
+cropgrowdays
 csv
 funder
 geopackage
@@ -26,7 +27,9 @@ geospatial
 gridded
 licence
 magrittr's
+minimised
 modelling
 readr
 tibble
+weatherOz
 yyyymmdd
