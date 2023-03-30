@@ -32,7 +32,7 @@
 
 .check_lonlat <- function(x) {
   for (i in x)
-  if (i[[1]] < 114.5 || i[[1]] > 152.5) {
+  if (i["x"] < 114.5 || i["x"] > 152.5) {
     stop(
       call. = FALSE,
       "Please check your longitude, `",
@@ -40,7 +40,7 @@
       "`, to be sure it is valid for Australian data.\n"
     )
   }
-  if (i[[2]] < -38.5 || i[[2]] > -23) {
+  if (i["y"] < -38.5 || i["y"] > -23) {
     stop(
       call. = FALSE,
       "Please check your latitude, `",

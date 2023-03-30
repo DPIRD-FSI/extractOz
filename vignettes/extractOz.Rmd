@@ -25,10 +25,11 @@ library(tidyverse)
 ## Create locations in WA and NSW
 
 ```{r create-location}
-locs <- data.frame(
-  site = c("Merredin", "Corrigin", "Tamworth"),
-  x = c(118.28, 117.87, 150.84),
-  y = c(-31.48, -32.33, -31.07)
+# create a list of locations for use in testing
+locs <- list(
+  "Merredin" = c(x = 118.28, y = -31.48),
+  "Corrigin" = c(x = 117.87, y = -32.33),
+  "Tamworth" = c(x = 150.84, y = -31.07)
 )
 ```
 
@@ -37,7 +38,7 @@ locs <- data.frame(
 See `?extract_ae_zone()` for more help on how to use this function.
 
 ```{r extract-zones, message=FALSE, eval=FALSE}
-z <- extract_ae_zone(x = locs, coords = c("x", "y"))
+z <- extract_ae_zone(x = locs)
 ```
 
 ## Extract the soil order
@@ -45,7 +46,7 @@ z <- extract_ae_zone(x = locs, coords = c("x", "y"))
 See `?extract_soil_order()` for more help on how to use this function.
 
 ```{r extract-soil, eval=FALSE}
-s <- extract_soil_order(x = locs, coords = c("x", "y"))
+s <- extract_soil_order(x = locs)
 ```
 
 ## Get Weather Data for these Locations in 2020
@@ -57,7 +58,7 @@ See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this 
 ```{r get-weather, eval=FALSE}
 three_sites  <-
   get_silo_many(
-    lonlat = locs,
+    x = locs,
     first = "20200101",
     last = "20201231",
     email = MY_EMAIL_ADDRESS
@@ -69,7 +70,7 @@ three_sites  <-
 Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
 
 ```{r join, eval=FALSE}
-left_join(z, three_sites, by = c("site" = "Sitename")) %>% 
+left_join(z, three_sites, by = c("site" = "Sitename")) |> 
   left_join(s)
 ```
 
@@ -79,6 +80,8 @@ You can use the pipe, `%>%` or `|>` (for R >= 4.1), to string the whole set of c
 Here, we will import data from a CSV file, extract the values, fetch the weather data and create a `data.frame` object with all of the AE Zone, soil order, weather and site information.
 
 The CSV file is included in this package so that you can run this example yourself by providing your own e-mail address for the SILO API key.
+
+Using the helper function, `df_to_list()` in the pipeline converts the [tibble::tibble()] from [readr::read_csv()] into a `list()` object that can be used in any of the functions found in {extractOz}.
 
 The `left_join()` takes the existing `data.frame` that has the location information, AE Zone and soil order as `x = .`.
 The `y` for the left join is then the `get_multi_silodata()` and details are provided to that API, again the original `data.frame` that has the `x` and `y` information and `Sitename` are provided as `.$colname`.
@@ -91,9 +94,10 @@ read_csv(system.file(
   "sample_points.csv",
   package = "extractOz",
   mustWork = TRUE
-)) %>%
-  extract_ae_zone(coords = c("x", "y")) %>%
-  extract_soil_order(coords = c("x", "y")) %>%
+)) |> 
+  df_to_list() |> 
+  extract_ae_zone() |> 
+  extract_soil_order() |> 
   left_join(
     x = .,
     y = get_multi_silodata(
