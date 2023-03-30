@@ -116,18 +116,18 @@ this function.</p>
 <div class="section level2">
 <h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data for these Locations in 2020<a class="anchor" aria-label="anchor" href="#get-weather-data-for-these-locations-in-2020"></a>
 </h2>
-<p>Using the previously created data frame, fetch weather data from SILO
-for 2020. This is just an example, replace <code>MY_EMAIL_ADDRESS</code>
-with your email address below. See
-<code>?cropgrowdays::get_multi_silodata()</code> from for more help on
-how to use this function.</p>
+<p>Using the previously created list of GPS points, fetch weather data
+from SILO for 2020. This is a non-working example, replace
+<code>YOUR_EMAIL_ADDRESS</code> with your email address below. See
+<code>?get_silo_multi()</code> from for more help on how to use this
+function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">three_sites</span>  <span class="op">&lt;-</span></span>
-<span>  <span class="fu">get_silo_many</span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/get_silo_multi.html">get_silo_multi</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">locs</span>,</span>
 <span>    first <span class="op">=</span> <span class="st">"20200101"</span>,</span>
 <span>    last <span class="op">=</span> <span class="st">"20201231"</span>,</span>
-<span>    email <span class="op">=</span> <span class="va">MY_EMAIL_ADDRESS</span></span>
+<span>    email <span class="op">=</span> <span class="st">"YOUR_EMAIL_ADDRESS"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -135,10 +135,10 @@ how to use this function.</p>
 Information<a class="anchor" aria-label="anchor" href="#join-the-weather-data-with-ae-zone-soil-order-and-site-information"></a>
 </h2>
 <p>Now using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::left_join()</a></code>, create a single
-<code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the Site, GPS coordinates, agroecological
-zone and weather data.</p>
+<code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the location, GPS coordinates,
+agroecological zone and weather data.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"location"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
