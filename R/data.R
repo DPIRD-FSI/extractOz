@@ -11,6 +11,6 @@
 #'  Geodetic CRS:  WGS 84
 #'
 #' @source The Australian Grains Research and Development Corporation,
-#'  \acronym{GRDC}, \url{https://grdc.com.au/}, under CC0 licence.
+#'  \acronym{GRDC}, <https://grdc.com.au/>, under CC0 licence.
 #'
 "aez"
