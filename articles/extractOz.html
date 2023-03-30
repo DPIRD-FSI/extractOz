@@ -90,10 +90,11 @@
 <h2 id="create-locations-in-wa-and-nsw">Create locations in WA and NSW<a class="anchor" aria-label="anchor" href="#create-locations-in-wa-and-nsw"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span>  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Merredin"</span>, <span class="st">"Corrigin"</span>, <span class="st">"Tamworth"</span><span class="op">)</span>,</span>
-<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">118.28</span>, <span class="fl">117.87</span>, <span class="fl">150.84</span><span class="op">)</span>,</span>
-<span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">31.48</span>, <span class="op">-</span><span class="fl">32.33</span>, <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># create a list of locations for use in testing</span></span>
+<span><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Merredin"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">118.28</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">31.48</span><span class="op">)</span>,</span>
+<span>  <span class="st">"Corrigin"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">117.87</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">32.33</span><span class="op">)</span>,</span>
+<span>  <span class="st">"Tamworth"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">150.84</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">31.07</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -102,7 +103,7 @@
 <p>See <code>?extract_ae_zone()</code> for more help on how to use this
 function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="extract-the-soil-order">Extract the soil order<a class="anchor" aria-label="anchor" href="#extract-the-soil-order"></a>
@@ -110,7 +111,7 @@ function.</p>
 <p>See <code>?extract_soil_order()</code> for more help on how to use
 this function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data for these Locations in 2020<a class="anchor" aria-label="anchor" href="#get-weather-data-for-these-locations-in-2020"></a>
@@ -123,7 +124,7 @@ how to use this function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">three_sites</span>  <span class="op">&lt;-</span></span>
 <span>  <span class="fu">get_silo_many</span><span class="op">(</span></span>
-<span>    lonlat <span class="op">=</span> <span class="va">locs</span>,</span>
+<span>    x <span class="op">=</span> <span class="va">locs</span>,</span>
 <span>    first <span class="op">=</span> <span class="st">"20200101"</span>,</span>
 <span>    last <span class="op">=</span> <span class="st">"20201231"</span>,</span>
 <span>    email <span class="op">=</span> <span class="va">MY_EMAIL_ADDRESS</span></span>
@@ -137,22 +138,25 @@ Information<a class="anchor" aria-label="anchor" href="#join-the-weather-data-wi
 <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the Site, GPS coordinates, agroecological
 zone and weather data.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="creating-a-pipeline">Creating a Pipeline<a class="anchor" aria-label="anchor" href="#creating-a-pipeline"></a>
 </h2>
-<p>You can use the pipe, <code>%&gt;%</code> or <code>|&gt;</code> (for
-R &gt;= 4.1), to string the whole set of commands together into a
-singular pipeline to ingest, extract information and download weather
-data for your GPS points. Here, we will import data from a CSV file,
-extract the values, fetch the weather data and create a
-<code>data.frame</code> object with all of the AE Zone, soil order,
-weather and site information.</p>
+<p>You can use {magrittr’s} pipe, <code>%&gt;%</code>, to string the
+whole set of commands together into a pipeline to ingest, extract
+information and download weather data for your GPS points. Here, we will
+import data from a CSV file, extract the values, fetch the weather data
+and create a <code>data.frame</code> object with all of the AE Zone,
+soil order, weather and site information.</p>
 <p>The CSV file is included in this package so that you can run this
 example yourself by providing your own e-mail address for the SILO API
 key.</p>
+<p>Using the helper function, <code><a href="../reference/df_to_list.html">df_to_list()</a></code> in the pipeline
+converts the [tibble::tibble()] from [readr::read_csv()] into a
+<code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> object that can be used in any of the functions
+found in {extractOz}.</p>
 <p>The <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> takes the existing
 <code>data.frame</code> that has the location information, AE Zone and
 soil order as <code>x = .</code>. The <code>y</code> for the left join
@@ -163,25 +167,32 @@ are provided as <code>.$colname</code>.</p>
 <p>The final step is to save the <code>data.frame</code> as an object,
 <code>complete_data</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
 <span>  <span class="st">"extdata"</span>,</span>
 <span>  <span class="st">"sample_points.csv"</span>,</span>
 <span>  package <span class="op">=</span> <span class="st">"extractOz"</span>,</span>
 <span>  mustWork <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="../reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create a data.frame of the soil order and AE Zone</span></span>
+<span><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/df_to_list.html">df_to_list</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="va">.</span>,</span>
-<span>    y <span class="op">=</span> <span class="fu">get_multi_silodata</span><span class="op">(</span></span>
-<span>      latitude <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">y</span>,</span>
-<span>      longitude <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">x</span>,</span>
-<span>      Sitename <span class="op">=</span> <span class="va">.</span><span class="op">$</span><span class="va">site</span>,</span>
-<span>      START <span class="op">=</span> <span class="st">"20200101"</span>,</span>
-<span>      FINISH <span class="op">=</span> <span class="st">"20201231"</span>,</span>
-<span>      email <span class="op">=</span> <span class="va">MY_EMAIL_ADDRESS</span></span>
+<span>    x <span class="op">=</span> <span class="fu"><a href="../reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span><span class="op">)</span>,</span>
+<span>    y <span class="op">=</span> <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span><span class="op">)</span>,</span>
+<span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"location"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">soil_zone</span></span>
+<span></span>
+<span><span class="co"># join the `soil_zone` with weather data from SILO</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">soil_zone</span>,</span>
+<span>    y <span class="op">=</span> <span class="fu"><a href="../reference/get_silo_multi.html">get_silo_multi</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="fu"><a href="../reference/df_to_list.html">df_to_list</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
+<span>      first <span class="op">=</span> <span class="st">"20200101"</span>,</span>
+<span>      last <span class="op">=</span> <span class="st">"20201231"</span>,</span>
+<span>      email <span class="op">=</span> <span class="st">"YOUR_EMAIL_ADDRESS"</span></span>
 <span>    <span class="op">)</span>,</span>
-<span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"site"</span> <span class="op">=</span> <span class="st">"Sitename"</span><span class="op">)</span></span>
+<span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"location"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">complete_data</span></span></code></pre></div>
 </div>
   </div>
