@@ -32,7 +32,7 @@
 #' @return invisible `NULL`, called for its side-effects
 
 .check_lonlat <- function(x) {
-  if (!(is.list(x)) && !("" %in% allNames(x))) {
+  if (!(is.list(x)) && !("" %in% methods::allNames(x))) {
     stop(call. = FALSE,
          "`x` must be a named list object of lon/lat values.")
   }

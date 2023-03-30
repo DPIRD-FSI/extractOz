@@ -22,6 +22,7 @@ Imports:
   curl,
   data.table,
   httr,
+  methods,
   purrr,
   sf,
   utils,

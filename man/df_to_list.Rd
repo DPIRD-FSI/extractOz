@@ -35,7 +35,7 @@ read_csv(system.file(
   package = "extractOz",
   mustWork = TRUE
 )) |>
-  df_to_list(names = 1, indices = 2:3)
+  df_to_list(names = 1, lonlat = 2:3)
 
 }
 \author{
