@@ -8,7 +8,9 @@
 -   Use a named list of latitude and longitude input values rather than a `data.frame`.
 To help users, a new function, `df_to_list()` has been added so that the workflow disruption can be minimised.
 
--   Enhanced tests
+-   Any objects returned are a `data.table`, aligning with {weatherOz}.
+
+-   Enhanced tests.
 
 # extractOz 0.1.3
 
