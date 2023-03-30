@@ -54,10 +54,10 @@ s <- extract_soil_order(x = locs)
 
 Using the previously created data frame, fetch weather data from SILO for 2020.
 This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
-See `?cropgrowdays::get_multi_silodata()` from for more help on how to use this function.
+See `?get_silo_multi()` from for more help on how to use this function.
 
 ```r
-three_sites  <-
+three_sites <-
   get_silo_multi(
     x = locs,
     first = "20200101",
