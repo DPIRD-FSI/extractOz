@@ -19,7 +19,8 @@
 #'
 #' @noRd
 .create_dt <- function(x) {
-  x <- data.table::rbindlist(lapply(x, utils::stack), idcol = "location")
+  x <-
+    data.table::rbindlist(lapply(x, utils::stack), idcol = "location")
   return(data.table::dcast(x, location ~ ind, value.var = "values"))
 }
 
@@ -31,22 +32,23 @@
 #' @return invisible `NULL`, called for its side-effects
 
 .check_lonlat <- function(x) {
-  for (i in x)
-  if (i["x"] < 114.5 || i["x"] > 152.5) {
-    stop(
-      call. = FALSE,
-      "Please check your longitude, `",
-      paste0(x[[1]]),
-      "`, to be sure it is valid for Australian data.\n"
-    )
+  for (i in x) {
+    if (i[["x"]] < 114.5 || i[["x"]] > 152.5) {
+      stop(
+        call. = FALSE,
+        "Please check your longitude, `",
+        paste0(x[["x"]]),
+        "`, to be sure it is valid for Australian data.\n"
+      )
+    }
+    if (i[["y"]] < -38.5 || i[["y"]] > -23) {
+      stop(
+        call. = FALSE,
+        "Please check your latitude, `",
+        paste0(x[["y"]]),
+        "`, value to be sure it is valid for Australian data.\n"
+      )
+    }
   }
-  if (i["y"] < -38.5 || i["y"] > -23) {
-    stop(
-      call. = FALSE,
-      "Please check your latitude, `",
-      paste0(x[[2]]),
-      "`, value to be sure it is valid for Australian data.\n"
-    )
-    return(invisible(NULL))
-  }
+  return(invisible(NULL))
 }
