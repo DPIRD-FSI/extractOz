@@ -1,6 +1,7 @@
 
 
 test_that("get_silo_multi() fetches the expected weather data", {
+  skip_if_offline()
   # see "tests/helper_locs.R" for 'locs'
   vcr::use_cassette("get_silo_multi_all", {
     w_all <-
