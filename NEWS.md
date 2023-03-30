@@ -1,6 +1,14 @@
 # extractOz 0.1.3.9000
 
--   
+## Major changes
+
+-   Move from {cropgrowdays} to {weatherOz}, this allows for more flexibility in the queries that can be performed in SILO.
+{cropgrowdays} only supports APSIM data returns, {weatherOz} supports the full compliment of SILO data options.
+
+-   Use a named list of latitude and longitude input values rather than a `data.frame`.
+To help users, a new function, `df_to_list()` has been added so that the workflow disruption can be minimised.
+
+-   Enhanced tests
 
 # extractOz 0.1.3
 
