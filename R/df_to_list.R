@@ -32,9 +32,9 @@
 #' @export
 #'
 df_to_list <- function(x, names = 1, lonlat = 2:3) {
-  y <- asplit(x[, "lonlat"], 1)
+  y <- asplit(x[, lonlat], 1)
 
-  names(y) <- unlist(x[, "names"])
+  names(y) <- unlist(x[, names])
 
   return(y)
 }
