@@ -27,12 +27,13 @@ Imports:
   utils,
   weatherOz
 Suggests:
-  knitr,
-  readr,
-  rmarkdown,
-  spelling,
-  testthat (>= 3.0.0),
-  tidyverse
+    knitr,
+    readr,
+    rmarkdown,
+    spelling,
+    testthat (>= 3.0.0),
+    tidyverse,
+    vcr (>= 0.6.0)
 Depends: R (>= 4.0.0)
 Remotes: https://github.com/DPIRD-FSI/weatherOz.git
 VignetteBuilder: knitr

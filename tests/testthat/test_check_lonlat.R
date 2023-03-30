@@ -1,0 +1,21 @@
+
+test_that(".check_lonlat() stops if lon is outside bounds", {
+  bad_lon <- list(
+    "Merredin" = c(x = -118.28, y = -31.48),
+    "Corrigin" = c(x = 117.87, y = -32.33),
+    "Tamworth" = c(x = 150.84, y = -31.07)
+  )
+
+  expect_error(.check_lonlat(x = bad_lon))
+})
+
+
+test_that(".check_lonlat() stops if lon is outside bounds", {
+  bad_lat <- list(
+    "Merredin" = c(x = 118.28, y = -31.48),
+    "Corrigin" = c(x = 117.87, y = -32.33),
+    "Tamworth" = c(x = 150.84, y = 31.07)
+  )
+
+  expect_error(.check_lonlat(x = bad_lat))
+})
