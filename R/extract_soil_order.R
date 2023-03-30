@@ -84,7 +84,7 @@ extract_soil_order <- function(x) {
     url <- paste0(u_remote, d_remote, filename)
     tryCatch(
       # check for an http error b4 proceeding
-      if (!httr::http_error(url)) {
+      if (!httr2::req_error(url)) {
         h <- curl::new_handle()
         curl::handle_setopt(h, CONNECTTIMEOUT = 120L)
         curl::curl_download(
