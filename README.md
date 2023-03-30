@@ -53,7 +53,7 @@ s <- extract_soil_order(x = locs)
 ## Get Weather Data for these Locations in 2020
 
 Using the previously created data frame, fetch weather data from SILO for 2020.
-This is just an example, replace `MY_EMAIL_ADDRESS` with your email address below.
+This is just a non-working example, replace `YOUR_EMAIL_ADDRESS` with your email address below.
 See `?get_silo_multi()` from for more help on how to use this function.
 
 ```r
@@ -62,7 +62,7 @@ three_sites <-
     x = locs,
     first = "20200101",
     last = "20201231",
-    email = MY_EMAIL_ADDRESS
+    email = "YOUR_EMAIL_ADDRESS"
   )
 ```
 
