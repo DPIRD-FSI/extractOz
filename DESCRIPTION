@@ -28,6 +28,7 @@ Imports:
   weatherOz
 Suggests:
   knitr,
+  readr,
   rmarkdown,
   spelling,
   testthat (>= 3.0.0),
