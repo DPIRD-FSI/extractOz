@@ -1,4 +1,10 @@
 
+
+test_that(".check_lonlat() stops if x is not a list", {
+  bad_x <- c(x = -118.28, y = -31.48)
+  expect_error(.check_lonlat(x = bad_x))
+})
+
 test_that(".check_lonlat() stops if lon is outside bounds", {
   bad_lon <- list(
     "Merredin" = c(x = -118.28, y = -31.48),

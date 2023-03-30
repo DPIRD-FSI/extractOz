@@ -32,8 +32,14 @@
 #' @return invisible `NULL`, called for its side-effects
 
 .check_lonlat <- function(x) {
-  for (i in x) {
-    if (i[["x"]] < 114.5 || i[["x"]] > 152.5) {
+  if (!(is.list(x)) && !("" %in% allNames(x))) {
+    stop(call. = FALSE,
+         "`x` must be a named list object of lon/lat values.")
+  }
+  for (i in x)
+  {
+    if (i[["x"]] < 114.5 || i[["x"]] > 152.5)
+    {
       stop(
         call. = FALSE,
         "Please check your longitude, `",
