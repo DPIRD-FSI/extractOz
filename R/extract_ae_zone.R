@@ -1,11 +1,11 @@
-
 #' Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 #'
-#' @param x `List` object with names containing `vector` pairings of longitude
-#'  and latitude values expressed as decimal degree values in that order, each
-#'  `vectors`' items should be named "x" (longitude) and "y" (latitude),
-#'  respectively.  The `list` item names should be descriptive of the individual
-#'  `vectors` and will be included in a "location" column of the output.
+#' @param x `List`. An object with names containing `vector` pairings of
+#'  longitude and latitude values expressed as decimal degree values in that
+#'  order, each individual `vectors`' items should be named "x" (longitude) and
+#'  "y" (latitude), respectively.  The `list` item names should be descriptive
+#'  of the individual `vectors` and will be included in a "location" column of
+#'  the output.
 #'
 #' @return A `data.table` with the provided \acronym{GPS} coordinates and the
 #'  respective \acronym{GRDC} agroecological zone.
