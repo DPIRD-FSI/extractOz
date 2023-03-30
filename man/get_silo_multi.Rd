@@ -49,12 +49,6 @@ the "location" column and enable the use of the data in APSIM modelling work.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-# Source data from a single point, Southwood, QLD in the 'apsim' format.
-wd <- get_silo_multi(lonlat = c(lon = 150.05, lat = -27.85),
-                    first = "20221001",
-                    last = "20221201",
-                    data_format = "apsim",
-                    email = "YOUR EMAIL")
 
 # Source data from a list of latitude and longitude coordinates in NSW and WA
 locs <- list(

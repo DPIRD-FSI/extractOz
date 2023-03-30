@@ -4,15 +4,18 @@
 \alias{df_to_list}
 \title{Convert a data.frame or Tibble to a list suitable for use in extractOz}
 \usage{
-df_to_list(x, indices = 2:3)
+df_to_list(x, names = 1, lonlat = 2:3)
 }
 \arguments{
 \item{x}{\code{data.frame}. A three column object with the first column being the
 location name, the second longitude, named "x", and the third, latitude,
 named "y", as decimal degrees in \code{numeric} format.}
 
-\item{indices}{\code{Integer}. A set of values indicating the column index in
-which the longitude and latitude values are contained. Defaults to \code{2:3}.}
+\item{names}{\code{Integer}. The column in which the location names are located.
+Defaults to 1.}
+
+\item{lonlat}{\code{Vector}. A set of \code{integer} values indicating the column index
+in which the longitude and latitude values are contained. Defaults to \code{2:3}.}
 }
 \value{
 A \code{list} object suitable for use in any of the \code{extract} functions
@@ -32,7 +35,7 @@ read_csv(system.file(
   package = "extractOz",
   mustWork = TRUE
 )) |>
-  df_to_list(indices = 2:3)
+  df_to_list(names = 1, indices = 2:3)
 
 }
 \author{
