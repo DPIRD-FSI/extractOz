@@ -54,7 +54,7 @@ a list suitable for use in <span class="pkg">extractOz</span> functions.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">df_to_list</span><span class="op">(</span><span class="va">x</span>, indices <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">df_to_list</span><span class="op">(</span><span class="va">x</span>, names <span class="op">=</span> <span class="fl">1</span>, lonlat <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,9 +65,14 @@ location name, the second longitude, named "x", and the third, latitude,
 named "y", as decimal degrees in <code>numeric</code> format.</p></dd>
 
 
-<dt>indices</dt>
-<dd><p><code>Integer</code>. A set of values indicating the column index in
-which the longitude and latitude values are contained. Defaults to <code>2:3</code>.</p></dd>
+<dt>names</dt>
+<dd><p><code>Integer</code>. The column in which the location names are located.
+Defaults to 1.</p></dd>
+
+
+<dt>lonlat</dt>
+<dd><p><code>Vector</code>. A set of <code>integer</code> values indicating the column index
+in which the longitude and latitude values are contained. Defaults to <code>2:3</code>.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -92,7 +97,7 @@ in <span class="pkg">extractOz</span>.</p>
 <span class="r-in"><span>  package <span class="op">=</span> <span class="st">"extractOz"</span>,</span></span>
 <span class="r-in"><span>  mustWork <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">df_to_list</span><span class="op">(</span>indices <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">df_to_list</span><span class="op">(</span>names <span class="op">=</span> <span class="fl">1</span>, lonlat <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">3</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">3</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> ","</span>
