@@ -44,6 +44,8 @@ jobs:
       BUILD_PKGDOWN: ${{ matrix.config.pkgdown }}
       # use GITHUB_TOKEN from GitHub to workaround rate limits in {remotes}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      # Set SILO API key (an e-mail address)
+      SILO_API_KEY: ${{ secrets.SILO_API_KEY }}
 
     steps:
       - uses: actions/checkout@v3
