@@ -68,7 +68,7 @@ three_sites <-
 
 ## Join the Weather Data with AE Zone, Soil Order and Site Information
 
-Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
+Now using `dplyr::left_join()`, create a single `data.frame()` of the location, GPS coordinates, agroecological zone and weather data.
 
 ```r
 left_join(z, three_sites, by = c("location" = "location")) %>% 
