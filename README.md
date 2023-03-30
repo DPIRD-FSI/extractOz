@@ -52,7 +52,7 @@ s <- extract_soil_order(x = locs)
 
 ## Get Weather Data for these Locations in 2020
 
-Using the previously created data frame, fetch weather data from SILO for 2020.
+Using the previously used list of GPS points, fetch weather data from SILO for 2020.
 This is just a non-working example, replace `YOUR_EMAIL_ADDRESS` with your email address below.
 See `?get_silo_multi()` for more help on how to use this function.
 
