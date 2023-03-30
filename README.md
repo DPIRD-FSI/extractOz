@@ -71,10 +71,10 @@ three_sites <-
 Now using `dplyr::left_join()`, create a single `data.frame()` of the Site, GPS coordinates, agroecological zone and weather data.
 
 ```r
-left_join(z, three_sites, by = c("site" = "Sitename")) %>% 
+left_join(z, three_sites, by = c("location" = "location")) %>% 
   left_join(s)
 ```
 
 ## Code of Conduct
 
-Please note that the extractOz project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the {extractOz} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
