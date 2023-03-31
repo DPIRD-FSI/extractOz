@@ -1,5 +1,5 @@
 
-# {extractOz} <img src="man/figures/logo.png" align="right" />
+# {extractOz} a unified approach to extracting data about Australian locations using GPS points <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 [![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/DPIRD-FSI/extractOz/actions)
