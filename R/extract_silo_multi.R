@@ -1,7 +1,7 @@
 
 #' Extract Weather from SILO PatchedPointData using Australian GPS Coordinates
 #'
-#' A modified wrapper version of [weatherOz::get_silo] that allows for fetching
+#' A modified wrapper version of [weatherOz::get_silo()] that allows for fetching
 #' many geophysical points or a single geophysical point.  Extracts weather data
 #' from the \acronym{SILO} \acronym{API} from the gridded data
 #' (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
@@ -39,7 +39,7 @@
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #' )
 #'
-#' wd <- get_silo_multi(x = locs,
+#' wd <- extract_silo_multi(x = locs,
 #'                     first = "20211001",
 #'                     last = "20211201",
 #'                     data_format = "apsim",
@@ -47,7 +47,7 @@
 #'
 #' @export
 
-get_silo_multi <- function(x,
+extract_silo_multi <- function(x,
                            first,
                            last,
                            data_format = "alldata",
@@ -59,7 +59,7 @@ get_silo_multi <- function(x,
         purrr::map2(
             .x = purrr::map(x, 1),
             .y = purrr::map(x, 2),
-            .f = ~ weatherOz::get_silo(
+            .f = ~ weatherOz::extract_silo(
                 latitude = .y,
                 longitude = .x,
                 first = first,
