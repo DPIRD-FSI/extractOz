@@ -23,10 +23,10 @@
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #'   )
 #'
-#' extract_soil_order(x = locs)
+#' extract_daas_soil_order(x = locs)
 #' @export
 
-extract_soil_order <- function(x) {
+extract_daas_soil_order <- function(x) {
   # check if the DAAS data exists in the local cache and if not, download and
   # mask it before saving in the user cache
 
