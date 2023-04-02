@@ -1,11 +1,11 @@
 
 
-test_that("get_silo_multi() fetches the expected weather data", {
+test_that("extract_silo_multi() fetches the expected weather data", {
   skip_if_offline()
   # see "tests/helper_locs.R" for 'locs'
-  vcr::use_cassette("get_silo_multi_all", {
+  vcr::use_cassette("extract_silo_multi_all", {
     w_all <-
-      get_silo_multi(x = locs,
+      extract_silo_multi(x = locs,
                      first = "20220101",
                      last = "20220102",
                      email = Sys.getenv("SILO_API_KEY"))
