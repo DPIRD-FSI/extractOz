@@ -181,7 +181,7 @@ extract_power <- function(x,
 
   return(data.table::rbindlist(
     purrr::map(
-      .x = locs,
+      .x = x,
       .f = nasapower::get_power,
       temporal_api = "daily",
       pars = pars,
