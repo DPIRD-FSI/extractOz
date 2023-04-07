@@ -54,11 +54,11 @@ s <- extract_soil_order(x = locs)
 
 Using the previously used list of GPS points, fetch weather data from SILO for 2020.
 This is just a non-working example, replace `YOUR_EMAIL_ADDRESS` with your email address below.
-See `?extract_silo_multi()` for more help on how to use this function.
+See `?extract_silo()` for more help on how to use this function.
 
 ```r
 three_sites <-
-  extract_silo_multi(
+  extract_silo(
     x = locs,
     first = "20200101",
     last = "20201231",

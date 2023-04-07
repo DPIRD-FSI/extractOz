@@ -39,7 +39,7 @@
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #' )
 #'
-#' wd <- extract_silo_multi(x = locs,
+#' wd <- extract_silo(x = locs,
 #'                     first = "20211001",
 #'                     last = "20211201",
 #'                     data_format = "apsim",
@@ -47,7 +47,7 @@
 #'
 #' @export
 
-extract_silo_multi <- function(x,
+extract_silo <- function(x,
                            first,
                            last,
                            data_format = "alldata",
