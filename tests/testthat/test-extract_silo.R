@@ -3,7 +3,7 @@
 test_that("extract_silo() fetches the expected weather data", {
   skip_if_offline()
   # see "tests/helper_locs.R" for 'locs'
-  vcr::use_cassette("extract_silo_all", {
+  vcr::use_cassette("extract_silo", {
     w_all <-
       extract_silo(x = locs,
                      first = "20220101",
