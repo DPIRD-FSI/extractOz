@@ -7,7 +7,19 @@
 \url{https://power.larc.nasa.gov/}
 }
 \usage{
-extract_power(x, first, last, ...)
+extract_power(
+  x,
+  first,
+  last,
+  pars,
+  community,
+  temporal_api = NULL,
+  site_elevation = NULL,
+  wind_elevation = NULL,
+  wind_surface = NULL,
+  temporal_average = NULL,
+  time_standard = "LST"
+)
 }
 \arguments{
 \item{x}{\code{List}. An object with names containing \code{vector} pairings of
@@ -25,9 +37,6 @@ the format 'yyyymmdd' (ISO-8601).  Not used when \code{temporal_api} is set to
 format 'yyyymmdd' (ISO-8601).  Not used when \code{temporal_api} is set to
 \dQuote{climatology}. See argument details for more.}
 
-\item{community}{A character vector providing community name: \dQuote{ag},
-\dQuote{re} or \dQuote{sb}.  See argument details for more.}
-
 \item{pars}{A character vector of solar, meteorological or climatology
 parameters to download.  When requesting a single point of x, y
 coordinates, a maximum of twenty (20) \code{pars} can be specified at one time,
@@ -35,6 +44,9 @@ for \dQuote{daily}, \dQuote{monthly} and \dQuote{climatology}
 \code{temporal_api}s.  If the \code{temporal_api} is specified as \dQuote{hourly}
 only 15 \code{pars} can be specified in a single query.  See \code{temporal_api} for
 more.}
+
+\item{community}{A character vector providing community name: \dQuote{ag},
+\dQuote{re} or \dQuote{sb}.  See argument details for more.}
 
 \item{temporal_api}{Temporal \acronym{API} end-point for data being queried,
 supported values are \dQuote{hourly}, \dQuote{daily}, \dQuote{monthly} or
