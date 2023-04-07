@@ -69,7 +69,8 @@ extract_daas_soil_order <- function(x) {
   return(path)
 }
 
-#' @noRd # nocov start
+#' @noRd
+# nocov start
 .check_for_cache <- function() {
   if (!file.exists(.get_cache_file())) {
     if (!dir.exists(.get_cache_dir())) {
