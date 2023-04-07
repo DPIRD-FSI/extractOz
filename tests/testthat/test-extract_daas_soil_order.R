@@ -1,6 +1,7 @@
 
 test_that("extract_soil_order() extracts proper orders", {
   # see "tests/helper_locs.R" for 'locs'
+  skip_if_offline()
   so <- extract_daas_soil_order(x = locs)
 
   expect_equal(so$location, c("Corrigin", "Merredin", "Tamworth"))
