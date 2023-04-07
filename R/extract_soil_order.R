@@ -63,13 +63,13 @@ extract_daas_soil_order <- function(x) {
   R_user_dir("extractOz", which = "cache")
 }
 
-.get_cache_file = function() {
+.get_cache_file <- function() {
   dir = .get_cache_dir()
   path = file.path(dir, "daas.RData")
   return(path)
 }
 
-#' @noRd
+#' @noRd # nocov start
 .check_for_cache <- function() {
   if (!file.exists(.get_cache_file())) {
     if (!dir.exists(.get_cache_dir())) {
@@ -114,4 +114,4 @@ extract_daas_soil_order <- function(x) {
     )
   }
   return(invisible(NULL))
-}
+} #nocov end
