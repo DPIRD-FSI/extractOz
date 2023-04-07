@@ -59,7 +59,7 @@ extract_silo <- function(x,
         purrr::map2(
             .x = purrr::map(x, 1),
             .y = purrr::map(x, 2),
-            .f = ~ weatherOz::extract_silo(
+            .f = ~ weatherOz::get_silo(
                 latitude = .y,
                 longitude = .x,
                 first = first,
