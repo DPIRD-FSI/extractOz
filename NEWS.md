@@ -2,6 +2,8 @@
 
 ## Major changes
 
+-   Add support for extracting weather data from the NASA POWER database, `extract_power()`.
+
 -   Move from {cropgrowdays} to {weatherOz}, this allows for more flexibility in the queries that can be performed in SILO.
 {cropgrowdays} only supports APSIM data returns, {weatherOz} supports the full compliment of SILO data options.
 
