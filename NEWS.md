@@ -1,6 +1,10 @@
-# extractOz 0.1.3.9000
+# extractOz 1.0.0
 
 ## Major changes
+
+-   All functions related to retrieving or extracting data are now prefixed as `extract_noun()`.
+
+-   Revert using internal data as geopackage, use in examples but use .Rda internally.
 
 -   Add support for extracting weather data from the NASA POWER database, `extract_power()`.
 
