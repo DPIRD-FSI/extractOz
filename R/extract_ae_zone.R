@@ -32,8 +32,6 @@ extract_ae_zone <- function(x) {
     crs = sf::st_crs(aez)
   )
 
-
-
   intersection <- as.integer(sf::st_intersects(points_sf, aez))
   zone <- data.table::data.table(ifelse(is.na(intersection), "",
                                         as.character(aez$AEZ[intersection])))
