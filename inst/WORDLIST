@@ -4,6 +4,7 @@ Agro
 AgroEcological
 Agroclimatology
 Agroecological
+CRS
 DAAS
 GRDC
 GRI
@@ -12,7 +13,9 @@ NSW
 ORCID
 PatchedPointData
 RTX
+Rda
 Tibble
+WGS
 YYYY
 ag
 agro
@@ -29,6 +32,7 @@ geopackage
 geospatial
 gridded
 groundcover
+licence
 lon
 magrittr's
 metres
