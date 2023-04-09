@@ -21,7 +21,7 @@ RoxygenNote: 7.2.3
 Imports:
   curl,
   data.table,
-  httr2,
+  httr,
   methods,
   nasapower,
   purrr,
