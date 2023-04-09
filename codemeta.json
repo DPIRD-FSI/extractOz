@@ -163,15 +163,15 @@
     },
     "3": {
       "@type": "SoftwareApplication",
-      "identifier": "httr2",
-      "name": "httr2",
+      "identifier": "httr",
+      "name": "httr",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=httr2"
+      "sameAs": "https://CRAN.R-project.org/package=httr"
     },
     "4": {
       "@type": "SoftwareApplication",
@@ -235,7 +235,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "4560.545KB",
+  "fileSize": "4562.105KB",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
   "developmentStatus": "https://www.repostatus.org/#active"
