@@ -33,8 +33,8 @@ Extracts the major soil order at the GPS points provided.
 }
 \note{
 The first run will take additional time to download and extract the
-soils data.  Any use after this will be much faster due to the locally cached
-geospatial soils data.
+soils data.  If \code{cache = TRUE}, any use after this will be much faster due to
+the locally cached geospatial soils data.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
