@@ -18,6 +18,14 @@ To help users, a new function, `df_to_list()` has been added so that the workflo
 
 -   Enhanced tests.
 
+-   Add ability to manage DAAS soil order cache.
+
+-   Add ability to download DAAS soil order data but not cache locally (default behaviour now).
+
+## Bug fixes
+
+-   Remove several `Warning` messages when performing {sf} operations.
+
 # extractOz 0.1.3
 
 ## Bug fixes
