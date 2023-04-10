@@ -10,6 +10,14 @@
 
 Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/DPIRD-FSI/extractOz}
+  \item Report bugs at \url{https://github.com/DPIRD-FSI/extractOz/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Adam H. Sparks \email{adam.sparks@dpird.wa.gov.au} (\href{https://orcid.org/0000-0002-0061-8359}{ORCID})
 

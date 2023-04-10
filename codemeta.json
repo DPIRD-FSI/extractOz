@@ -4,8 +4,10 @@
   "identifier": "extractOz",
   "description": "Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.",
   "name": "extractOz: Extract Australian Soil, Weather and GRDC Agro-ecological Zone\n        Information from GPS Points",
+  "codeRepository": "https://github.com/DPIRD-FSI/extractOz",
+  "issueTracker": "https://github.com/DPIRD-FSI/extractOz/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.3.9000",
+  "version": "1.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -61,6 +63,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "readr",
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
       "provider": {
@@ -107,6 +121,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyverse"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "version": ">= 0.6.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
   "softwareRequirements": {
@@ -148,6 +175,23 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "nasapower",
+      "name": "nasapower",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=nasapower"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
       "provider": {
@@ -158,7 +202,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "5": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -170,17 +214,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "6": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "7": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "weatherOz",
       "name": "weatherOz"
     },
-    "8": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
@@ -190,8 +234,9 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
-  "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research"],
-  "fileSize": "3323.622KB",
+  "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
+  "fileSize": "4562.105KB",
+  "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }

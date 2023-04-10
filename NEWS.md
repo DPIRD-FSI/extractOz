@@ -1,6 +1,10 @@
-# extractOz 0.1.3.9000
+# extractOz 1.0.0
 
 ## Major changes
+
+-   All functions related to retrieving or extracting data are now prefixed as `extract_noun()`.
+
+-   Revert using internal data as geopackage, use in examples but use .Rda internally.
 
 -   Add support for extracting weather data from the NASA POWER database, `extract_power()`.
 
@@ -13,6 +17,14 @@ To help users, a new function, `df_to_list()` has been added so that the workflo
 -   Any objects returned are a `data.table`, aligning with {weatherOz}.
 
 -   Enhanced tests.
+
+-   Add ability to manage DAAS soil order cache.
+
+-   Add ability to download DAAS soil order data but not cache locally (default behaviour now).
+
+## Bug fixes
+
+-   Remove several `Warning` messages when performing {sf} operations.
 
 # extractOz 0.1.3
 
