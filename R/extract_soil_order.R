@@ -4,10 +4,11 @@
 #' Extracts the major soil order at the GPS points provided.
 #'
 #' @inheritParams extract_ae_zone
-#' @param cache Logical.  Store soil data locally for later use?  If `FALSE`,
+#' @param cache `Boolean`.  Store soil data locally for later use?  If `FALSE`,
 #' the downloaded files are removed when \R session is closed. To take advantage
 #' of cached files in future sessions, use `cache = TRUE`.  Defaults to `FALSE`.
-#' Value is optional.
+#' Value is optional.  All future requests will use the cached data unless
+#' `remove_cache()` is used to remove the cached file.
 #'
 #' @note The first run will take additional time to download and extract the
 #' soils data.  If `cache = TRUE`, any use after this will be much faster due to
@@ -34,10 +35,18 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
   # check if the DAAS data exists in the local cache and if not, download and
   # mask it before saving in the user cache
 
-  .get_daas_data(.cache = cache)
   .check_lonlat(x)
 
-  load(.get_cache_file())
+  if (file.exists(.get_cache_file())) {
+    load(.get_cache_file())
+  } else {
+    if (isTRUE(cache)) {
+      message("This is the first time using caching, a cache will be created.")
+      daas <- .get_daas_data(.cache = cache)
+    } else {
+      daas <- .get_daas_data(.cache = cache)
+    }
+  }
 
   x <- .create_dt(x)
 
@@ -103,17 +112,9 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
                     layer = "soilAtlas2M_ASC_Conversion")
       x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"),]
       x <- sf::st_transform(x, crs = sf::st_crs(aez))
-      daas <- sf::st_intersection(x = sf::st_geometry(x),
-                                  y = sf::st_geometry(aez))
-
-      if (isTRUE(.cache)) {
-        if (!file.exists(.get_cache_file())) {
-          if (!dir.exists(.get_cache_dir())) {
-            dir.create(path = .get_cache_dir(), recursive = TRUE)
-          }
-          save(daas, file = .get_cache_file())
-        }
-      }
+      sf::st_agr(x) = "constant"
+      sf::st_agr(aez) = "constant"
+      daas <- sf::st_intersection(x, aez)
     },
     error = function(x)
       stop(
@@ -121,7 +122,16 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
         "\nThe file download for DAAS has failed. Please try again.\n"
       )
   )
-  return(invisible(NULL))
+
+  if (isTRUE(.cache)) {
+    if (!file.exists(.get_cache_file())) {
+      if (!dir.exists(.get_cache_dir())) {
+        dir.create(path = .get_cache_dir(), recursive = TRUE)
+      }
+      save(daas, file = .get_cache_file())
+    }
+  }
+  return(daas)
 } #nocov end
 
 #' Remove DAAS Soil Order Cache
