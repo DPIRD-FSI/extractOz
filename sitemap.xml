@@ -40,12 +40,18 @@
     <loc>/reference/extract_area.html</loc>
   </url>
   <url>
-    <loc>/reference/extract_soil_order.html</loc>
+    <loc>/reference/extract_daas_soil_order.html</loc>
   </url>
   <url>
-    <loc>/reference/get_silo_multi.html</loc>
+    <loc>/reference/extract_power.html</loc>
+  </url>
+  <url>
+    <loc>/reference/extract_silo.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/remove_cache.html</loc>
   </url>
 </urlset>

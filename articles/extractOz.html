@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">extractOz</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -56,7 +56,14 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/DPIRD-FSI/extractOz/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -72,7 +79,7 @@
       <h1 data-toc-skip>extractOz</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/DPIRD-FSI/extractOz/blob/HEAD/vignettes/extractOz.Rmd" class="external-link"><code>vignettes/extractOz.Rmd</code></a></small>
       <div class="hidden name"><code>extractOz.Rmd</code></div>
 
     </div>
@@ -83,7 +90,7 @@
 <h2 id="load-libraries">Load libraries<a class="anchor" aria-label="anchor" href="#load-libraries"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">extractOz</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DPIRD-FSI/extractOz" class="external-link">extractOz</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -111,7 +118,7 @@ function.</p>
 <p>See <code>?extract_soil_order()</code> for more help on how to use
 this function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu">extract_soil_order</span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data for these Locations in 2020<a class="anchor" aria-label="anchor" href="#get-weather-data-for-these-locations-in-2020"></a>
@@ -119,11 +126,11 @@ this function.</p>
 <p>Using the previously created list of GPS points, fetch weather data
 from SILO for 2020. This is a non-working example, replace
 <code>YOUR_EMAIL_ADDRESS</code> with your email address below. See
-<code>?get_silo_multi()</code> for more help on how to use this
+<code>?extract_silo()</code> for more help on how to use this
 function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">three_sites</span>  <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="../reference/get_silo_multi.html">get_silo_multi</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/extract_silo.html">extract_silo</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">locs</span>,</span>
 <span>    first <span class="op">=</span> <span class="st">"20200101"</span>,</span>
 <span>    last <span class="op">=</span> <span class="st">"20201231"</span>,</span>
@@ -179,14 +186,14 @@ are provided as <code>.$colname</code>.</p>
 <span>  <span class="fu"><a href="../reference/df_to_list.html">df_to_list</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="fu"><a href="../reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span><span class="op">)</span>,</span>
-<span>    y <span class="op">=</span> <span class="fu"><a href="../reference/extract_soil_order.html">extract_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span><span class="op">)</span>,</span>
+<span>    y <span class="op">=</span> <span class="fu">extract_soil_order</span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span><span class="op">)</span>,</span>
 <span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"location"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">soil_zone</span></span>
 <span></span>
 <span><span class="co"># join the `soil_zone` with weather data from SILO</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">soil_zone</span>,</span>
-<span>    y <span class="op">=</span> <span class="fu"><a href="../reference/get_silo_multi.html">get_silo_multi</a></span><span class="op">(</span></span>
+<span>    y <span class="op">=</span> <span class="fu"><a href="../reference/extract_silo.html">extract_silo</a></span><span class="op">(</span></span>
 <span>      x <span class="op">=</span> <span class="fu"><a href="../reference/df_to_list.html">df_to_list</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
 <span>      first <span class="op">=</span> <span class="st">"20200101"</span>,</span>
 <span>      last <span class="op">=</span> <span class="st">"20201231"</span>,</span>
