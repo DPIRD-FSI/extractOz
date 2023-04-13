@@ -34,9 +34,9 @@ A \code{data.table} containing the retrieved data from the \acronym{SILO}
 \acronym{API}.
 }
 \description{
-A modified wrapper version of \code{\link[weatherOz:get_silo]{weatherOz::get_silo()}} that allows for fetching
-many geophysical points or a single geophysical point.  Extracts weather data
-from the \acronym{SILO} \acronym{API} from the gridded data
+A modified wrapper version of \code{\link[weatherOz:get_silo]{weatherOz::get_silo()}} that allows for
+fetching many geophysical points or a single geophysical point.  Extracts
+weather data from the \acronym{SILO} \acronym{API} from the gridded data
 (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
 with daily frequency and 'monthly' with, that's right, monthly frequency.
 }

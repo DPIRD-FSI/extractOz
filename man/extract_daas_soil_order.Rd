@@ -17,10 +17,11 @@ order, each individual \code{vectors}' items should be named "x" (longitude) and
 of the individual \code{vectors} and will be included in a "location" column of
 the output.}
 
-\item{cache}{Logical.  Store soil data locally for later use?  If \code{FALSE},
+\item{cache}{\code{Boolean}.  Store soil data locally for later use?  If \code{FALSE},
 the downloaded files are removed when \R session is closed. To take advantage
 of cached files in future sessions, use \code{cache = TRUE}.  Defaults to \code{FALSE}.
-Value is optional.}
+Value is optional.  All future requests will use the cached data unless
+\code{remove_cache()} is used to remove the cached file.}
 }
 \value{
 A \code{data.table} with the provided \acronym{GPS} coordinates and the

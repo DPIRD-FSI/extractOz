@@ -1,9 +1,9 @@
 
 #' Extract Weather from SILO PatchedPointData using Australian GPS Coordinates
 #'
-#' A modified wrapper version of [weatherOz::get_silo()] that allows for fetching
-#' many geophysical points or a single geophysical point.  Extracts weather data
-#' from the \acronym{SILO} \acronym{API} from the gridded data
+#' A modified wrapper version of [weatherOz::get_silo()] that allows for
+#' fetching many geophysical points or a single geophysical point.  Extracts
+#' weather data from the \acronym{SILO} \acronym{API} from the gridded data
 #' (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
 #' with daily frequency and 'monthly' with, that's right, monthly frequency.
 #'
