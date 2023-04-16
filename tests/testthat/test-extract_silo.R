@@ -8,7 +8,7 @@ test_that("extract_silo() fetches the expected weather data", {
       extract_silo(x = locs,
                      first = "20220101",
                      last = "20220102",
-                     email = Sys.getenv("SILO_API_KEY"))
+                     email = "SILO_API_KEY")
   })
   expect_equal(unique(w_all$location), c("Merredin", "Corrigin", "Tamworth"))
   expect_s3_class(w_all, "data.frame")
