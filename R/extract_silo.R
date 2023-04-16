@@ -1,25 +1,26 @@
 
-#' Extract Weather from SILO PatchedPointData using Australian GPS Coordinates
+#' Extract Weather from SILO PatchedPointData from Australian GPS Coordinates
 #'
 #' A modified wrapper version of [weatherOz::get_silo()] that allows for
-#' fetching many geophysical points or a single geophysical point.  Extracts
-#' weather data from the \acronym{SILO} \acronym{API} from the gridded data
-#' (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
-#' with daily frequency and 'monthly' with, that's right, monthly frequency.
+#'  fetching many geophysical points or a single geophysical point.  Extracts
+#'  interpolated weather data from the \acronym{SILO} \acronym{API} from the
+#'  gridded data, PatchedPointData, data set.  There are three formats
+#'  available: 'alldata' and 'apsim' with daily frequency and 'monthly' with,
+#'  that's right, monthly frequency.
 #'
 #' @inheritParams extract_ae_zone
 #'
-#' @param first `Integer`. A string representing the start date of the query in
+#' @param first `Integer`. A value representing the start date of the query in
 #'  the format 'yyyymmdd' (ISO-8601).
-#' @param last `Integer`. A string representing the end date of the query in the
+#' @param last `Integer`. A value representing the end date of the query in the
 #' format 'yyyymmdd' (ISO-8601).
 #' @param data_format `Character`. A string specifying the type of data to
 #'  retrieve.  Valid values are 'alldata', 'monthly' or 'apsim' (formatted for
-#'  use in APSIM modelling).  Note that 'apsim' and 'alldata' only retrieve
-#'  daily time-step data.
-#' @param email `Character`. A string specifying a valid email address to use
-#'  for the request.  The query will return an error if a valid email address is
-#'  not provided.
+#'  use in \acronym{APSIM} modelling).  Note that 'apsim' and 'alldata' only
+#'  retrieve daily time-step data.
+#' @param silo_api_key `Character`. A string specifying a valid email address to
+#'  use for the request.  The query will return an error if a valid email
+#'  address is not provided.
 #'
 #' @note Where multiple `lonlat` values are provided in a single request and the
 #' `data_format` is `apsim`, an extra column, "location" will be provided with
@@ -43,7 +44,11 @@
 #'                     first = "20211001",
 #'                     last = "20211201",
 #'                     data_format = "apsim",
-#'                     email = "YOUR EMAIL")
+#'                     silo_api_key = "YOUR EMAIL")
+#'
+#' @family weather data
+#'
+#' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
 #'
 #' @export
 
@@ -51,7 +56,7 @@ extract_silo <- function(x,
                            first,
                            last,
                            data_format = "alldata",
-                           email) {
+                           silo_api_key) {
 
     .check_lonlat(x)
 
@@ -65,7 +70,7 @@ extract_silo <- function(x,
                 first = first,
                 last = last,
                 data_format = data_format,
-                email = email
+                email = silo_api_key
             )
         ),
         idcol = "location"

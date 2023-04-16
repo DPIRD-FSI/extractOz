@@ -1,6 +1,4 @@
 
-
-
 #' Extract Weather Data from the NASA POWER API using Australian GPS Coordinates
 #'
 #' Extracts satellite and modelled weather data from the \acronym{NASA}
@@ -46,7 +44,7 @@
 #' @param time_standard POWER provides two different time standards:
 #'    * Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 #'     that used by the world.
-#'    * Local Solar Time (\acronym{LST}): A 15 Degrees swath that represents
+#'    * Local Solar Time (\acronym{LST}): a 15 Degrees swath that represents
 #'     solar noon at the middle longitude of the swath.
 #'    Defaults to `LST`.
 #'
@@ -150,6 +148,11 @@
 #'   pars = c("RH2M", "T2M", "PRECTOTCORR"),
 #'   temporal_api = "daily"
 #' )
+#'
+#' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
+#'
+#' @family weather data
+#'
 #' @export
 extract_power <- function(x,
                           first,
@@ -162,7 +165,6 @@ extract_power <- function(x,
                           wind_surface = NULL,
                           temporal_average = NULL,
                           time_standard = "LST") {
-
   .dates <-
     c(
       paste(
@@ -187,8 +189,7 @@ extract_power <- function(x,
       pars = pars,
       community = community,
       dates = .dates
-    )
-    ,
+    ),
     idcol = "location"
   ))
 }

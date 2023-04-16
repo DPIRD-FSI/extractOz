@@ -2,9 +2,9 @@
 % Please edit documentation in R/extract_silo.R
 \name{extract_silo}
 \alias{extract_silo}
-\title{Extract Weather from SILO PatchedPointData using Australian GPS Coordinates}
+\title{Extract Weather from SILO PatchedPointData from Australian GPS Coordinates}
 \usage{
-extract_silo(x, first, last, data_format = "alldata", email)
+extract_silo(x, first, last, data_format = "alldata", silo_api_key)
 }
 \arguments{
 \item{x}{\code{List}. An object with names containing \code{vector} pairings of
@@ -14,20 +14,20 @@ order, each individual \code{vectors}' items should be named "x" (longitude) and
 of the individual \code{vectors} and will be included in a "location" column of
 the output.}
 
-\item{first}{\code{Integer}. A string representing the start date of the query in
+\item{first}{\code{Integer}. A value representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).}
 
-\item{last}{\code{Integer}. A string representing the end date of the query in the
+\item{last}{\code{Integer}. A value representing the end date of the query in the
 format 'yyyymmdd' (ISO-8601).}
 
 \item{data_format}{\code{Character}. A string specifying the type of data to
 retrieve.  Valid values are 'alldata', 'monthly' or 'apsim' (formatted for
-use in APSIM modelling).  Note that 'apsim' and 'alldata' only retrieve
-daily time-step data.}
+use in \acronym{APSIM} modelling).  Note that 'apsim' and 'alldata' only
+retrieve daily time-step data.}
 
-\item{email}{\code{Character}. A string specifying a valid email address to use
-for the request.  The query will return an error if a valid email address is
-not provided.}
+\item{silo_api_key}{\code{Character}. A string specifying a valid email address to
+use for the request.  The query will return an error if a valid email
+address is not provided.}
 }
 \value{
 A \code{data.table} containing the retrieved data from the \acronym{SILO}
@@ -36,9 +36,16 @@ A \code{data.table} containing the retrieved data from the \acronym{SILO}
 \description{
 A modified wrapper version of \code{\link[weatherOz:get_silo]{weatherOz::get_silo()}} that allows for
 fetching many geophysical points or a single geophysical point.  Extracts
+<<<<<<< HEAD
 weather data from the \acronym{SILO} \acronym{API} from the gridded data
 (PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
 with daily frequency and 'monthly' with, that's right, monthly frequency.
+=======
+interpolated weather data from the \acronym{SILO} \acronym{API} from the
+gridded data, PatchedPointData, data set.  There are three formats
+available: 'alldata' and 'apsim' with daily frequency and 'monthly' with,
+that's right, monthly frequency.
+>>>>>>> 8664eb8 (Redoc package and add family for weather related functions)
 }
 \note{
 Where multiple \code{lonlat} values are provided in a single request and the
@@ -61,6 +68,15 @@ wd <- extract_silo(x = locs,
                     first = "20211001",
                     last = "20211201",
                     data_format = "apsim",
-                    email = "YOUR EMAIL")
+                    silo_api_key = "YOUR EMAIL")
 \dontshow{\}) # examplesIf}
 }
+\seealso{
+Other weather data: 
+\code{\link{extract_power}()},
+\code{\link{extract_weather}()}
+}
+\author{
+Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+}
+\concept{weather data}

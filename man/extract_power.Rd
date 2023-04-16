@@ -77,7 +77,7 @@ terminology.}
 \itemize{
 \item Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 that used by the world.
-\item Local Solar Time (\acronym{LST}): A 15 Degrees swath that represents
+\item Local Solar Time (\acronym{LST}): a 15 Degrees swath that represents
 solar noon at the middle longitude of the swath.
 Defaults to \code{LST}.
 }}
@@ -198,3 +198,12 @@ extract_power(
 )
 \dontshow{\}) # examplesIf}
 }
+\seealso{
+Other weather data: 
+\code{\link{extract_silo}()},
+\code{\link{extract_weather}()}
+}
+\author{
+Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+}
+\concept{weather data}
