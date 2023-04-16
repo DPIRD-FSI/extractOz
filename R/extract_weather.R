@@ -1,4 +1,5 @@
 
+
 #' Extract Weather from SILO and DPIRD Weather Station Networks from Australian GPS Coordinates
 #'
 #' Extracts weather data for the provided dates from the nearest weather station
@@ -91,89 +92,90 @@ extract_weather <-
            first,
            last,
            which_api = "silo",
+           interval = "daily",
            silo_api_key = NULL,
            dpird_api_key = NULL) {
+    owner <- station_code <- NULL # nocov
+    .check_lonlat(x)
 
-  .check_lonlat(x)
-
-  all_stations <-
-    weatherOz::find_nearby_stations(
-      latitude = -25.5833,
-      longitude = 134.5667,
-      distance_km = 10000,
-      which_api = which_api,
-      api_key = dpird_api_key
-    )
-
-  # find the nearest stations for each point and return the row index value
-  # for the station in `all_stations`. Return two lists, one with the index
-  # for the row in which the minimum distance occurs in `all_stations`, `r`. The
-  # second, `s`, contains the distance in kilometres from the requested lat/lon
-  # values from `x` in km.
-
-  row <- vector(mode = "list", length = length(x))
-  distance <- row
-  names(row) <- names(distance) <- names(x)
-
-  for (i in seq_along(x)) {
-    d <- round(
-      .haversine_distance(
-        lat1 = x[[i]][["y"]],
-        lon1 = x[[i]][["x"]],
-        lat2 = all_stations$latitude,
-        lon2 = all_stations$longitude
-      ),
-      1
-    )
-    row[[i]] <- which.min(d)
-    distance[[i]] <- min(d)
-    t <- data.table(location = as.factor(names(x)), row, distance)
-  }
-
-  stations_meta <- all_stations[unlist(t$row), ]
-  stations_meta$location <- t$location
-  stations_meta$distance <- t$distance
-
-  if (any(stations_meta$owner == "BOM")) {
-    silo_stations <-
-      subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
-    silo_stations[, station_code := as.character(station_code)]
-    silo_stations <- split(x = silo_stations[, -2],
-                           f = silo_stations$location)
-  } else {
-    dpird_stations <-
-      subset(stations_meta, owner != "BOM")[, c("station_code", "location")]
-    dpird_stations[, station_code := as.character(station_code)]
-    dpird_stations <- split(x = dpird_stations[, 2],
-                            f = dpird_stations$location)
-  }
-
-  if (exists("silo_stations")) {
-    silo_w <- data.table::rbindlist(
-      purrr::map(
-        .x = silo_stations,
-        .f = weatherOz::get_silo,
-        first = first,
-        last = last,
-        data_format = "alldata",
-        email = silo_api_key
-      ),
-      idcol = "location"
-    )
-  }
-  if (exists("dpird_stations")) {
-    dpird_w <- data.table::rbindlist(
-      purrr::map(
-        .x = dpird_stations,
-        .f = weatherOz::get_dpird_summaries,
-        first = first,
-        last = last,
-        interval = "daily",
+    all_stations <-
+      weatherOz::find_nearby_stations(
+        latitude = -25.5833,
+        longitude = 134.5667,
+        distance_km = 10000,
+        which_api = which_api,
         api_key = dpird_api_key
-      ),
-      idcol = "location"
-    )
-  }
+      )
+
+    # find the nearest stations for each point and return the row index value
+    # for the station in `all_stations`. Return two lists, one with the index
+    # for the row in which the minimum distance occurs in `all_stations`, `r`. The
+    # second, `s`, contains the distance in kilometres from the requested lat/lon
+    # values from `x` in km.
+
+    row <- vector(mode = "list", length = length(x))
+    distance <- row
+    names(row) <- names(distance) <- names(x)
+
+    for (i in seq_along(x)) {
+      d <- round(
+        .haversine_distance(
+          lat1 = x[[i]][["y"]],
+          lon1 = x[[i]][["x"]],
+          lat2 = all_stations$latitude,
+          lon2 = all_stations$longitude
+        ),
+        1
+      )
+      row[[i]] <- which.min(d)
+      distance[[i]] <- min(d)
+      t <- data.table(location = as.factor(names(x)), row, distance)
+    }
+
+    stations_meta <- all_stations[unlist(t$row),]
+    stations_meta$location <- t$location
+    stations_meta$distance <- t$distance
+
+    if (any(stations_meta$owner == "BOM")) {
+      silo_stations <-
+        subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
+      silo_stations[, station_code := as.character(station_code)]
+      silo_stations <- split(x = silo_stations[, -2],
+                             f = silo_stations$location)
+    } else {
+      dpird_stations <-
+        subset(stations_meta, owner != "BOM")[, c("station_code", "location")]
+      dpird_stations[, station_code := as.character(station_code)]
+      dpird_stations <- split(x = dpird_stations[, 2],
+                              f = dpird_stations$location)
+    }
+
+    if (exists("silo_stations")) {
+      silo_w <- data.table::rbindlist(
+        purrr::map(
+          .x = silo_stations,
+          .f = weatherOz::get_silo,
+          first = first,
+          last = last,
+          data_format = "alldata",
+          email = silo_api_key
+        ),
+        idcol = "location"
+      )
+    }
+    if (exists("dpird_stations")) {
+      dpird_w <- data.table::rbindlist(
+        purrr::map(
+          .x = dpird_stations,
+          .f = weatherOz::get_dpird_summaries,
+          first = first,
+          last = last,
+          interval = "daily",
+          api_key = dpird_api_key
+        ),
+        idcol = "location"
+      )
+    }
 
   }
 

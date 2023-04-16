@@ -9,6 +9,7 @@ extract_weather(
   first,
   last,
   which_api = "silo",
+  interval = "daily",
   silo_api_key = NULL,
   dpird_api_key = NULL
 )
@@ -33,6 +34,10 @@ use.  Defaults to "silo".  Valid values are "all", for both \acronym{SILO}
 only stations in the \acronym{SILO} network; or "dpird" for stations in the
 \acronym{DPIRD} network.}
 
+\item{interval}{\code{Character}. A \code{string} value that indicates whether to
+return daily or monthly interval data.  Valid values are "daily" or
+"monthly".  Defaults to "daily".}
+
 \item{silo_api_key}{\code{Character}. A string specifying a valid email address to
 use for the request. The query will return an error if a valid email address
 is not provided.  Only used when \code{which_api} is set to "silo" or to "all".}
@@ -41,10 +46,6 @@ is not provided.  Only used when \code{which_api} is set to "silo" or to "all".}
 \acronym{API} key from \acronym{DPIRD} (see
 \url{https://www.agric.wa.gov.au/web-apis}).  Only used when \code{which_api} is
 "dpird" or "all".}
-
-\item{interval}{\code{Character}. A \code{string} value that indicates whether to
-return daily or monthly interval data.  Valid values are "daily" or
-"monthly".  Defaults to "daily".}
 }
 \value{
 A \code{data.table} of weather station data for the weather stations

@@ -36,16 +36,10 @@ A \code{data.table} containing the retrieved data from the \acronym{SILO}
 \description{
 A modified wrapper version of \code{\link[weatherOz:get_silo]{weatherOz::get_silo()}} that allows for
 fetching many geophysical points or a single geophysical point.  Extracts
-<<<<<<< HEAD
-weather data from the \acronym{SILO} \acronym{API} from the gridded data
-(PatchedPointData).  There are three formats available: 'alldata' and 'apsim'
-with daily frequency and 'monthly' with, that's right, monthly frequency.
-=======
 interpolated weather data from the \acronym{SILO} \acronym{API} from the
 gridded data, PatchedPointData, data set.  There are three formats
 available: 'alldata' and 'apsim' with daily frequency and 'monthly' with,
 that's right, monthly frequency.
->>>>>>> 8664eb8 (Redoc package and add family for weather related functions)
 }
 \note{
 Where multiple \code{lonlat} values are provided in a single request and the

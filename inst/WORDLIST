@@ -4,11 +4,14 @@ Agro
 AgroEcological
 Agroclimatology
 Agroecological
+BOM
 CRS
 DAAS
+DPIRD
 GRDC
 GRI
 LST
+MJ
 NSW
 ORCID
 PatchedPointData
@@ -17,6 +20,7 @@ Rda
 Tibble
 WGS
 YYYY
+accum
 ag
 agro
 agroecological
@@ -28,11 +32,14 @@ climatologies
 codecov
 cropgrowdays
 csv
+dpird
 funder
+geolocation
 geopackage
 geospatial
 gridded
 groundcover
+jday
 licence
 lon
 magrittr's
