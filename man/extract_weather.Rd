@@ -28,13 +28,13 @@ the format 'yyyymmdd' (ISO-8601).}
 \item{last}{\code{Integer}. A value representing the end date of the query in the
 format 'yyyymmdd' (ISO-8601).}
 
-\item{which_api}{\code{Character}. A \code{string} value that indicates which API to
+\item{which_api}{\code{Character}. A string value that indicates which API to
 use.  Defaults to "silo".  Valid values are "all", for both \acronym{SILO}
 (\acronym{BOM}) and \acronym{DPIRD} weather station networks; "silo" for
 only stations in the \acronym{SILO} network; or "dpird" for stations in the
 \acronym{DPIRD} network.}
 
-\item{interval}{\code{Character}. A \code{string} value that indicates whether to
+\item{interval}{\code{Character}. A string value that indicates whether to
 return daily or monthly interval data.  Valid values are "daily" or
 "monthly".  Defaults to "daily".}
 
@@ -42,7 +42,7 @@ return daily or monthly interval data.  Valid values are "daily" or
 use for the request. The query will return an error if a valid email address
 is not provided.  Only used when \code{which_api} is set to "silo" or to "all".}
 
-\item{dpird_api_key}{\code{Character}. A \code{string} value that is the user's
+\item{dpird_api_key}{\code{Character}. A string value that is the user's
 \acronym{API} key from \acronym{DPIRD} (see
 \url{https://www.agric.wa.gov.au/web-apis}).  Only used when \code{which_api} is
 "dpird" or "all".}
@@ -76,6 +76,8 @@ temperature.\cr
 \strong{elevation}:\tab Station elevation in metres.\cr
 \strong{owner}:\tab Station owner.\cr
 \strong{distance}:\tab Distance from specified geolocation in \code{x}.\cr
+\strong{rh_max_t}:\tab Estimated Relative Humidity at Temperature 't_max'.\cr
+\strong{rh_min_t}:\tab Estimated Relative Humidity at Temperature 't_min'.\cr
 }
 }
 \description{
@@ -86,6 +88,40 @@ query.  Weather data for the single closest station to the provided
 longitude and latitude will always be returned from the selected
 \acronym{API(s)}.
 }
+\section{SILO data}{
+
+As evaporation is read at 9am, it has been shifted to the day before, \emph{i.e.}
+the evaporation measured on 20 April is in the row for 19 April.
+
+The 6 Source columns 'smx', 'smn', 'srn', 'sev', 'ssl', 'svp' indicate the
+source of the data to their left, namely 'max_temp', 'min_temp', 'rainfall',
+'evaporation', 'radiation' and 'vapour_pressure' respectively.
+\tabular{rl}{
+\strong{0}:\tab Station data, as supplied by the Bureau.\cr
+\strong{13}:\tab Deactivated, using nearby station.\cr
+\strong{15}:\tab Deaccumulated using interpolated data.\cr
+\strong{23}:\tab Nearby station, data from the Bureau.\cr
+\strong{25}:\tab Interpolated daily observations.\cr
+\strong{75}:\tab Interpolated long-term average.\cr
+}
+
+Relative Humidity has been calculated using 9AM vapour pressure, maximum
+temperature and minimum temperature.
+
+The accuracy of the data depends on many factors including date, location
+and variable.  The original data from \acronym{SILO} include one decimal
+place, this has been rounded to whole numbers since the \acronym{SILO}
+documentation states, "\emph{For consistency data is supplied using one decimal
+place, however it is not accurate to that precision.}"
+}
+
+\section{DPIRD data}{
+
+\acronym{DPIRD} data will always contain the same columns as \acronym{SILO}
+but will have the 6 source columns 'smx', 'smn', 'srn', 'sev', 'ssl', 'svp'
+filled with \code{NA}.
+}
+
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Source data from a list of latitude and longitude coordinates in NSW and WA

@@ -14,15 +14,15 @@
 #'  the format 'yyyymmdd' (ISO-8601).
 #' @param last `Integer`. A value representing the end date of the query in the
 #'  format 'yyyymmdd' (ISO-8601).
-#' @param interval `Character`. A `string` value that indicates whether to
+#' @param interval `Character`. A string value that indicates whether to
 #'  return daily or monthly interval data.  Valid values are "daily" or
 #'  "monthly".  Defaults to "daily".
-#' @param which_api `Character`. A `string` value that indicates which API to
+#' @param which_api `Character`. A string value that indicates which API to
 #'  use.  Defaults to "silo".  Valid values are "all", for both \acronym{SILO}
 #'  (\acronym{BOM}) and \acronym{DPIRD} weather station networks; "silo" for
 #'  only stations in the \acronym{SILO} network; or "dpird" for stations in the
 #'  \acronym{DPIRD} network.
-#' @param dpird_api_key `Character`. A `string` value that is the user's
+#' @param dpird_api_key `Character`. A string value that is the user's
 #'  \acronym{API} key from \acronym{DPIRD} (see
 #'  <https://www.agric.wa.gov.au/web-apis>).  Only used when `which_api` is
 #'  "dpird" or "all".
@@ -50,6 +50,36 @@
 #'   dpird_api_key = "YOUR API KEY",
 #'   silo_api_key = "YOUR EMAIL"
 #' )
+#'
+#' @section SILO data:
+#' As evaporation is read at 9am, it has been shifted to the day before, _i.e._
+#' the evaporation measured on 20 April is in the row for 19 April.
+#'
+#' The 6 Source columns 'smx', 'smn', 'srn', 'sev', 'ssl', 'svp' indicate the
+#' source of the data to their left, namely 'max_temp', 'min_temp', 'rainfall',
+#' 'evaporation', 'radiation' and 'vapour_pressure' respectively.
+#' \tabular{rl}{
+#' **0**:\tab Station data, as supplied by the Bureau.\cr
+#' **13**:\tab Deactivated, using nearby station.\cr
+#' **15**:\tab Deaccumulated using interpolated data.\cr
+#' **23**:\tab Nearby station, data from the Bureau.\cr
+#' **25**:\tab Interpolated daily observations.\cr
+#' **75**:\tab Interpolated long-term average.\cr
+#' }
+#'
+#' Relative Humidity has been calculated using 9AM vapour pressure, maximum
+#' temperature and minimum temperature.
+#'
+#' The accuracy of the data depends on many factors including date, location
+#' and variable.  The original data from \acronym{SILO} include one decimal
+#' place, this has been rounded to whole numbers since the \acronym{SILO}
+#' documentation states, "_For consistency data is supplied using one decimal
+#'  place, however it is not accurate to that precision._"
+#'
+#' @section DPIRD data:
+#' \acronym{DPIRD} data will always contain the same columns as \acronym{SILO}
+#' but will have the 6 source columns 'smx', 'smn', 'srn', 'sev', 'ssl', 'svp'
+#' filled with `NA`.
 #'
 #' @return A `data.table` of weather station data for the weather stations
 #'  nearest the provided longitude and latitude values for the requested weather
@@ -79,6 +109,8 @@
 #'   **elevation**:\tab Station elevation in metres.\cr
 #'   **owner**:\tab Station owner.\cr
 #'   **distance**:\tab Distance from specified geolocation in `x`.\cr
+#'   **rh_max_t**:\tab Estimated Relative Humidity at Temperature 't_max'.\cr
+#'   **rh_min_t**:\tab Estimated Relative Humidity at Temperature 't_min'.\cr
 #'   }
 #'
 #' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
@@ -161,7 +193,41 @@ extract_weather <-
           email = silo_api_key
         ),
         idcol = "location"
-      )
+      )[, -4]
+      old_names <-
+        c(
+          "location",
+          "Date",
+          "Day",
+          "Date2",
+          "T.Max",
+          "Smx",
+          "T.Min",
+          "Smn",
+          "Rain",
+          "Srn",
+          "Evap",
+          "Sev",
+          "Radn",
+          "Ssl",
+          "VP",
+          "Svp",
+          "RHmaxT",
+          "RHminT",
+          "FAO56",
+          "Mlake",
+          "Mpot",
+          "Mact",
+          "Mwet",
+          "Span",
+          "Ssp",
+          "EvSp",
+          "Ses",
+          "MSLPres",
+          "Sp"
+        )
+      new_names <- c("location", "date", "day", "max")
+      data.table::setnames(silo_w)
     }
     if (exists("dpird_stations")) {
       dpird_w <- data.table::rbindlist(
@@ -177,6 +243,12 @@ extract_weather <-
       )
     }
 
+    if (exists(silo_w) & exists(dpird_w)) {
+      return(rbind(silo_w, dpird_w))
+    } else if (exists(silo_w)) {
+      return(silo_w)
+    } else
+      return(dpird_w)
   }
 
 
