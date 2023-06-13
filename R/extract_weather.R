@@ -1,10 +1,9 @@
 
-
 #' Extract Weather from SILO and DPIRD Weather Station Networks from Australian GPS Coordinates
 #'
 #' Extracts weather data for the provided dates from the nearest weather station
 #'  to the provided longitude and latitude values in `x`.  Two \acronym{APIs}
-#'  are available, "SILO" and "DPIRD".  Either one or both may be used in the
+#'  are available, 'SILO' or 'DPIRD'.  Either one or both may be used in the
 #'  query.  Weather data for the single closest station to the provided
 #'  longitude and latitude will always be returned from the selected
 #'  \acronym{API(s)}.
@@ -15,22 +14,25 @@
 #' @param last `Integer`. A value representing the end date of the query in the
 #'  format 'yyyymmdd' (ISO-8601).
 #' @param interval `Character`. A string value that indicates whether to
-#'  return daily or monthly interval data.  Valid values are "daily" or
-#'  "monthly".  Defaults to "daily".
+#'  return daily or monthly interval data.  Valid values are 'daily' or
+#'  'monthly'.  Defaults to 'daily'.
+#' @param n_stations `Integer`. A value indicating how many stations surrounding
+#'  the latitude and longitude values found in `x`. Defaults to one (1).
 #' @param which_api `Character`. A string value that indicates which API to
-#'  use.  Defaults to "silo".  Valid values are "all", for both \acronym{SILO}
-#'  (\acronym{BOM}) and \acronym{DPIRD} weather station networks; "silo" for
-#'  only stations in the \acronym{SILO} network; or "dpird" for stations in the
+#'  use.  Defaults to 'silo'.  Valid values are 'all', for both \acronym{SILO}
+#'  (\acronym{BOM}) and \acronym{DPIRD} weather station networks; 'silo' for
+#'  only stations in the \acronym{SILO} network; or 'dpird' for stations in the
 #'  \acronym{DPIRD} network.
 #' @param dpird_api_key `Character`. A string value that is the user's
 #'  \acronym{API} key from \acronym{DPIRD} (see
 #'  <https://www.agric.wa.gov.au/web-apis>).  Only used when `which_api` is
-#'  "dpird" or "all".
+#'  'dpird' or 'all'.
 #' @param silo_api_key `Character`. A string specifying a valid email address to
 #'  use for the request. The query will return an error if a valid email address
-#'  is not provided.  Only used when `which_api` is set to "silo" or to "all".
+#'  is not provided.  Only used when `which_api` is set to 'silo' or to 'all'.
 #'
-#' @examplesIf interactive()
+#' @examples
+#' \dontrun{
 #' # Source data from a list of latitude and longitude coordinates in NSW and WA
 #' locs <- list(
 #'   "Merredin" = c(x = 118.28, y = -31.48),
@@ -50,6 +52,7 @@
 #'   dpird_api_key = "YOUR API KEY",
 #'   silo_api_key = "YOUR EMAIL"
 #' )
+#' }
 #'
 #' @section SILO data:
 #' As evaporation is read at 9am, it has been shifted to the day before, _i.e._
@@ -81,12 +84,12 @@
 #' but will have the 6 source columns 'smx', 'smn', 'srn', 'sev', 'ssl', 'svp'
 #' filled with `NA`.
 #'
-#' @return A `data.table` of weather station data for the weather stations
-#'  nearest the provided longitude and latitude values for the requested weather
-#'  station network(s) with the following columns:
+#' @return A [data.table::data.table] of weather station data for the weather
+#'  stations nearest the provided longitude and latitude values for the
+#'  requested weather station network(s) with the following columns:
 #'   \tabular{rl}{
 #'   **location**:\tab User supplied name for GPS coordinates in `x`.\cr
-#'   **station_number**:\tab Station ID as in the respective network.\cr
+#'   **station_code**:\tab Station code as in the respective network.\cr
 #'   **station_name**:\tab Station name in the respective network.\cr
 #'   **date**:\tab The observation date as an integer, "yyyymmdd".\cr
 #'   **year**:\tab Year of observation (YYYY).\cr
@@ -123,12 +126,23 @@ extract_weather <-
   function(x,
            first,
            last,
+           n_stations = 1L,
            which_api = "silo",
            interval = "daily",
            silo_api_key = NULL,
            dpird_api_key = NULL) {
     owner <- station_code <- NULL # nocov
+
     .check_lonlat(x)
+
+    which_api <- .check_which_api(.which_api = which_api)
+
+    n_stations <- as.integer(n_stations)
+
+    if (interval %notin% c("daily", "monthly")) {
+      stop(call. = FALSE,
+           "Only intervals of 'daily' or 'monthly' are supported.")
+    }
 
     all_stations <-
       weatherOz::find_nearby_stations(
@@ -141,9 +155,9 @@ extract_weather <-
 
     # find the nearest stations for each point and return the row index value
     # for the station in `all_stations`. Return two lists, one with the index
-    # for the row in which the minimum distance occurs in `all_stations`, `r`. The
-    # second, `s`, contains the distance in kilometres from the requested lat/lon
-    # values from `x` in km.
+    # for the row in which the minimum distance occurs in `all_stations`, `r`.
+    # The second, `s`, contains the distance in kilometres from the requested
+    # lat/lon values from `x` in km.
 
     row <- vector(mode = "list", length = length(x))
     distance <- row
@@ -159,6 +173,7 @@ extract_weather <-
         ),
         1
       )
+
       row[[i]] <- which.min(d)
       distance[[i]] <- min(d)
       t <- data.table(location = as.factor(names(x)), row, distance)
@@ -168,13 +183,13 @@ extract_weather <-
     stations_meta$location <- t$location
     stations_meta$distance <- t$distance
 
-    if (any(stations_meta$owner == "BOM")) {
+    if (which_api == "silo" | which_api == "all") {
       silo_stations <-
         subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
       silo_stations[, station_code := as.character(station_code)]
       silo_stations <- split(x = silo_stations[, -2],
                              f = silo_stations$location)
-    } else {
+    } else if (which_api == "dpird" | which_api == "all") {
       dpird_stations <-
         subset(stations_meta, owner != "BOM")[, c("station_code", "location")]
       dpird_stations[, station_code := as.character(station_code)]
@@ -269,4 +284,21 @@ extract_weather <-
     (sin(delta_lat / 2)) ^ 2,
     cos(lat1) * cos(lat2) * (sin(delta_lon / 2)) ^ 2
   )))
+}
+
+#' Check user-input API value
+#' @param which_api user-provided value for `which_api`
+#' @return A lower-case string of a valid API value for \pkg{weatherOz}
+#' @noRd
+.check_which_api <- function(.which_api) {
+  .which_api <- tolower(.which_api)
+
+  if (.which_api %notin% c("all", "silo", "dpird")) {
+    stop(
+      call. = FALSE,
+      "You have provided an invalide value for `which_api`.\n",
+      "Valid values are 'all', 'silo' or 'dpird'."
+    )
+  }
+  return(.which_api)
 }
