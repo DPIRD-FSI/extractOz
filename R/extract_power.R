@@ -6,10 +6,10 @@
 #'  for [nasapower::get_power()] that will only work with Australian locations.
 #'
 #' @inheritParams extract_ae_zone
-#' @param first `Integer`. A string representing the start date of the query in
+#' @param start_date `Integer`. A string representing the start date of the query in
 #'  the format 'yyyymmdd' (ISO-8601).  Not used when `temporal_api` is set to
 #'  \dQuote{climatology}. See argument details for more.
-#' @param last `Integer`. A string representing the end date of the query in the
+#' @param end_date `Integer`. A string representing the end date of the query in the
 #' format 'yyyymmdd' (ISO-8601).  Not used when `temporal_api` is set to
 #'  \dQuote{climatology}. See argument details for more.
 #' @param community A character vector providing community name: \dQuote{ag},
@@ -142,8 +142,8 @@
 #'
 #' extract_power(
 #'   x = locs,
-#'   first = "19850101",
-#'   last = "19850101",
+#'   start_date = "19850101",
+#'   end_date = "19850101",
 #'   community = "ag",
 #'   pars = c("RH2M", "T2M", "PRECTOTCORR"),
 #'   temporal_api = "daily"
@@ -155,8 +155,8 @@
 #'
 #' @export
 extract_power <- function(x,
-                          first,
-                          last,
+                          start_date,
+                          end_date,
                           pars,
                           community,
                           temporal_api = NULL,
@@ -168,14 +168,14 @@ extract_power <- function(x,
   .dates <-
     c(
       paste(
-        substr(first, 1, 4),
-        substr(first, 5, 6),
-        substr(first, 7, 8),
+        substr(start_date, 1, 4),
+        substr(start_date, 5, 6),
+        substr(start_date, 7, 8),
         sep = "-"
       ),
-      paste(substr(last, 1, 4),
-            substr(last, 5, 6),
-            substr(last, 7, 8),
+      paste(substr(end_date, 1, 4),
+            substr(end_date, 5, 6),
+            substr(end_date, 7, 8),
             sep = "-")
     )
 
