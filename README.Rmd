@@ -1,7 +1,9 @@
 ---
-title: "{extractOz}: A Unified Approach to Extracting Data About Australian Locations Using GPS Points <img src='man/figures/logo.png' align='right' />"
+title: ""
 output: github_document
 ---
+
+# {extractOz}: A Unified Approach to Extracting Data About Australian Locations Using GPS Points <img src='man/figures/logo.png' align='right' />
 
 <!-- badges: start -->
 [![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/DPIRD-FSI/extractOz/actions)

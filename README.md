@@ -1,7 +1,5 @@
-{extractOz}: A Unified Approach to Extracting Data About Australian
-Locations Using GPS Points
-<img src='man/figures/logo.png' align='right' />
-================
+
+# {extractOz}: A Unified Approach to Extracting Data About Australian Locations Using GPS Points <img src='man/figures/logo.png' align='right' />
 
 <!-- badges: start -->
 
@@ -77,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpC8U8lb/SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpZfcXSQ/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
