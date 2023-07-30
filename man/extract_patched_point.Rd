@@ -29,6 +29,11 @@ beginning of the range to query in the format \dQuote{yyyy-mm-dd}
 the range query in the format  \dQuote{yyyy-mm-dd} (ISO8601).  Data
 returned is inclusive of this date.  Defaults to the current system date.}
 
+\item{n_stations}{An \code{integer} value that indicates how many stations per
+location should be returned.  Defaults to one (1) station with only the
+nearest station being returned.  Values greater than 1 will result in the
+next nearest stations being returned from 1 - n.}
+
 \item{values}{A \code{character} string with the type of weather data to
 return.  See \strong{Available Values} for a full list of valid values.
 Defaults to \code{all} with all available values being returned.}

@@ -37,6 +37,10 @@
 #' @param end_date A `character` string or `Date` object representing the end of
 #'   the range query in the format  \dQuote{yyyy-mm-dd} (ISO8601).  Data
 #'   returned is inclusive of this date.  Defaults to the current system date.
+#' @param n_stations An `integer` value that indicates how many stations per
+#'   location should be returned.  Defaults to one (1) station with only the
+#'   nearest station being returned.  Values greater than 1 will result in the
+#'   next nearest stations being returned from 1 - n.
 #' @param values A `character` string with the type of weather data to
 #'   return.  See **Available Values** for a full list of valid values.
 #'   Defaults to `all` with all available values being returned.
