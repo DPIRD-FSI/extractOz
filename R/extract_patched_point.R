@@ -255,10 +255,6 @@ extract_patched_point <- function(x,
   xx[, c("location", "coord") := data.table::tstrsplit(ind, ".", fixed = TRUE)]
   xx[, ind := NULL]
   xx <- data.table::dcast(xx, location ~ coord, value.var = "values")
-  data.table::setnames(xx,
-                       old = c("x", "y"),
-                       new = c("weather_stn_longitude",
-                               "weather_stn_latitude"))
   out <- merge(out, xx, by = "location")
   return(out[])
 }
