@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/DPIRD-FSI/extractOz",
   "issueTracker": "https://github.com/DPIRD-FSI/extractOz/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.0.0",
+  "version": "1.0.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -235,7 +235,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1409.039KB",
+  "fileSize": "1420.314KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
