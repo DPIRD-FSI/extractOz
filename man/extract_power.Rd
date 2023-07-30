@@ -201,7 +201,7 @@ extract_power(
 \seealso{
 Other weather data: 
 \code{\link{extract_data_drill}()},
-\code{\link{extract_silo}()}
+\code{\link{extract_patched_point}()}
 }
 \author{
 Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
