@@ -1,5 +1,6 @@
 
 
+
 #' Add %notin% function
 #'
 #' Negates `%in%` for easier (mis)matching.
@@ -27,7 +28,7 @@
 #' @examples
 #' locs <- list(
 #'   "Merredin" = c(x = 118.28, y = -31.48),
-#'   "Corrigin" = c(x = 117.87, -32.33),
+#'   "Corrigin" = c(x = 117.87, y = -32.33),
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #'
 #' .create_dt(x = locs)
@@ -53,10 +54,13 @@
     stop(call. = FALSE,
          "`x` must be a named list object of lon/lat values.")
   }
-  for (i in x)
-  {
-    if (i[["x"]] < 114.5 || i[["x"]] > 152.5)
-    {
+
+  for (i in x) {
+    if (any(names(i) %notin% c("x", "y"))) {
+      stop(call. = FALSE,
+           "The vectors of lon/lat must be named 'x' and 'y', respectively")
+    }
+    if (i[["x"]] < 114.5 || i[["x"]] > 152.5) {
       stop(
         call. = FALSE,
         "Please check your longitude, `",
