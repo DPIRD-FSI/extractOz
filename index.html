@@ -5,8 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extract Australian Soil, Weather and GRDC Agro-ecological Zone
-        Information from GPS Points • extractOz</title>
+<title>Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points • extractOz</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -18,8 +17,7 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Extract Australian Soil, Weather and GRDC Agro-ecological Zone
-        Information from GPS Points">
+<script src="pkgdown.js"></script><meta property="og:title" content="Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points">
 <meta property="og:description" content="Extracts point data for a given GPS coordinate that includes major
   soil order, weather and GRDC agro-ecological zone information at that point.">
 <meta property="og:image" content="/logo.png">
@@ -43,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">extractOz</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.9000</span>
       </span>
     </div>
 
@@ -78,29 +76,40 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div class="section level1">
-<div class="page-header"><h1 id="extractoz-a-unified-approach-to-extracting-data-about-australian-locations-using-gps-points-">{extractOz} a unified approach to extracting data about Australian locations using GPS points <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#extractoz-a-unified-approach-to-extracting-data-about-australian-locations-using-gps-points-"></a>
-</h1></div>
+
+<p>{extractOz}: A Unified Approach to Extracting Data About Australian Locations Using GPS Points <img src="reference/figures/logo.png" align="right"> ================</p>
 <!-- badges: start -->
 
 <p>Extract the GRDC agroecological zone, major soil order and weather data from your GPS sampling points. Datasets for the GRDC agroecological zones and functions that automatically download modified data from the Digital Atlas of Australian Soils are included in this package for ease of use. You may also use your own geospatial vector format file to extract similar information using the generic function, <code><a href="reference/extract_area.html">extract_area()</a></code>.</p>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
+<p>You can install {extractOz} like so.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"DPIRD-FSI/extractOz"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DPIRD-FSI/extractOz" class="external-link">extractOz</a></span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"DPIRD-FSI/extractOz"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Load the packages necessary to execute the examples that follow.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DPIRD-FSI/extractOz" class="external-link">extractOz</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Attaching package: 'dplyr'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## The following objects are masked from 'package:stats':</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">##     filter, lag</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## The following objects are masked from 'package:base':</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">##     intersect, setdiff, setequal, union</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="create-locations-in-wa-and-nsw">Create locations in WA and NSW<a class="anchor" aria-label="anchor" href="#create-locations-in-wa-and-nsw"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Merredin"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">118.28</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">31.48</span><span class="op">)</span>,</span>
 <span>  <span class="st">"Corrigin"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">117.87</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">32.33</span><span class="op">)</span>,</span>
@@ -111,43 +120,189 @@
 <h2 id="extract-the-grdc-agroecological-zones">Extract the GRDC AgroEcological Zones<a class="anchor" aria-label="anchor" href="#extract-the-grdc-agroecological-zones"></a>
 </h2>
 <p>See <code>?extract_ae_zone()</code> for more help on how to use this function.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_ae_zone.html">extract_ae_zone</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="extract-the-soil-order">Extract the soil order<a class="anchor" aria-label="anchor" href="#extract-the-soil-order"></a>
 </h2>
 <p>See <code>?extract_soil_order()</code> for more help on how to use this function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_daas_soil_order.html">extract_daas_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reading layer `soilAtlas2M_ASC_Conversion' from data source </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpC8U8lb/SoilAtlas2M_ASC_Conversion_v01' </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   using driver `ESRI Shapefile'</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple feature collection with 22584 features and 7 fields</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Geometry type: POLYGON</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Dimension:     XY</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Bounding box:  xmin: 112.8959 ymin: -43.63287 xmax: 153.6362 ymax: -10.49096</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Geodetic CRS:  GDA94</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data for these Locations in 2020<a class="anchor" aria-label="anchor" href="#get-weather-data-for-these-locations-in-2020"></a>
 </h2>
 <p>Using the previously used list of GPS points, fetch weather data from SILO for 2020. This is just a non-working example, replace <code>your_api_key</code> with your email address below. See <code>?extract_patched_point()</code> for more help on how to use this function.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="a-note-on-api-keys">A Note on API Keys<a class="anchor" aria-label="anchor" href="#a-note-on-api-keys"></a>
+</h3>
+<p>The examples in this README assume that you have stored your API key in your .Renviron file. See <a href="https://rstats.wtf/r-startup.html#renviron" class="external-link">Chapter 8</a> in “What They Forgot to Teach You About R” by Bryan <em>et al.</em> for more on storing details in your .Renviron if you are unfamiliar.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">three_sites</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="reference/extract_patched_point.html">extract_patched_point</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">locs</span>,</span>
 <span>    start_date <span class="op">=</span> <span class="st">"20200101"</span>,</span>
 <span>    end_date <span class="op">=</span> <span class="st">"20201231"</span>,</span>
-<span>    api_key <span class="op">=</span> <span class="st">"your_api_key"</span></span>
+<span>    api_key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"SILO_API_KEY"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## You have requested station observation data but some rows in this</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset have data codes for interpolated data.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Check the 'data_source' columns and `get_patched_point()` or</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## `get_data_drill()` documentation for further details on codes and</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">## references.</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="do">## You have requested station observation data but some rows in this</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset have data codes for interpolated data.</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Check the 'data_source' columns and `get_patched_point()` or</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">## `get_data_drill()` documentation for further details on codes and</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## references.</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="join-the-weather-data-with-ae-zone-soil-order-and-site-information">Join the Weather Data with AE Zone, Soil Order and Site Information<a class="anchor" aria-label="anchor" href="#join-the-weather-data-with-ae-zone-soil-order-and-site-information"></a>
 </h2>
 <p>Now using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::left_join()</a></code>, create a single <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the location, GPS coordinates, agroecological zone and weather data.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"location"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Joining with `by = join_by(location, x, y)`</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">##       location      x      y       ae_zone station_code station_name month  day</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    1: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    2: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">##    3: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">##    4: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">##    5: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                          </span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="do">##             date air_tmax air_tmax_source air_tmin air_tmin_source  elev_m</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="do">##    1: 2020-01-01     37.4              25     15.3              25 295.0 m</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="do">##    2: 2020-01-02     23.0               0     16.0              25 295.0 m</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="do">##    3: 2020-01-03     26.0               0     12.5               0 295.0 m</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="do">##    4: 2020-01-04     34.0               0      8.0               0 295.0 m</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="do">##    5: 2020-01-05     38.0               0     12.0               0 295.0 m</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                     </span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094: 2020-12-27     29.8               0     15.0               0 394.9 m</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095: 2020-12-28     26.8               0     18.3               0 394.9 m</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096: 2020-12-29     28.9               0     17.5               0 394.9 m</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097: 2020-12-30     29.4               0     14.9               0 394.9 m</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098: 2020-12-31     30.0               0     16.1               0 394.9 m</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="do">##       et_morton_actual et_morton_actual_source et_morton_potential</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:              3.1                      26                10.8</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:              5.0                      26                 5.0</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:              2.8                      26                 6.9</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:              4.0                      26                 8.0</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:              7.9                      26                 9.2</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                             </span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:              5.8                      26                 7.1</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:              3.7                      26                 4.6</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:              2.6                      26                 5.4</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:              4.0                      26                 4.7</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:              3.0                      26                 6.0</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="do">##       et_morton_potential_source et_morton_wet et_morton_wet_source</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:                         26           7.0                   26</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:                         26           5.0                   26</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:                         26           4.8                   26</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:                         26           6.0                   26</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:                         26           8.5                   26</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                              </span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:                         26           6.5                   26</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:                         26           4.1                   26</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:                         26           4.0                   26</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:                         26           4.4                   26</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:                         26           4.5                   26</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="do">##       et_short_crop et_short_crop_source et_tall_crop et_tall_crop_source</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:           7.9                   26         10.2                  26</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:           3.6                   26          3.9                  26</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:           5.1                   26          6.4                  26</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:           6.7                   26          8.7                  26</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:           7.5                   26          9.2                  26</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                    </span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:           5.4                   26          6.4                  26</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:           3.3                   26          4.0                  26</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:           3.8                   26          4.8                  26</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:           3.6                   26          4.3                  26</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:           4.4                   26          5.6                  26</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="do">##       evap_comb evap_comb_source evap_morton_lake evap_morton_lake_source</span></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:       9.5               25              7.9                      26</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:      10.4                0              5.1                      26</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:       8.0                0              5.5                      26</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:       8.0                0              6.8                      26</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:      10.6                0              8.8                      26</span></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                    </span></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:       5.5               25              6.7                      26</span></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:       3.6               25              4.2                      26</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:       2.6               25              4.0                      26</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:       4.3               25              4.4                      26</span></span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:       5.0               25              4.6                      26</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="do">##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted latitude</span></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:      9.5              25     11.0              26 2023-07-30 -32.3292</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:     10.4               0      6.4              26 2023-07-30 -32.3292</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:      8.0               0      7.9              26 2023-07-30 -32.3292</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:      8.0               0      9.8              26 2023-07-30 -32.3292</span></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:     10.6               0     10.6              26 2023-07-30 -32.3292</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                      </span></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:      5.5              25      6.9              26 2023-07-30 -31.0742</span></span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:      3.6              25      4.3              26 2023-07-30 -31.0742</span></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:      2.6              25      5.1              26 2023-07-30 -31.0742</span></span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:      4.3              25      5.0              26 2023-07-30 -31.0742</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:      5.0              25      5.9              26 2023-07-30 -31.0742</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="do">##       longitude   mslp mslp_source radiation radiation_source rainfall</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:  117.8733 1012.7          25      30.1               25      0.0</span></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:  117.8733 1010.8           0      21.1               25      0.0</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:  117.8733 1017.2           0      24.1               25      0.0</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:  117.8733 1020.9           0      28.5               25      0.0</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:  117.8733 1015.9           0      32.2               25      0.0</span></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                 </span></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:  150.8362 1015.7           0      26.2               25      2.0</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:  150.8362 1012.7           0      14.2               25     10.2</span></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:  150.8362 1011.4           0      14.3               25      1.0</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:  150.8362 1014.2           0      15.1               25     18.8</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:  150.8362 1015.8           0      17.0               25      0.0</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="do">##       rainfall_source rh_tmax rh_tmax_source rh_tmin rh_tmin_source   vp</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:               0    22.6             26    83.5             26 14.5</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:               0    71.2             26   100.0             26 20.0</span></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:               0    37.5             26    87.0             26 12.6</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:               0    26.3             26   100.0             26 14.0</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:               0    33.4             26   100.0             26 22.1</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                   </span></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:               0    46.5             26   100.0             26 19.5</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:               0    61.9             26   100.0             26 21.8</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:               0    50.0             26    99.6             26 19.9</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:               0    52.7             26   100.0             26 21.6</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:               0    44.5             26   100.0             26 18.9</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="do">##       vp_deficit vp_deficit_source vp_source daas_soil_order</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:       32.7                26        25         Sodosol</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:        5.2                26         0         Sodosol</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:       14.9                26         0         Sodosol</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:       22.7                26         0         Sodosol</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:       24.1                26         0         Sodosol</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                       </span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:       14.3                26         0        Dermosol</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:        9.3                26         0        Dermosol</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:       13.8                26         0        Dermosol</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:       11.6                26         0        Dermosol</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:       15.8                26         0        Dermosol</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
 <p>Please note that the {extractOz} project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
