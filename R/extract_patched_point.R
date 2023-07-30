@@ -233,7 +233,7 @@ extract_patched_point <- function(x,
     out <- data.table::rbindlist(
       purrr::map(
         .x = silo_stations,
-        .f = weatherOz::get_silo,
+        .f = weatherOz::get_patched_point,
         start_date = start_date,
         end_date = end_date,
         values = values,
