@@ -232,7 +232,6 @@ extract_patched_point <- function(x,
   silo_stations <- split(x = silo_stations[, -2],
                          f = silo_stations$location)
 
-
   out <- data.table::rbindlist(
     purrr::map(
       .x = silo_stations,
@@ -245,6 +244,22 @@ extract_patched_point <- function(x,
     idcol = "location"
   )[, -4]
 
+  data.table::setnames(out,
+                       old = c("longitude",
+                               "latitude"),
+                       new = c("station_longitude",
+                               "station_latitude"))
+
+  xx <- unlist(x)
+  xx <- data.table::setDT(stack(xx))
+  xx[, c("location", "coord") := data.table::tstrsplit(ind, ".", fixed = TRUE)]
+  xx[, ind := NULL]
+  xx <- data.table::dcast(xx, location ~ coord, value.var = "values")
+  data.table::setnames(xx,
+                       old = c("x", "y"),
+                       new = c("weather_stn_longitude",
+                               "weather_stn_latitude"))
+  out <- merge(out, xx, by = "location")
   return(out[])
 }
 
