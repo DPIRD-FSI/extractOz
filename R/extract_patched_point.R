@@ -222,31 +222,30 @@ extract_patched_point <- function(x,
     t <- data.table(location = as.factor(names(x)), row, distance)
   }
 
-  stations_meta <- all_stations[unlist(t$row), ]
+  stations_meta <- all_stations[unlist(t$row),]
   stations_meta$location <- t$location
   stations_meta$distance <- t$distance
 
-    silo_stations <-
-      subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
-    silo_stations[, station_code := as.character(station_code)]
-    silo_stations <- split(
-      x = silo_stations[, -2],
-      f = silo_stations$location
-    )
+  silo_stations <-
+    subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
+  silo_stations[, station_code := as.character(station_code)]
+  silo_stations <- split(x = silo_stations[, -2],
+                         f = silo_stations$location)
 
-    out <- data.table::rbindlist(
-      purrr::map(
-        .x = silo_stations,
-        .f = weatherOz::get_patched_point,
-        start_date = start_date,
-        end_date = end_date,
-        values = values,
-        api_key = api_key
-      ),
-      idcol = "location"
-    )[, -4]
 
-    return(out[])
+  out <- data.table::rbindlist(
+    purrr::map(
+      .x = silo_stations,
+      .f = weatherOz::get_patched_point,
+      start_date = start_date,
+      end_date = end_date,
+      values = values,
+      api_key = api_key
+    ),
+    idcol = "location"
+  )[, -4]
+
+  return(out[])
 }
 
 #' Distance over a great circle. Reasonable approximation.
@@ -263,7 +262,7 @@ extract_patched_point <- function(x,
 
   # radius of earth
   12742 * asin(sqrt(`+`(
-    (sin(delta_lat / 2))^2,
-    cos(lat1) * cos(lat2) * (sin(delta_lon / 2))^2
+    (sin(delta_lat / 2)) ^ 2,
+    cos(lat1) * cos(lat2) * (sin(delta_lon / 2)) ^ 2
   )))
 }
