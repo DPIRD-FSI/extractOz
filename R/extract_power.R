@@ -165,23 +165,12 @@ extract_power <- function(x,
                           wind_surface = NULL,
                           temporal_average = NULL,
                           time_standard = "LST") {
-  .dates <-
-    c(
-      paste(
-        substr(start_date, 1, 4),
-        substr(start_date, 5, 6),
-        substr(start_date, 7, 8),
-        sep = "-"
-      ),
-      paste(substr(end_date, 1, 4),
-            substr(end_date, 5, 6),
-            substr(end_date, 7, 8),
-            sep = "-")
-    )
 
   .check_lonlat(x)
 
-  return(data.table::rbindlist(
+  .dates <- c(start_date, end_date)
+
+  out <- data.table::rbindlist(
     purrr::map(
       .x = x,
       .f = nasapower::get_power,
@@ -191,5 +180,13 @@ extract_power <- function(x,
       dates = .dates
     ),
     idcol = "location"
-  ))
+  )
+
+  data.table::setnames(out,
+                       tolower(names(out)))
+
+  data.table::setnames(out,
+                       old = c("lon", "lat"),
+                       new = c("longitude", "latitude"))
+  return(out[])
 }
