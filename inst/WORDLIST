@@ -6,6 +6,7 @@ Agro
 AgroEcological
 Agroclimatology
 Agroecological
+Agroecoregions
 Beswick
 CRS
 DAAS
@@ -14,6 +15,7 @@ DPIRD
 Deaccumulated
 Evapotranspiration
 FAO
+GPKG
 GRDC
 GRI
 Indooroopilly
@@ -64,5 +66,6 @@ sb
 tibble
 vapour
 weatherOz
+xz
 yyyy
 yyyymmdd
