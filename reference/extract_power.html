@@ -62,8 +62,8 @@ for <code><a href="https://docs.ropensci.org/nasapower/reference/get_power.html"
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">extract_power</span><span class="op">(</span></span>
 <span>  <span class="va">x</span>,</span>
-<span>  <span class="va">first</span>,</span>
-<span>  <span class="va">last</span>,</span>
+<span>  <span class="va">start_date</span>,</span>
+<span>  <span class="va">end_date</span>,</span>
 <span>  <span class="va">pars</span>,</span>
 <span>  <span class="va">community</span>,</span>
 <span>  temporal_api <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -90,13 +90,13 @@ of the individual <code>vectors</code> and will be included in a "location" colu
 the output.</p></dd>
 
 
-<dt>first</dt>
+<dt>start_date</dt>
 <dd><p><code>Integer</code>. A string representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).  Not used when <code>temporal_api</code> is set to
 “climatology”. See argument details for more.</p></dd>
 
 
-<dt>last</dt>
+<dt>end_date</dt>
 <dd><p><code>Integer</code>. A string representing the end date of the query in the
 format 'yyyymmdd' (ISO-8601).  Not used when <code>temporal_api</code> is set to
 “climatology”. See argument details for more.</p></dd>
@@ -155,7 +155,7 @@ terminology.</p></dd>
 <dt>time_standard</dt>
 <dd><p>POWER provides two different time standards:</p><ul><li><p>Universal Time Coordinated (<acronym>UTC</acronym>): is the standard time measure
 that used by the world.</p></li>
-<li><p>Local Solar Time (<acronym>LST</acronym>): A 15 Degrees swath that represents
+<li><p>Local Solar Time (<acronym>LST</acronym>): a 15 Degrees swath that represents
 solar noon at the middle longitude of the swath.
 Defaults to <code>LST</code>.</p></li>
 </ul></dd>
@@ -306,6 +306,16 @@ Valid surface types are described here.</p>
 
 
 </dl></div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p>Other weather data: 
+<code><a href="extract_data_drill.html">extract_data_drill</a>()</code>,
+<code><a href="extract_patched_point.html">extract_patched_point</a>()</code></p></div>
+    </div>
+    <div id="author">
+    <h2>Author</h2>
+    <p>Adam H. Sparks, <a href="mailto:adam.sparks@dpird.wa.gov.au">adam.sparks@dpird.wa.gov.au</a></p>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
@@ -318,8 +328,8 @@ Valid surface types are described here.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">extract_power</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  x <span class="op">=</span> <span class="va">locs</span>,</span></span>
-<span class="r-in"><span>  first <span class="op">=</span> <span class="st">"19850101"</span>,</span></span>
-<span class="r-in"><span>  last <span class="op">=</span> <span class="st">"19850101"</span>,</span></span>
+<span class="r-in"><span>  start_date <span class="op">=</span> <span class="st">"19850101"</span>,</span></span>
+<span class="r-in"><span>  end_date <span class="op">=</span> <span class="st">"19850101"</span>,</span></span>
 <span class="r-in"><span>  community <span class="op">=</span> <span class="st">"ag"</span>,</span></span>
 <span class="r-in"><span>  pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RH2M"</span>, <span class="st">"T2M"</span>, <span class="st">"PRECTOTCORR"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  temporal_api <span class="op">=</span> <span class="st">"daily"</span></span></span>

@@ -43,10 +43,13 @@
     <loc>/reference/extract_daas_soil_order.html</loc>
   </url>
   <url>
-    <loc>/reference/extract_power.html</loc>
+    <loc>/reference/extract_data_drill.html</loc>
   </url>
   <url>
-    <loc>/reference/extract_silo.html</loc>
+    <loc>/reference/extract_patched_point.html</loc>
+  </url>
+  <url>
+    <loc>/reference/extract_power.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>

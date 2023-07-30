@@ -75,10 +75,11 @@ the output.</p></dd>
 
 
 <dt>cache</dt>
-<dd><p>Logical.  Store soil data locally for later use?  If <code>FALSE</code>,
+<dd><p><code>Boolean</code>.  Store soil data locally for later use?  If <code>FALSE</code>,
 the downloaded files are removed when <span style="R">R</span> session is closed. To take advantage
 of cached files in future sessions, use <code>cache = TRUE</code>.  Defaults to <code>FALSE</code>.
-Value is optional.</p></dd>
+Value is optional.  All future requests will use the cached data unless
+<code><a href="remove_cache.html">remove_cache()</a></code> is used to remove the cached file.</p></dd>
 
 </dl></div>
     <div id="value">
