@@ -171,5 +171,7 @@ extract_data_drill <- function(x,
         idcol = "location"
     )
 
+    # replace the ".x" that appears after the location names
+    out[, location := gsub(".x", "", location)]
     return(out[])
 }
