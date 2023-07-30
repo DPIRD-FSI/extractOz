@@ -8,7 +8,7 @@ test_that("extract_patched_point() fetches the expected weather data", {
       start_date = "19850101",
       end_date = "19850101",
       values = "all",
-      api_key = Sys.getenv("SILO_API_KEY")
+      api_key = "slavish_moo_0k@icloud.com"
     )
   })
   expect_equal(unique(w_all$location),

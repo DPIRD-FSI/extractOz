@@ -1,0 +1,94 @@
+---
+title: "{extractOz}: A Unified Approach to Extracting Data About Australian Locations Using GPS Points <img src='man/figures/logo.png' align='right' />"
+output: github_document
+---
+
+<!-- badges: start -->
+[![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/DPIRD-FSI/extractOz/actions)
+[![codecov](https://codecov.io/gh/DPIRD-FSI/extractOz/branch/main/graph/badge.svg?token=PBtL3rNIYb)](https://codecov.io/gh/DPIRD-FSI/extractOz)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- badges: end -->
+
+Extract the GRDC agroecological zone, major soil order and weather data from your GPS sampling points.
+Datasets for the GRDC agroecological zones and functions that automatically download modified data from the Digital Atlas of Australian Soils are included in this package for ease of use.
+You may also use your own geospatial vector format file to extract similar information using the generic function, `extract_area()`.
+
+## Quick start
+
+You can install {extractOz} like so.
+
+```{r setup, eval=FALSE}
+if (!require("remotes")) {
+  install.packages("remotes")
+}
+
+remotes::install_github("DPIRD-FSI/extractOz", build_vignettes = TRUE)
+```
+
+Load the packages necessary to execute the examples that follow.
+
+```{r load-libs}
+library(extractOz)
+library(dplyr)
+```
+
+## Create locations in WA and NSW
+
+```{r create-locs}
+locs <- list(
+  "Merredin" = c(x = 118.28, y = -31.48),
+  "Corrigin" = c(x = 117.87, y = -32.33),
+  "Tamworth" = c(x = 150.84, y = -31.07)
+)
+```
+
+## Extract the GRDC AgroEcological Zones
+
+See `?extract_ae_zone()` for more help on how to use this function.
+
+```{r az-zone}
+z <- extract_ae_zone(x = locs)
+```
+
+## Extract the soil order
+
+See `?extract_soil_order()` for more help on how to use this function.
+
+```{r soil-order}
+s <- extract_daas_soil_order(x = locs)
+```
+
+## Get Weather Data for these Locations in 2020
+
+Using the previously used list of GPS points, fetch weather data from SILO for 2020.
+This is just a non-working example, replace `your_api_key` with your email address below.
+See `?extract_patched_point()` for more help on how to use this function.
+
+### A Note on API Keys
+
+The examples in this README assume that you have stored your API key in your .Renviron file.
+See [Chapter 8](https://rstats.wtf/r-startup.html#renviron) in "What They Forgot to Teach You About R" by Bryan _et al._ for more on storing details in your .Renviron if you are unfamiliar.
+
+```{r ppd}
+three_sites <-
+  extract_patched_point(
+    x = locs,
+    start_date = "20200101",
+    end_date = "20201231",
+    api_key = Sys.getenv("SILO_API_KEY")
+  )
+```
+
+## Join the Weather Data with AE Zone, Soil Order and Site Information
+
+Now using `dplyr::left_join()`, create a single `data.frame()` of the location, GPS coordinates, agroecological zone and weather data.
+
+```{r join-all}
+left_join(z, three_sites, by = c("location" = "location")) %>% 
+  left_join(s)
+```
+
+## Code of Conduct
+
+Please note that the {extractOz} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
