@@ -106,14 +106,14 @@ x %>%
   ) -> soil_zone
 
 # join the `soil_zone` with weather data from SILO
-  left_join(
-    x = soil_zone,
-    y = extract_patched_point(
-      x = df_to_list(x),
-      start_date = "20200101",
-      end_date = "20201231",
-      api_key = "your_api_key"
-    ),
-    by = c("location" = "location")
-  ) -> complete_data
+left_join(
+  x = soil_zone,
+  y = extract_patched_point(
+    x = df_to_list(x),
+    start_date = "20200101",
+    end_date = "20201231",
+    api_key = "your_api_key"
+  ),
+  by = c("location" = "location")
+) -> complete_data
 ```
