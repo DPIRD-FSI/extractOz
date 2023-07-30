@@ -75,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpFjMFYg/SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpkpkyeR/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
@@ -126,7 +126,11 @@ Now using `dplyr::left_join()`, create a single `data.frame()` of the
 location, GPS coordinates, agroecological zone and weather data.
 
 ``` r
-left_join(z, three_sites, by = c("location" = "location")) %>% 
+left_join(z, three_sites, by = c(
+  "location" = "location",
+  "x" = "x",
+  "y" = "y"
+)) %>%
   left_join(s)
 ```
 
@@ -252,18 +256,18 @@ left_join(z, three_sites, by = c("location" = "location")) %>%
     ## 1096:             26 19.9       13.8                26         0
     ## 1097:             26 21.6       11.6                26         0
     ## 1098:             26 18.9       15.8                26         0
-    ##       weather_stn_longitude weather_stn_latitude daas_soil_order
-    ##    1:                117.87               -32.33         Sodosol
-    ##    2:                117.87               -32.33         Sodosol
-    ##    3:                117.87               -32.33         Sodosol
-    ##    4:                117.87               -32.33         Sodosol
-    ##    5:                117.87               -32.33         Sodosol
-    ##   ---                                                           
-    ## 1094:                150.84               -31.07        Dermosol
-    ## 1095:                150.84               -31.07        Dermosol
-    ## 1096:                150.84               -31.07        Dermosol
-    ## 1097:                150.84               -31.07        Dermosol
-    ## 1098:                150.84               -31.07        Dermosol
+    ##       daas_soil_order
+    ##    1:         Sodosol
+    ##    2:         Sodosol
+    ##    3:         Sodosol
+    ##    4:         Sodosol
+    ##    5:         Sodosol
+    ##   ---                
+    ## 1094:        Dermosol
+    ## 1095:        Dermosol
+    ## 1096:        Dermosol
+    ## 1097:        Dermosol
+    ## 1098:        Dermosol
 
 ## Code of Conduct
 
