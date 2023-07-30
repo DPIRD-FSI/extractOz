@@ -1,7 +1,7 @@
 
 #' Extract Weather from SILO Data Drill Using Australian GPS Coordinates
 #'
-#' A modified wrapper version of [weatherOz::get_patched_point()] that allows
+#' A modified wrapper version of [weatherOz::get_data_drill()] that allows
 #'  for fetching many geophysical points or a single geophysical point.
 #'  Extracts interpolated weather data from the \acronym{SILO} \acronym{API}
 #'  from the gridded data, PatchedPointData, data set.
@@ -124,35 +124,35 @@
 #'
 #' @examples
 #' \dontrun{
-#'     # Source data from a list of latitude and longitude coordinates in NSW
-#'     # and WA
-#'     locs <- list(
-#'         "Merredin" = c(x = 118.28, y = -31.48),
-#'         "Corrigin" = c(x = 117.87, -32.33),
-#'         "Tamworth" = c(x = 150.84, y = -31.07)
-#'     )
+#' # Source data from a list of latitude and longitude coordinates in NSW
+#' # and WA
+#' locs <- list(
+#'     "Merredin" = c(x = 118.28, y = -31.48),
+#'     "Corrigin" = c(x = 117.87, -32.33),
+#'     "Tamworth" = c(x = 150.84, y = -31.07)
+#' )
 #'
-#'     wd <- extract_silo(
-#'         x = locs,
-#'         start_date = "20211001",
-#'         end_date = "20211201",
-#'         values = "all",
-#'         api_key = "your_api_key"
-#'     )
+#' wd <- extract_silo(
+#'     x = locs,
+#'     start_date = "20211001",
+#'     end_date = "20211201",
+#'     values = "all",
+#'     api_key = "your_api_key"
+#' )
 #' }
 #'
 #' @family weather data
+#' @family SILO
 #'
 #' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
 #'
 #' @export
 
-extract_silo <- function(x,
-                           start_date,
-                           end_date,
-                           values = "all",
-                           api_key) {
-
+extract_data_drill <- function(x,
+                               start_date,
+                               end_date,
+                               values = "all",
+                               api_key) {
     .check_lonlat(x)
 
     return(data.table::rbindlist(

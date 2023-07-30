@@ -200,6 +200,7 @@ extract_power(
 }
 \seealso{
 Other weather data: 
+\code{\link{extract_data_drill}()},
 \code{\link{extract_silo}()}
 }
 \author{
