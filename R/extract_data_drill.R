@@ -155,19 +155,21 @@ extract_data_drill <- function(x,
                                api_key) {
     .check_lonlat(x)
 
-    return(data.table::rbindlist(
+    out <- data.table::rbindlist(
         purrr::map2(
-            .x = purrr::map(x, 1),
-            .y = purrr::map(x, 2),
+            .x = unlist(lapply(x, "[", 1)),
+            .y = unlist(lapply(x, "[", 2)),
             .f = ~ weatherOz::get_data_drill(
-                latitude = .y,
                 longitude = .x,
+                latitude = .y,
                 start_date = start_date,
                 end_date = end_date,
-                values = all,
+                values = values,
                 api_key = api_key
             )
         ),
         idcol = "location"
-    ))
+    )
+
+    return(out[])
 }
