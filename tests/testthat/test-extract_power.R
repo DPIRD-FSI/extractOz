@@ -5,8 +5,8 @@ test_that("extract_power() fetches the expected weather data", {
   vcr::use_cassette("extract_power", {
     w_all <- extract_power(
       x = locs,
-      first = "19850101",
-      last = "19850101",
+      start_date = "19850101",
+      end_date = "19850101",
       community = "ag",
       pars = c("RH2M", "T2M", "PRECTOTCORR"),
       temporal_api = "daily"
