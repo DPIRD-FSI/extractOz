@@ -25,3 +25,13 @@ test_that(".check_lonlat() stops if lon is outside bounds", {
 
   expect_error(.check_lonlat(x = bad_lat))
 })
+
+test_that(".check_lonlat() stops if a vector object is unnamed", {
+  y_no_name <- list(
+    "Merredin" = c(x = 118.28, y = -31.48),
+    "Corrigin" = c(x = 117.87, -32.33),
+    "Tamworth" = c(x = 150.84, y = 31.07)
+  )
+
+  expect_error(.check_lonlat(x = y_no_name))
+})
