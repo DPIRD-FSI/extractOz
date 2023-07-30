@@ -9,8 +9,8 @@
 \usage{
 extract_power(
   x,
-  first,
-  last,
+  start_date,
+  end_date,
   pars,
   community,
   temporal_api = NULL,
@@ -29,11 +29,11 @@ order, each individual \code{vectors}' items should be named "x" (longitude) and
 of the individual \code{vectors} and will be included in a "location" column of
 the output.}
 
-\item{first}{\code{Integer}. A string representing the start date of the query in
+\item{start_date}{\code{Integer}. A string representing the start date of the query in
 the format 'yyyymmdd' (ISO-8601).  Not used when \code{temporal_api} is set to
 \dQuote{climatology}. See argument details for more.}
 
-\item{last}{\code{Integer}. A string representing the end date of the query in the
+\item{end_date}{\code{Integer}. A string representing the end date of the query in the
 format 'yyyymmdd' (ISO-8601).  Not used when \code{temporal_api} is set to
 \dQuote{climatology}. See argument details for more.}
 
@@ -77,7 +77,7 @@ terminology.}
 \itemize{
 \item Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 that used by the world.
-\item Local Solar Time (\acronym{LST}): A 15 Degrees swath that represents
+\item Local Solar Time (\acronym{LST}): a 15 Degrees swath that represents
 solar noon at the middle longitude of the swath.
 Defaults to \code{LST}.
 }}
@@ -190,11 +190,20 @@ locs <- list(
 
 extract_power(
   x = locs,
-  first = "19850101",
-  last = "19850101",
+  start_date = "19850101",
+  end_date = "19850101",
   community = "ag",
   pars = c("RH2M", "T2M", "PRECTOTCORR"),
   temporal_api = "daily"
 )
 \dontshow{\}) # examplesIf}
 }
+\seealso{
+Other weather data: 
+\code{\link{extract_data_drill}()},
+\code{\link{extract_patched_point}()}
+}
+\author{
+Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+}
+\concept{weather data}

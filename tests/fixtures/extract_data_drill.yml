@@ -1,0 +1,127 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php?longitude=118&latitude=-31&start=19850101&finish=19850101&format=csv&comment=RXNVDESCLJHGFTAPWM&username=adamhsparks%40gmail.com&password=api_request
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/8.1.2 r-curl/5.0.1 crul/1.4.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      content-type: text/plain; charset=UTF-8
+      content-length: '1169'
+      server: CloudFront
+      date: Sun, 30 Jul 2023 06:18:21 GMT
+      strict-transport-security: max-age=31536000; includeSubdomains;
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      access-control-allow-origin: '*'
+      x-cache: Hit from cloudfront
+      via: 1.1 f89d4b53f2f24a3703da95e533ae2486.cloudfront.net (CloudFront)
+      x-amz-cf-pop: PER50-C1
+      x-amz-cf-id: mG77Rd65I-sYpjjtemaKp4dFs9B0CT3_ZHhCPAcA_IF7SWm8poxdLQ==
+      age: '226'
+    body:
+      encoding: ''
+      file: no
+      string: |
+        latitude,longitude,YYYY-MM-DD,daily_rain,daily_rain_source,max_temp,max_temp_source,min_temp,min_temp_source,vp,vp_source,vp_deficit,vp_deficit_source,evap_pan,evap_pan_source,evap_syn,evap_syn_source,evap_comb,evap_comb_source,evap_morton_lake,evap_morton_lake_source,radiation,radiation_source,rh_tmax,rh_tmax_source,rh_tmin,rh_tmin_source,et_short_crop,et_short_crop_source,et_tall_crop,et_tall_crop_source,et_morton_actual,et_morton_actual_source,et_morton_potential,et_morton_potential_source,et_morton_wet,et_morton_wet_source,mslp,mslp_source,metadata
+         -31.0000, 118.0000,1985-01-01,    0.0,25, 28.4,25, 12.1,25,  8.9,25, 21.5,26, 11.9,25, 10.9,26, 11.9,25, 7.3,26, 31.8,25, 23.0,26, 63.1,26,  6.8,26,  8.7,26, 2.7,26, 9.8,26, 6.2,26,1017.6,25,"elevation= 332.9 m"
+         -31.0000, 118.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"reference=RXNVDESCLJHGFTAPWM"
+         -31.0000, 118.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"extracted=20230730"
+         -31.0000, 118.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"dataset=BoM Only"
+         -31.0000, 118.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Please read our web site for information about the meanings of the codes, and other information"
+  recorded_at: 2023-07-30 06:22:07 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php?longitude=117&latitude=-32&start=19850101&finish=19850101&format=csv&comment=RXNVDESCLJHGFTAPWM&username=adamhsparks%40gmail.com&password=api_request
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/8.1.2 r-curl/5.0.1 crul/1.4.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      content-type: text/plain; charset=UTF-8
+      content-length: '1169'
+      server: CloudFront
+      date: Sun, 30 Jul 2023 06:18:24 GMT
+      strict-transport-security: max-age=31536000; includeSubdomains;
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      access-control-allow-origin: '*'
+      x-cache: Hit from cloudfront
+      via: 1.1 f89d4b53f2f24a3703da95e533ae2486.cloudfront.net (CloudFront)
+      x-amz-cf-pop: PER50-C1
+      x-amz-cf-id: SyULmT6hqeD5a_PZVaEdzEYnxmZl90eW2AFf8w3xp9xhNhqkPZaH9A==
+      age: '223'
+    body:
+      encoding: ''
+      file: no
+      string: |
+        latitude,longitude,YYYY-MM-DD,daily_rain,daily_rain_source,max_temp,max_temp_source,min_temp,min_temp_source,vp,vp_source,vp_deficit,vp_deficit_source,evap_pan,evap_pan_source,evap_syn,evap_syn_source,evap_comb,evap_comb_source,evap_morton_lake,evap_morton_lake_source,radiation,radiation_source,rh_tmax,rh_tmax_source,rh_tmin,rh_tmin_source,et_short_crop,et_short_crop_source,et_tall_crop,et_tall_crop_source,et_morton_actual,et_morton_actual_source,et_morton_potential,et_morton_potential_source,et_morton_wet,et_morton_wet_source,mslp,mslp_source,metadata
+         -32.0000, 117.0000,1985-01-01,    0.0,25, 29.8,25, 11.3,25,  9.6,25, 22.4,26,  9.2,25,  9.8,26,  9.2,25, 7.4,26, 31.7,25, 22.9,26, 71.7,26,  6.9,26,  8.9,26, 3.1,26, 9.8,26, 6.5,26,1019.3,25,"elevation= 235.9 m"
+         -32.0000, 117.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"reference=RXNVDESCLJHGFTAPWM"
+         -32.0000, 117.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"extracted=20230730"
+         -32.0000, 117.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"dataset=BoM Only"
+         -32.0000, 117.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Please read our web site for information about the meanings of the codes, and other information"
+  recorded_at: 2023-07-30 06:22:07 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php?longitude=150&latitude=-31&start=19850101&finish=19850101&format=csv&comment=RXNVDESCLJHGFTAPWM&username=adamhsparks%40gmail.com&password=api_request
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/8.1.2 r-curl/5.0.1 crul/1.4.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      content-type: text/plain; charset=UTF-8
+      content-length: '1169'
+      server: CloudFront
+      date: Sun, 30 Jul 2023 06:18:27 GMT
+      strict-transport-security: max-age=31536000; includeSubdomains;
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      access-control-allow-origin: '*'
+      x-cache: Hit from cloudfront
+      via: 1.1 f89d4b53f2f24a3703da95e533ae2486.cloudfront.net (CloudFront)
+      x-amz-cf-pop: PER50-C1
+      x-amz-cf-id: sjWioVjpRZ3OGo2elvXJgKmjXV9JrjUzqp9PirFiEEBJCdgSoXG_pw==
+      age: '220'
+    body:
+      encoding: ''
+      file: no
+      string: |
+        latitude,longitude,YYYY-MM-DD,daily_rain,daily_rain_source,max_temp,max_temp_source,min_temp,min_temp_source,vp,vp_source,vp_deficit,vp_deficit_source,evap_pan,evap_pan_source,evap_syn,evap_syn_source,evap_comb,evap_comb_source,evap_morton_lake,evap_morton_lake_source,radiation,radiation_source,rh_tmax,rh_tmax_source,rh_tmin,rh_tmin_source,et_short_crop,et_short_crop_source,et_tall_crop,et_tall_crop_source,et_morton_actual,et_morton_actual_source,et_morton_potential,et_morton_potential_source,et_morton_wet,et_morton_wet_source,mslp,mslp_source,metadata
+         -31.0000, 150.0000,1985-01-01,    0.0,25, 30.9,25, 16.2,25, 15.0,25, 21.1,26,  8.4,25,  8.3,26,  8.4,25, 6.5,26, 25.9,25, 33.6,26, 81.5,26,  6.2,26,  7.8,26, 3.7,26, 9.0,26, 6.3,26,1000.3,25,"elevation= 334.3 m"
+         -31.0000, 150.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"reference=RXNVDESCLJHGFTAPWM"
+         -31.0000, 150.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"extracted=20230730"
+         -31.0000, 150.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"dataset=BoM Only"
+         -31.0000, 150.0000,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Please read our web site for information about the meanings of the codes, and other information"
+  recorded_at: 2023-07-30 06:22:07 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

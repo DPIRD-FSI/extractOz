@@ -43,25 +43,25 @@ z <- extract_ae_zone(x = locs)
 
 ## Extract the soil order
 
-See `?extract_soil_order()` for more help on how to use this function.
+See `?extract_daas_soil_order()` for more help on how to use this function.
 
 ```{r extract-soil, eval=FALSE}
-s <- extract_soil_order(x = locs)
+s <- extract_daas_soil_order(x = locs)
 ```
 
 ## Get Weather Data for these Locations in 2020
 
-Using the previously created list of GPS points, fetch weather data from SILO for 2020.
-This is a non-working example, replace `YOUR_EMAIL_ADDRESS` with your email address below.
-See `?extract_silo()` for more help on how to use this function.
+Using the previously created list of GPS points, fetch station observation weather data from SILO for 2020.
+This is a non-working example, replace `your_api_key` with your email address below.
+See `?extract_patched_point()` for more help on how to use this function.
 
 ```{r get-weather, eval=FALSE}
 three_sites  <-
-  extract_silo(
+  extract_patched_point(
     x = locs,
-    first = "20200101",
-    last = "20201231",
-    email = "YOUR_EMAIL_ADDRESS"
+    start_date = "20200101",
+    end_date = "20201231",
+    api_key = "adamhsparks@gmail.com"
   )
 ```
 
@@ -84,7 +84,7 @@ The CSV file is included in this package so that you can run this example yourse
 Using the helper function, `df_to_list()` in the pipeline converts the [tibble::tibble()] from [readr::read_csv()] into a `list()` object that can be used in any of the functions found in {extractOz}.
 
 The `left_join()` takes the existing `data.frame` that has the location information, AE Zone and soil order as `x = .`.
-The `y` for the left join is then the `get_multi_silodata()` and details are provided to that API, again the original `data.frame` that has the `x` and `y` information and `Sitename` are provided as `.$colname`.
+The `y` for the left join is then the `get_patched_point()` and details are provided to that API, again the original `data.frame` that has the `x` and `y` information and `Sitename` are provided as `.$colname`.
 
 The final step is to save the `data.frame` as an object, `complete_data`.
 
@@ -101,19 +101,19 @@ x %>%
   df_to_list() %>%
   left_join(
     x = extract_ae_zone(x = .),
-    y = extract_soil_order(x = .),
+    y = extract_daas_soil_order(x = .),
     by = c("x", "y", "location")
   ) -> soil_zone
 
 # join the `soil_zone` with weather data from SILO
-  left_join(
-    x = soil_zone,
-    y = extract_silo(
-      x = df_to_list(x),
-      first = "20200101",
-      last = "20201231",
-      email = "YOUR_EMAIL_ADDRESS"
-    ),
-    by = c("location" = "location")
-  ) -> complete_data
+left_join(
+  x = soil_zone,
+  y = extract_patched_point(
+    x = df_to_list(x),
+    start_date = "20200101",
+    end_date = "20201231",
+    api_key = "your_api_key"
+  ),
+  by = c("location" = "location")
+) -> complete_data
 ```

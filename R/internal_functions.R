@@ -1,3 +1,21 @@
+
+
+
+#' Add %notin% function
+#'
+#' Negates `%in%` for easier (mis)matching.
+#'
+#' @param x A character string to match.
+#' @param table A table containing values to match `x` against.
+#'
+#' @return A logical vector, indicating if a mismatch was located for any
+#'  element of x: thus the values are TRUE or FALSE and never NA.
+#' @keywords internal
+#' @noRd
+`%notin%` <- function(x, table) {
+  match(x, table, nomatch = 0L) == 0L
+}
+
 #' Create a data.table object from a named list
 #'
 #' Take a named list and convert it into a `data.table` by creating a
@@ -10,7 +28,7 @@
 #' @examples
 #' locs <- list(
 #'   "Merredin" = c(x = 118.28, y = -31.48),
-#'   "Corrigin" = c(x = 117.87, -32.33),
+#'   "Corrigin" = c(x = 117.87, y = -32.33),
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
 #'
 #' .create_dt(x = locs)
@@ -36,10 +54,13 @@
     stop(call. = FALSE,
          "`x` must be a named list object of lon/lat values.")
   }
-  for (i in x)
-  {
-    if (i[["x"]] < 114.5 || i[["x"]] > 152.5)
-    {
+
+  for (i in x) {
+    if (any(names(i) %notin% c("x", "y"))) {
+      stop(call. = FALSE,
+           "The vectors of lon/lat must be named 'x' and 'y', respectively")
+    }
+    if (i[["x"]] < 114.5 || i[["x"]] > 152.5) {
       stop(
         call. = FALSE,
         "Please check your longitude, `",

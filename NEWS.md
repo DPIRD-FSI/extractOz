@@ -1,3 +1,20 @@
+# extractOz 1.0.0.9000
+
+## Major changes
+
+-   Introduce `extract_patched_point()` to get SILO Patched Point station data from the nearest station(s) to a given set of geographic coordinates.
+
+-   Introduce `extract_data_drill()` to get SILO Data Drill interpolated data from a given set of geographic coordinates.
+
+## Minor changes
+
+-   GRDC Agroecoregions geopackage file is reduced in size by reducing the complexity through,
+    ```r
+    rmapshaper::ms_simplify(aez, keep = 0.1, keep_shapes = FALSE)
+    ```
+    
+-   Internal GRDC Agroecoregions object uses the same simplified GPKG and is saved using "xz" compression to save more file space.
+
 # extractOz 1.0.0
 
 ## Major changes
