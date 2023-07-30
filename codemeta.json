@@ -26,7 +26,7 @@
   "copyrightHolder": [
     {
       "@type": "Organization",
-      "name": "Western Australia Department of Primary Industries\n                    and Regional Development"
+      "name": "Western Australia Agriculture Authority (WAAA)"
     },
     {
       "@type": "Organization",
@@ -235,7 +235,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1420.292KB",
+  "fileSize": "1420.245KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],

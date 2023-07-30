@@ -2,15 +2,15 @@ Package: extractOz
 Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
 Version: 1.0.0.9000
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
-                     email = "adam.sparks@dpird.wa.gov.au",
-                     role = c("aut", "cre"),
-                     comment = c(ORCID = "0000-0002-0061-8359")),
-             person(given = "Western Australia Department of Primary Industries
-                    and Regional Development", role = "cph",
+                    email = "adam.sparks@dpird.wa.gov.au",
+                    role = c("aut", "cre"),
+                    comment = c(ORCID = "0000-0002-0061-8359")),
+             person(given = "Western Australia Agriculture Authority (WAAA)",
+                    role = "cph",
                     comment = "Provided support through Adam Sparks's time."),
              person(given = "Grains Research and Development Corporation",
-             role = c("fnd", "cph"),
-             comment = "GRDC Project GRI2007-001RTX")
+                    role = c("fnd", "cph"),
+                    comment = "GRDC Project GRI2007-001RTX")
    )
 Description: Extracts point data for a given GPS coordinate that includes major
   soil order, weather and GRDC agro-ecological zone information at that point.

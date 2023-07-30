@@ -23,7 +23,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Western Australia Department of Primary Industries and Regional Development (Provided support through Adam Sparks's time.) [copyright holder]
+  \item Western Australia Agriculture Authority (WAAA) (Provided support through Adam Sparks's time.) [copyright holder]
   \item Grains Research and Development Corporation (GRDC Project GRI2007-001RTX) [funder, copyright holder]
 }
 
