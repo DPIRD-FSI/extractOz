@@ -44,27 +44,6 @@
 #'   for the request.  The query will return an error if a valid email address
 #'   is not provided.
 #'
-#' @examples
-#' \dontrun{
-#'
-#'   # Source data from a list of latitude and longitude coordinates in NSW & WA
-#'
-#'   locs <- list(
-#'     "Merredin" = c(x = 118.28, y = -31.48),
-#'     "Corrigin" = c(x = 117.87, -32.33),
-#'     "Tamworth" = c(x = 150.84, y = -31.07)
-#'   )
-#'
-#'   # Replace "your_api_key" with a valid email address.
-#'
-#'   w <- extract_patched_point(
-#'     x = locs,
-#'     start_date = "20210101",
-#'     end_date = "20210131",
-#'     api_key = "your_api_key"
-#'   )
-#' }
-#'
 #' @section Available Values:
 #'
 #' \describe{
@@ -168,6 +147,27 @@
 #'   and Software*, Volume 16/4, 309-330. DOI:
 #'   \doi{10.1016/S1364-8152(01)00008-1}.
 #'
+#' @examples
+#' \dontrun{
+#'
+#'   # Source data from a list of latitude and longitude coordinates in NSW & WA
+#'
+#'   locs <- list(
+#'     "Merredin" = c(x = 118.28, y = -31.48),
+#'     "Corrigin" = c(x = 117.87, y = -32.33),
+#'     "Tamworth" = c(x = 150.84, y = -31.07)
+#'   )
+#'
+#'   # Replace "your_api_key" with a valid email address.
+#'
+#'   w <- extract_patched_point(
+#'     x = locs,
+#'     start_date = "20210101",
+#'     end_date = "20210131",
+#'     api_key = "your_api_key"
+#'   )
+#' }
+#'
 #' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
 #'
 #' @family weather data
@@ -190,8 +190,7 @@ extract_patched_point <- function(x,
       latitude = -25.5833,
       longitude = 134.5667,
       distance_km = 10000,
-      which_api = "silo",
-      api_key = api_key
+      which_api = "silo"
     )
 
   # find the nearest stations for each point and return the row index value
