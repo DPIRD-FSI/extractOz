@@ -32,7 +32,7 @@ returned is inclusive of this date.  Defaults to the current system date.}
 \item{n_stations}{An \code{integer} value that indicates how many stations per
 location should be returned.  Defaults to one (1) station with only the
 nearest station being returned.  Values greater than 1 will result in the
-next nearest stations being returned from 1 - n.}
+next nearest stations being returned from 1 to n.}
 
 \item{values}{A \code{character} string with the type of weather data to
 return.  See \strong{Available Values} for a full list of valid values.
