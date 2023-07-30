@@ -1,2 +1,2 @@
 # CRAN NOTE avoidance
-utils::globalVariables(c("aez", "daas", "owner", "station_code"))
+utils::globalVariables(c("aez", "daas", "location", "owner", "station_code"))
