@@ -26,15 +26,11 @@
 #'   \dQuote{climatology}.  See argument details for more.
 #' @param site_elevation A user-supplied value for elevation at a single point
 #'   in metres.  If provided this will return a corrected atmospheric pressure
-#'   value adjusted to the elevation provided.  Only used with `x` as a
-#'   single point of x, y coordinates, not for use with \dQuote{global} or with
-#'   a regional request.
+#'   value adjusted to the elevation provided.
 #' @param wind_elevation A user-supplied value for elevation at a single point
 #'   in metres.  Wind Elevation values in Meters are required to be between 10m
-#'   and 300m.  Only used with `x` as a single point of x, y coordinates,
-#'   not for use with \dQuote{global} or with a regional request.  If this
-#'   parameter is provided, the `wind-surface` parameter is required with the
-#'   request, see
+#'   and 300m.  If this parameter is provided, the `wind-surface` parameter is
+#'   required with the request, see
 #'    <https://power.larc.nasa.gov/docs/methodology/meteorology/wind/>.
 #' @param wind_surface A user-supplied wind surface for which the corrected
 #'   wind-speed is to be supplied.  See `wind-surface` section for more detail.
@@ -89,10 +85,6 @@
 #'  given region, _e.g._, a bounding box for the south western corner of
 #'  Australia: `lonlat = c(112.5, -55.5, 115.5, -50.5)`.  *Maximum area
 #'  processed is 4.5 x 4.5 degrees (100 points).}
-#'
-#'  \item{For global coverage}{To get global coverage for \dQuote{climatology},
-#'  supply \dQuote{global} while also specifying \dQuote{climatology} for the
-#'  `temporal_api`.}
 #' }
 #'
 #' @section Argument details for `dates`: if one date only is provided, it

@@ -54,16 +54,12 @@ supported values are \dQuote{hourly}, \dQuote{daily}, \dQuote{monthly} or
 
 \item{site_elevation}{A user-supplied value for elevation at a single point
 in metres.  If provided this will return a corrected atmospheric pressure
-value adjusted to the elevation provided.  Only used with \code{x} as a
-single point of x, y coordinates, not for use with \dQuote{global} or with
-a regional request.}
+value adjusted to the elevation provided.}
 
 \item{wind_elevation}{A user-supplied value for elevation at a single point
 in metres.  Wind Elevation values in Meters are required to be between 10m
-and 300m.  Only used with \code{x} as a single point of x, y coordinates,
-not for use with \dQuote{global} or with a regional request.  If this
-parameter is provided, the \code{wind-surface} parameter is required with the
-request, see
+and 300m.  If this parameter is provided, the \code{wind-surface} parameter is
+required with the request, see
 \url{https://power.larc.nasa.gov/docs/methodology/meteorology/wind/}.}
 
 \item{wind_surface}{A user-supplied wind surface for which the corrected
@@ -136,10 +132,6 @@ vector as lower left (lon, lat) and upper right (lon, lat) coordinates,
 given region, \emph{e.g.}, a bounding box for the south western corner of
 Australia: \code{lonlat = c(112.5, -55.5, 115.5, -50.5)}.  *Maximum area
 processed is 4.5 x 4.5 degrees (100 points).}
-
-\item{For global coverage}{To get global coverage for \dQuote{climatology},
-supply \dQuote{global} while also specifying \dQuote{climatology} for the
-\code{temporal_api}.}
 }
 }
 
