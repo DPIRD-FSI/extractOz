@@ -83,8 +83,7 @@ Defaults to \code{LST}.
 }}
 }
 \value{
-A \code{data.table} containing the retrieved data from the \acronym{POWER}
-\acronym{API}.
+A \code{data.table} with data from the \acronym{POWER} \acronym{API}.
 }
 \description{
 Extracts satellite and modelled weather data from the \acronym{NASA}
