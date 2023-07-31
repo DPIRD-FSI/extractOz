@@ -14,6 +14,6 @@ test_that("extract_patched_point() fetches the expected weather data", {
   expect_equal(unique(w_all$location),
                c("Corrigin", "Merredin", "Tamworth"))
   expect_s3_class(w_all, "data.frame")
-  expect_length(w_all, 46)
+  expect_length(w_all, 48)
   expect_equal(nrow(w_all), 24)
 })
