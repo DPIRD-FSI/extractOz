@@ -131,7 +131,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_daas_soil_order.html">extract_daas_soil_order</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">locs</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reading layer `soilAtlas2M_ASC_Conversion' from data source </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpZfcXSQ/SoilAtlas2M_ASC_Conversion_v01' </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpkpkyeR/SoilAtlas2M_ASC_Conversion_v01' </span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   using driver `ESRI Shapefile'</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple feature collection with 22584 features and 7 fields</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Geometry type: POLYGON</span></span>
@@ -173,7 +173,11 @@
 </h2>
 <p>Now using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::left_join()</a></code>, create a single <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> of the location, GPS coordinates, agroecological zone and weather data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"location"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">three_sites</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"location"</span> <span class="op">=</span> <span class="st">"location"</span>,</span>
+<span>  <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x"</span>,</span>
+<span>  <span class="st">"y"</span> <span class="op">=</span> <span class="st">"y"</span></span>
+<span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Joining with `by = join_by(location, x, y)`</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -249,54 +253,66 @@
 <span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:       2.6               25              4.0                      26</span></span>
 <span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:       4.3               25              4.4                      26</span></span>
 <span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:       5.0               25              4.6                      26</span></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="do">##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted latitude</span></span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:      9.5              25     11.0              26 2023-07-30 -32.3292</span></span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:     10.4               0      6.4              26 2023-07-30 -32.3292</span></span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:      8.0               0      7.9              26 2023-07-30 -32.3292</span></span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:      8.0               0      9.8              26 2023-07-30 -32.3292</span></span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:     10.6               0     10.6              26 2023-07-30 -32.3292</span></span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                      </span></span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:      5.5              25      6.9              26 2023-07-30 -31.0742</span></span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:      3.6              25      4.3              26 2023-07-30 -31.0742</span></span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:      2.6              25      5.1              26 2023-07-30 -31.0742</span></span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:      4.3              25      5.0              26 2023-07-30 -31.0742</span></span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:      5.0              25      5.9              26 2023-07-30 -31.0742</span></span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="do">##       longitude   mslp mslp_source radiation radiation_source rainfall</span></span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:  117.8733 1012.7          25      30.1               25      0.0</span></span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:  117.8733 1010.8           0      21.1               25      0.0</span></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:  117.8733 1017.2           0      24.1               25      0.0</span></span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:  117.8733 1020.9           0      28.5               25      0.0</span></span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:  117.8733 1015.9           0      32.2               25      0.0</span></span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                 </span></span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:  150.8362 1015.7           0      26.2               25      2.0</span></span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:  150.8362 1012.7           0      14.2               25     10.2</span></span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:  150.8362 1011.4           0      14.3               25      1.0</span></span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:  150.8362 1014.2           0      15.1               25     18.8</span></span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:  150.8362 1015.8           0      17.0               25      0.0</span></span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="do">##       rainfall_source rh_tmax rh_tmax_source rh_tmin rh_tmin_source   vp</span></span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:               0    22.6             26    83.5             26 14.5</span></span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:               0    71.2             26   100.0             26 20.0</span></span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:               0    37.5             26    87.0             26 12.6</span></span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:               0    26.3             26   100.0             26 14.0</span></span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:               0    33.4             26   100.0             26 22.1</span></span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                   </span></span>
-<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:               0    46.5             26   100.0             26 19.5</span></span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:               0    61.9             26   100.0             26 21.8</span></span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:               0    50.0             26    99.6             26 19.9</span></span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:               0    52.7             26   100.0             26 21.6</span></span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:               0    44.5             26   100.0             26 18.9</span></span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="do">##       vp_deficit vp_deficit_source vp_source daas_soil_order</span></span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:       32.7                26        25         Sodosol</span></span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:        5.2                26         0         Sodosol</span></span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:       14.9                26         0         Sodosol</span></span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:       22.7                26         0         Sodosol</span></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:       24.1                26         0         Sodosol</span></span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                       </span></span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:       14.3                26         0        Dermosol</span></span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:        9.3                26         0        Dermosol</span></span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:       13.8                26         0        Dermosol</span></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:       11.6                26         0        Dermosol</span></span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:       15.8                26         0        Dermosol</span></span></code></pre></div>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="do">##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted</span></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:      9.5              25     11.0              26 2023-07-30</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:     10.4               0      6.4              26 2023-07-30</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:      8.0               0      7.9              26 2023-07-30</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:      8.0               0      9.8              26 2023-07-30</span></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:     10.6               0     10.6              26 2023-07-30</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                             </span></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:      5.5              25      6.9              26 2023-07-30</span></span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:      3.6              25      4.3              26 2023-07-30</span></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:      2.6              25      5.1              26 2023-07-30</span></span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:      4.3              25      5.0              26 2023-07-30</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:      5.0              25      5.9              26 2023-07-30</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="do">##       station_latitude station_longitude   mslp mslp_source radiation</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:         -32.3292          117.8733 1012.7          25      30.1</span></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:         -32.3292          117.8733 1010.8           0      21.1</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:         -32.3292          117.8733 1017.2           0      24.1</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:         -32.3292          117.8733 1020.9           0      28.5</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:         -32.3292          117.8733 1015.9           0      32.2</span></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                </span></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:         -31.0742          150.8362 1015.7           0      26.2</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:         -31.0742          150.8362 1012.7           0      14.2</span></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:         -31.0742          150.8362 1011.4           0      14.3</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:         -31.0742          150.8362 1014.2           0      15.1</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:         -31.0742          150.8362 1015.8           0      17.0</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="do">##       radiation_source rainfall rainfall_source rh_tmax rh_tmax_source rh_tmin</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:               25      0.0               0    22.6             26    83.5</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:               25      0.0               0    71.2             26   100.0</span></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:               25      0.0               0    37.5             26    87.0</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:               25      0.0               0    26.3             26   100.0</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:               25      0.0               0    33.4             26   100.0</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                                         </span></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:               25      2.0               0    46.5             26   100.0</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:               25     10.2               0    61.9             26   100.0</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:               25      1.0               0    50.0             26    99.6</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:               25     18.8               0    52.7             26   100.0</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:               25      0.0               0    44.5             26   100.0</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="do">##       rh_tmin_source   vp vp_deficit vp_deficit_source vp_source</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:             26 14.5       32.7                26        25</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:             26 20.0        5.2                26         0</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:             26 12.6       14.9                26         0</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:             26 14.0       22.7                26         0</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:             26 22.1       24.1                26         0</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                                                           </span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:             26 19.5       14.3                26         0</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:             26 21.8        9.3                26         0</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:             26 19.9       13.8                26         0</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:             26 21.6       11.6                26         0</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:             26 18.9       15.8                26         0</span></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="do">##       daas_soil_order</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="do">##    1:         Sodosol</span></span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="do">##    2:         Sodosol</span></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="do">##    3:         Sodosol</span></span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a><span class="do">##    4:         Sodosol</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="do">##    5:         Sodosol</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="do">##   ---                </span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="do">## 1094:        Dermosol</span></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="do">## 1095:        Dermosol</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="do">## 1096:        Dermosol</span></span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a><span class="do">## 1097:        Dermosol</span></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a><span class="do">## 1098:        Dermosol</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
