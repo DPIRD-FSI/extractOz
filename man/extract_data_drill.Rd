@@ -130,7 +130,7 @@ locs <- list(
     "Tamworth" = c(x = 150.84, y = -31.07)
 )
 
-wd <- extract_silo(
+wd <- extract_data_drill(
     x = locs,
     start_date = "20211001",
     end_date = "20211201",
