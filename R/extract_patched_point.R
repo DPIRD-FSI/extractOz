@@ -203,8 +203,8 @@ extract_patched_point <- function(x,
   # The second, `s`, contains the distance in kilometres from the requested
   # lat/lon values from `x` in km.
 
-  distance <- row <- vector(mode = "list", length = length(x))
-  names(row) <- names(distance) <- names(x)
+  distance <- vector(mode = "list", length = length(x) * n_stations)
+  names(distance) <- rep(names(x), each = n_stations)
 
   for (i in seq_along(x)) {
     d <- round(
@@ -217,8 +217,11 @@ extract_patched_point <- function(x,
       1
     )
 
-    row[[i]] <- which.min(d)
-    distance[[i]] <- min(d)
+    row_id <-
+      as.vector(apply(as.matrix(d), 2, function(x)
+        order(x)[seq_len(n_stations)]))
+    distance_km <- d[row_id]
+
     t <- data.table(location = as.factor(names(x)), row, distance)
   }
 
