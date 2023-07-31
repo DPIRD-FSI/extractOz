@@ -1,5 +1,5 @@
 
-#' Extract Soil Order from DAAS using Australian GPS Coordinates
+#' Extract Soil Order From DAAS Using Australian GPS Coordinates
 #'
 #' Extracts the major soil order at the GPS points provided.
 #'

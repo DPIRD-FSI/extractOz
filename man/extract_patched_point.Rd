@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_patched_point.R
 \name{extract_patched_point}
 \alias{extract_patched_point}
-\title{Extract Weather From the Nearest Patched Point Weather Station in the SILO Network}
+\title{Extract Weather From the Nearest Patched Point Weather Station in the SILO Network Using Australian GPS Coordinates}
 \usage{
 extract_patched_point(
   x,

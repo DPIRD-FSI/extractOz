@@ -1,5 +1,5 @@
 
-#' Extract Weather From the Nearest Patched Point Weather Station in the SILO Network
+#' Extract Weather From the Nearest Patched Point Weather Station in the SILO Network Using Australian GPS Coordinates
 #'
 #' Extracts station-based weather data for the provided dates from the nearest
 #'   weather station to the provided longitude and latitude values in `x`.

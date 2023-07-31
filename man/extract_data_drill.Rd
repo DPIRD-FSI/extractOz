@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_data_drill.R
 \name{extract_data_drill}
 \alias{extract_data_drill}
-\title{Extract Weather from SILO Data Drill Using Australian GPS Coordinates}
+\title{Extract Weather From SILO Data Drill Using Australian GPS Coordinates}
 \usage{
 extract_data_drill(x, start_date, end_date, values = "all", api_key)
 }

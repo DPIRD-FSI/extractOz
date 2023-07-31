@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_power.R
 \name{extract_power}
 \alias{extract_power}
-\title{Extract Weather Data from the NASA POWER API using Australian GPS Coordinates}
+\title{Extract Weather Data From the NASA POWER API Using Australian GPS Coordinates}
 \source{
 \url{https://power.larc.nasa.gov/}
 }

@@ -1,5 +1,5 @@
 
-#' Extract Weather Data from the NASA POWER API using Australian GPS Coordinates
+#' Extract Weather Data From the NASA POWER API Using Australian GPS Coordinates
 #'
 #' Extracts satellite and modelled weather data from the \acronym{NASA}
 #'  \acronym{POWER} \acronym{API} at the GPS points provided.  This is a wrapper

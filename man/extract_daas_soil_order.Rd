@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_daas_soil_order.R
 \name{extract_daas_soil_order}
 \alias{extract_daas_soil_order}
-\title{Extract Soil Order from DAAS using Australian GPS Coordinates}
+\title{Extract Soil Order From DAAS Using Australian GPS Coordinates}
 \source{
 \url{https://data.gov.au/dataset/ds-dga-5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/distribution/dist-dga-56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/details?q=}
 }
