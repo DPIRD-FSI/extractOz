@@ -25,6 +25,7 @@ Imports:
   nasapower,
   purrr,
   sf,
+  stats,
   utils,
   weatherOz
 Suggests:
