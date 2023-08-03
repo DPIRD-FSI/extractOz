@@ -195,7 +195,7 @@ extract_patched_point <- function(x,
       longitude = 134.5667,
       distance_km = 10000,
       which_api = "silo"
-    )
+    )[, -c("distance_km")]
 
   # find the nearest stations for each point and return the row index value
   # for the station in `all_stations`. Return two lists, one with the index
@@ -203,8 +203,8 @@ extract_patched_point <- function(x,
   # The second, `s`, contains the distance in kilometres from the requested
   # lat/lon values from `x` in km.
 
-  distance <- vector(mode = "list", length = length(x) * n_stations)
-  names(distance) <- rep(names(x), each = n_stations)
+  distance_km <- vector(mode = "list", length = length(x))
+  names(distance_km) <- names(x)
 
   for (i in seq_along(x)) {
     d <- round(
@@ -220,32 +220,50 @@ extract_patched_point <- function(x,
     row_id <-
       as.vector(apply(as.matrix(d), 2, function(x)
         order(x)[seq_len(n_stations)]))
-    distance_km <- d[row_id]
+    distance <- d[row_id]
 
-    t <- data.table(location = as.factor(names(x)), row, distance)
+    distance_km[[i]] <- c(row_id = row_id, distance_km = distance)
   }
 
-  stations_meta <- all_stations[unlist(t$row),]
-  stations_meta$location <- t$location
-  stations_meta$distance <- t$distance
+  distance_km_df <- as.data.frame(t(as.data.frame(distance_km)))
+  distance_km_df$location <- row.names(distance_km_df)
+
+  distance_km_df <- data.table::data.table(
+    stats::reshape(
+      data = distance_km_df,
+      idvar = "location",
+      varying = list(
+        row_id = grep("row_id", names(distance_km_df)),
+        distance_km = grep("distance_km", names(distance_km_df))
+      ),
+      direction = "long",
+      v.names = c("row", "distance"),
+      sep = "."
+    )
+  )[, -c("time")]
+
+  stations_meta <- all_stations[unlist(distance_km_df$row), ]
+  stations_meta[, location := distance_km_df$location]
+  stations_meta[, distance := distance_km_df$location]
+
 
   silo_stations <-
     subset(stations_meta, owner == "BOM")[, c("station_code", "location")]
   silo_stations[, station_code := as.character(station_code)]
-  silo_stations <- split(x = silo_stations[, -2],
-                         f = silo_stations$location)
+  data.table::setkey(silo_stations, station_code)
 
   out <- data.table::rbindlist(
     purrr::map(
-      .x = silo_stations,
+      .x = silo_stations$station_code,
       .f = weatherOz::get_patched_point,
       start_date = start_date,
       end_date = end_date,
       values = values,
       api_key = api_key
-    ),
-    idcol = "location"
+    )
   )[, -4]
+
+  data.table::setkey(out, station_code)
 
   data.table::setnames(out,
                        old = c("longitude",
@@ -253,12 +271,15 @@ extract_patched_point <- function(x,
                        new = c("station_longitude",
                                "station_latitude"))
 
+  out <- merge(x = out, y = silo_stations, by = "station_code")
+
   xx <- unlist(x)
-  xx <- data.table::setDT(stack(xx))
+  xx <- data.table::data.table(utils::stack(xx))
   xx[, c("location", "coord") := data.table::tstrsplit(ind, ".", fixed = TRUE)]
   xx[, ind := NULL]
   xx <- data.table::dcast(xx, location ~ coord, value.var = "values")
   out <- merge(out, xx, by = "location")
+  data.table::setcolorder(x = out, c("location", "x", "y"))
   return(out[])
 }
 
