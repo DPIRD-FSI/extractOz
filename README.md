@@ -75,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpkpkyeR/SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpqIFxaF/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
@@ -209,17 +209,17 @@ left_join(z, three_sites, by = c(
     ## 1097:       4.3               25              4.4                      26
     ## 1098:       5.0               25              4.6                      26
     ##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted
-    ##    1:      9.5              25     11.0              26 2023-07-30
-    ##    2:     10.4               0      6.4              26 2023-07-30
-    ##    3:      8.0               0      7.9              26 2023-07-30
-    ##    4:      8.0               0      9.8              26 2023-07-30
-    ##    5:     10.6               0     10.6              26 2023-07-30
+    ##    1:      9.5              25     11.0              26 2023-08-21
+    ##    2:     10.4               0      6.4              26 2023-08-21
+    ##    3:      8.0               0      7.9              26 2023-08-21
+    ##    4:      8.0               0      9.8              26 2023-08-21
+    ##    5:     10.6               0     10.6              26 2023-08-21
     ##   ---                                                             
-    ## 1094:      5.5              25      6.9              26 2023-07-30
-    ## 1095:      3.6              25      4.3              26 2023-07-30
-    ## 1096:      2.6              25      5.1              26 2023-07-30
-    ## 1097:      4.3              25      5.0              26 2023-07-30
-    ## 1098:      5.0              25      5.9              26 2023-07-30
+    ## 1094:      5.5              25      6.9              26 2023-08-21
+    ## 1095:      3.6              25      4.3              26 2023-08-21
+    ## 1096:      2.6              25      5.1              26 2023-08-21
+    ## 1097:      4.3              25      5.0              26 2023-08-21
+    ## 1098:      5.0              25      5.9              26 2023-08-21
     ##       station_latitude station_longitude   mslp mslp_source radiation
     ##    1:         -32.3292          117.8733 1012.7          25      30.1
     ##    2:         -32.3292          117.8733 1010.8           0      21.1
