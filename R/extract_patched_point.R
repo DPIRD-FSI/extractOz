@@ -177,6 +177,7 @@
 #' @family weather data
 #' @family SILO
 #'
+#' @autoglobal
 #' @export
 #'
 extract_patched_point <- function(x,

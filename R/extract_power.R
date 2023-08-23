@@ -144,6 +144,7 @@
 #'
 #' @family weather data
 #'
+#' @autoglobal
 #' @export
 extract_power <- function(x,
                           start_date,

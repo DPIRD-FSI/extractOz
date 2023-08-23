@@ -1,6 +1,6 @@
 # CRAN NOTE avoidance
 utils::globalVariables(c("aez",
-                         "daas",
+                          "daas",
                          "location",
                          "ind",
                          "owner",

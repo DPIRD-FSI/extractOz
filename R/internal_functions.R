@@ -1,6 +1,4 @@
 
-
-
 #' Add %notin% function
 #'
 #' Negates `%in%` for easier (mis)matching.
@@ -34,7 +32,7 @@
 #' .create_dt(x = locs)
 #'
 #' @author Adam H. Sparks, \email{adam,sparks@@dpird.wa.gov.au}
-#'
+#' @autoglobal
 #' @noRd
 .create_dt <- function(x) {
   x <-
@@ -47,6 +45,7 @@
 #' @param longitude user provided numeric value as decimal degrees
 #' @param latitude user provided numeric value as decimal degrees
 #' @noRd
+#' @autoglobal
 #' @return invisible `NULL`, called for its side-effects
 
 .check_lonlat <- function(x) {

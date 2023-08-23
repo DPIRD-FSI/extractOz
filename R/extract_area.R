@@ -34,6 +34,7 @@
 #' )
 #'
 #' extract_area(x = locs, spatial = aez, area = "AEZ")
+#' @autoglobal
 #' @export
 
 extract_area <- function(x, spatial, area) {

@@ -28,7 +28,7 @@
 #'
 #' @return A `list` object suitable for use in any of the `extract` functions
 #'  in \pkg{extractOz}.
-#'
+#' @autoglobal
 #' @export
 #'
 df_to_list <- function(x, names = 1, lonlat = 2:3) {
