@@ -3,3 +3,4 @@ invisible(vcr::vcr_configure(
   dir = vcr::vcr_test_path("fixtures")
 ))
 vcr::check_cassette_names()
+vcr::vcr_configure(serialize_with = "json")
