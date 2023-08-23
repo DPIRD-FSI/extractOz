@@ -75,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpqIFxaF/SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/gn/jsls6gwj7yj5svyykn8vvsfw0000gp/T/Rtmp1V3C3v/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
@@ -136,138 +136,58 @@ left_join(z, three_sites, by = c(
 
     ## Joining with `by = join_by(location, x, y)`
 
-    ##       location      x      y       ae_zone station_code station_name month  day
-    ##    1: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
-    ##    2: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
-    ##    3: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
-    ##    4: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
-    ##    5: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
-    ##   ---                                                                          
-    ## 1094: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
-    ## 1095: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
-    ## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
-    ## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
-    ## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
-    ##             date air_tmax air_tmax_source air_tmin air_tmin_source  elev_m
-    ##    1: 2020-01-01     37.4              25     15.3              25 295.0 m
-    ##    2: 2020-01-02     23.0               0     16.0              25 295.0 m
-    ##    3: 2020-01-03     26.0               0     12.5               0 295.0 m
-    ##    4: 2020-01-04     34.0               0      8.0               0 295.0 m
-    ##    5: 2020-01-05     38.0               0     12.0               0 295.0 m
-    ##   ---                                                                     
-    ## 1094: 2020-12-27     29.8               0     15.0               0 394.9 m
-    ## 1095: 2020-12-28     26.8               0     18.3               0 394.9 m
-    ## 1096: 2020-12-29     28.9               0     17.5               0 394.9 m
-    ## 1097: 2020-12-30     29.4               0     14.9               0 394.9 m
-    ## 1098: 2020-12-31     30.0               0     16.1               0 394.9 m
-    ##       et_morton_actual et_morton_actual_source et_morton_potential
-    ##    1:              3.1                      26                10.8
-    ##    2:              5.0                      26                 5.0
-    ##    3:              2.8                      26                 6.9
-    ##    4:              4.0                      26                 8.0
-    ##    5:              7.9                      26                 9.2
-    ##   ---                                                             
-    ## 1094:              5.8                      26                 7.1
-    ## 1095:              3.7                      26                 4.6
-    ## 1096:              2.6                      26                 5.4
-    ## 1097:              4.0                      26                 4.7
-    ## 1098:              3.0                      26                 6.0
-    ##       et_morton_potential_source et_morton_wet et_morton_wet_source
-    ##    1:                         26           7.0                   26
-    ##    2:                         26           5.0                   26
-    ##    3:                         26           4.8                   26
-    ##    4:                         26           6.0                   26
-    ##    5:                         26           8.5                   26
-    ##   ---                                                              
-    ## 1094:                         26           6.5                   26
-    ## 1095:                         26           4.1                   26
-    ## 1096:                         26           4.0                   26
-    ## 1097:                         26           4.4                   26
-    ## 1098:                         26           4.5                   26
-    ##       et_short_crop et_short_crop_source et_tall_crop et_tall_crop_source
-    ##    1:           7.9                   26         10.2                  26
-    ##    2:           3.6                   26          3.9                  26
-    ##    3:           5.1                   26          6.4                  26
-    ##    4:           6.7                   26          8.7                  26
-    ##    5:           7.5                   26          9.2                  26
-    ##   ---                                                                    
-    ## 1094:           5.4                   26          6.4                  26
-    ## 1095:           3.3                   26          4.0                  26
-    ## 1096:           3.8                   26          4.8                  26
-    ## 1097:           3.6                   26          4.3                  26
-    ## 1098:           4.4                   26          5.6                  26
-    ##       evap_comb evap_comb_source evap_morton_lake evap_morton_lake_source
-    ##    1:       9.5               25              7.9                      26
-    ##    2:      10.4                0              5.1                      26
-    ##    3:       8.0                0              5.5                      26
-    ##    4:       8.0                0              6.8                      26
-    ##    5:      10.6                0              8.8                      26
-    ##   ---                                                                    
-    ## 1094:       5.5               25              6.7                      26
-    ## 1095:       3.6               25              4.2                      26
-    ## 1096:       2.6               25              4.0                      26
-    ## 1097:       4.3               25              4.4                      26
-    ## 1098:       5.0               25              4.6                      26
-    ##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted
-    ##    1:      9.5              25     11.0              26 2023-08-21
-    ##    2:     10.4               0      6.4              26 2023-08-21
-    ##    3:      8.0               0      7.9              26 2023-08-21
-    ##    4:      8.0               0      9.8              26 2023-08-21
-    ##    5:     10.6               0     10.6              26 2023-08-21
-    ##   ---                                                             
-    ## 1094:      5.5              25      6.9              26 2023-08-21
-    ## 1095:      3.6              25      4.3              26 2023-08-21
-    ## 1096:      2.6              25      5.1              26 2023-08-21
-    ## 1097:      4.3              25      5.0              26 2023-08-21
-    ## 1098:      5.0              25      5.9              26 2023-08-21
-    ##       station_latitude station_longitude   mslp mslp_source radiation
-    ##    1:         -32.3292          117.8733 1012.7          25      30.1
-    ##    2:         -32.3292          117.8733 1010.8           0      21.1
-    ##    3:         -32.3292          117.8733 1017.2           0      24.1
-    ##    4:         -32.3292          117.8733 1020.9           0      28.5
-    ##    5:         -32.3292          117.8733 1015.9           0      32.2
-    ##   ---                                                                
-    ## 1094:         -31.0742          150.8362 1015.7           0      26.2
-    ## 1095:         -31.0742          150.8362 1012.7           0      14.2
-    ## 1096:         -31.0742          150.8362 1011.4           0      14.3
-    ## 1097:         -31.0742          150.8362 1014.2           0      15.1
-    ## 1098:         -31.0742          150.8362 1015.8           0      17.0
-    ##       radiation_source rainfall rainfall_source rh_tmax rh_tmax_source rh_tmin
-    ##    1:               25      0.0               0    22.6             26    83.5
-    ##    2:               25      0.0               0    71.2             26   100.0
-    ##    3:               25      0.0               0    37.5             26    87.0
-    ##    4:               25      0.0               0    26.3             26   100.0
-    ##    5:               25      0.0               0    33.4             26   100.0
-    ##   ---                                                                         
-    ## 1094:               25      2.0               0    46.5             26   100.0
-    ## 1095:               25     10.2               0    61.9             26   100.0
-    ## 1096:               25      1.0               0    50.0             26    99.6
-    ## 1097:               25     18.8               0    52.7             26   100.0
-    ## 1098:               25      0.0               0    44.5             26   100.0
-    ##       rh_tmin_source   vp vp_deficit vp_deficit_source vp_source
-    ##    1:             26 14.5       32.7                26        25
-    ##    2:             26 20.0        5.2                26         0
-    ##    3:             26 12.6       14.9                26         0
-    ##    4:             26 14.0       22.7                26         0
-    ##    5:             26 22.1       24.1                26         0
-    ##   ---                                                           
-    ## 1094:             26 19.5       14.3                26         0
-    ## 1095:             26 21.8        9.3                26         0
-    ## 1096:             26 19.9       13.8                26         0
-    ## 1097:             26 21.6       11.6                26         0
-    ## 1098:             26 18.9       15.8                26         0
-    ##       daas_soil_order
-    ##    1:         Sodosol
-    ##    2:         Sodosol
-    ##    3:         Sodosol
-    ##    4:         Sodosol
-    ##    5:         Sodosol
-    ##   ---                
-    ## 1094:        Dermosol
-    ## 1095:        Dermosol
-    ## 1096:        Dermosol
-    ## 1097:        Dermosol
-    ## 1098:        Dermosol
+    ## data.table [1098, 50]
+    ## keys: location
+    ## location                   chr  Corrigin Corrigin Corrigin ~
+    ## x                          dbl  117.87 117.87 117.87 117.87~
+    ## y                          dbl  -32.33 -32.33 -32.33 -32.33~
+    ## ae_zone                    chr  WA Central WA Central WA Ce~
+    ## station_code               chr  010536 010536 010536 010536~
+    ## station_name               lgl  NA NA NA NA NA NA
+    ## year                       dbl  2020 2020 2020 2020 2020 20~
+    ## day                        dbl  2020 2020 2020 2020 2020 20~
+    ## date                       date 2020-01-01 2020-01-02 2020-~
+    ## air_tmax                   dbl  37.4 23 26 34 38 37
+    ## air_tmax_source            int  25 0 0 0 0 0
+    ## air_tmin                   dbl  15.3 16 12.5 8 12 16.5
+    ## air_tmin_source            int  25 25 0 0 0 0
+    ## elev_m                     chr  295.0 m 295.0 m 295.0 m 295~
+    ## et_morton_actual           dbl  3.1 5 2.8 4 7.9 8.2
+    ## et_morton_actual_source    int  26 26 26 26 26 26
+    ## et_morton_potential        dbl  10.8 5 6.9 8 9.2 9.3
+    ## et_morton_potential_source int  26 26 26 26 26 26
+    ## et_morton_wet              dbl  7 5 4.8 6 8.5 8.8
+    ## et_morton_wet_source       int  26 26 26 26 26 26
+    ## et_short_crop              dbl  7.9 3.6 5.1 6.7 7.5 7.2
+    ## et_short_crop_source       int  26 26 26 26 26 26
+    ## et_tall_crop               dbl  10.2 3.9 6.4 8.7 9.2 8.6
+    ## et_tall_crop_source        int  26 26 26 26 26 26
+    ## evap_comb                  dbl  9.5 10.4 8 8 10.6 12
+    ## evap_comb_source           int  25 0 0 0 0 0
+    ## evap_morton_lake           dbl  7.9 5.1 5.5 6.8 8.8 9
+    ## evap_morton_lake_source    int  26 26 26 26 26 26
+    ## evap_pan                   dbl  9.5 10.4 8 8 10.6 12
+    ## evap_pan_source            int  25 0 0 0 0 0
+    ## evap_syn                   dbl  11 6.4 7.9 9.8 10.6 10
+    ## evap_syn_source            int  26 26 26 26 26 26
+    ## extracted                  date 2023-08-22 2023-08-22 2023-~
+    ## station_latitude           chr  -32.3292 -32.3292 -32.3292 ~
+    ## station_longitude          chr  117.8733 117.8733 117.8733 ~
+    ## mslp                       dbl  1012.7 1010.8 1017.2 1020.9~
+    ## mslp_source                int  25 0 0 0 0 0
+    ## radiation                  dbl  30.1 21.1 24.1 28.5 32.2 31~
+    ## radiation_source           int  25 25 25 25 25 25
+    ## rainfall                   dbl  0 0 0 0 0 0
+    ## rainfall_source            int  0 0 0 0 0 0
+    ## rh_tmax                    dbl  22.6 71.2 37.5 26.3 33.4 39~
+    ## rh_tmax_source             int  26 26 26 26 26 26
+    ## rh_tmin                    dbl  83.5 100 87 100 100 100
+    ## rh_tmin_source             int  26 26 26 26 26 26
+    ## vp                         dbl  14.5 20 12.6 14 22.1 25
+    ## vp_deficit                 dbl  32.7 5.2 14.9 22.7 24.1 22.2
+    ## vp_deficit_source          int  26 26 26 26 26 26
+    ## vp_source                  int  25 0 0 0 0 0
+    ## daas_soil_order            chr  Sodosol Sodosol Sodosol Sod~
 
 ## Code of Conduct
 
