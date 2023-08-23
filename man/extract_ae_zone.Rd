@@ -30,5 +30,4 @@ locs <- list(
   )
 
 extract_ae_zone(x = locs)
-
 }

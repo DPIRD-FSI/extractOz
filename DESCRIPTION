@@ -1,6 +1,6 @@
 Package: extractOz
 Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
-Version: 1.0.0.9000
+Version: 1.1.0
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
                     email = "adam.sparks@dpird.wa.gov.au",
                     role = c("aut", "cre"),
@@ -15,7 +15,8 @@ Authors@R: c(person(given = "Adam H.", family = "Sparks",
 Description: Extracts point data for a given GPS coordinate that includes major
   soil order, weather and GRDC agro-ecological zone information at that point.
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet"))
 RoxygenNote: 7.2.3
 Imports:
   curl,
@@ -32,6 +33,7 @@ Suggests:
     knitr,
     readr,
     rmarkdown,
+    roxyglobals,
     spelling,
     testthat (>= 3.0.0),
     tidyverse,
@@ -48,3 +50,5 @@ X-schema.org-isPartOf: https://www.dpird.wa.gov.au/
 URL: https://github.com/DPIRD-FSI/extractOz
 BugReports: https://github.com/DPIRD-FSI/extractOz/issues
 LazyData: true
+Config/roxyglobals/filename: generated-globals.R
+Config/roxyglobals/unique: FALSE

@@ -19,7 +19,7 @@
 #'   )
 #'
 #' extract_ae_zone(x = locs)
-#'
+#' @autoglobal
 #' @export
 
 extract_ae_zone <- function(x) {

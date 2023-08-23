@@ -145,7 +145,7 @@
 #' @family SILO
 #'
 #' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
-#'
+#' @autoglobal
 #' @export
 
 extract_data_drill <- function(x,

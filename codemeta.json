@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/DPIRD-FSI/extractOz",
   "issueTracker": "https://github.com/DPIRD-FSI/extractOz/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.0.0.9000",
+  "version": "1.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -84,6 +84,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "roxyglobals",
+      "name": "roxyglobals",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=roxyglobals"
     },
     {
       "@type": "SoftwareApplication",
@@ -216,15 +228,20 @@
     },
     "8": {
       "@type": "SoftwareApplication",
+      "identifier": "stats",
+      "name": "stats"
+    },
+    "9": {
+      "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "weatherOz",
       "name": "weatherOz"
     },
-    "10": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
@@ -235,7 +252,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1420.245KB",
+  "fileSize": "1347.764KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
