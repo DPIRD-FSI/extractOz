@@ -1,4 +1,4 @@
-# extractOz 1.0.0.9000
+# extractOz 1.1.0
 
 ## Major changes
 
@@ -14,6 +14,8 @@
     ```
     
 -   Internal GRDC Agroecoregions object uses the same simplified GPKG and is saved using "xz" compression to save more file space.
+
+-   Use {roxyglobals} for tracking global objects in the package in a tidier fashion.
 
 # extractOz 1.0.0
 
