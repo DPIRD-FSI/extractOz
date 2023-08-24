@@ -1,6 +1,6 @@
 Package: extractOz
 Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
-Version: 1.1.1
+Version: 1.1.1.9000
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
                     email = "adam.sparks@dpird.wa.gov.au",
                     role = c("aut", "cre"),

@@ -1,9 +1,13 @@
+# extractOz (development version)
+
 # extractOz 1.1.1
 
 ## Minor changes
 
 -   Ensure that all checks are passed
+
   -   Updates {vcr} cassette
+
   -   Updates WORDLIST
 
 # extractOz 1.1.0
