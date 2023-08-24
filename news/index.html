@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">extractOz</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -51,16 +51,17 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="1.0.0.9000" id="extractoz-1009000">extractOz 1.0.0.9000<a class="anchor" aria-label="anchor" href="#extractoz-1009000"></a></h2>
+<h2 class="page-header" data-toc-text="1.1.0" id="extractoz-110">extractOz 1.1.0<a class="anchor" aria-label="anchor" href="#extractoz-110"></a></h2>
 <div class="section level3">
-<h3 id="major-changes-1-0-0-9000">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-0-0-9000"></a></h3>
+<h3 id="major-changes-1-1-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-1-0"></a></h3>
 <ul><li><p>Introduce <code><a href="../reference/extract_patched_point.html">extract_patched_point()</a></code> to get SILO Patched Point station data from the nearest station(s) to a given set of geographic coordinates.</p></li>
 <li><p>Introduce <code><a href="../reference/extract_data_drill.html">extract_data_drill()</a></code> to get SILO Data Drill interpolated data from a given set of geographic coordinates.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="minor-changes-1-0-0-9000">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-0-0-9000"></a></h3>
+<h3 id="minor-changes-1-1-0">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-1-0"></a></h3>
 <ul><li><p>GRDC Agroecoregions geopackage file is reduced in size by reducing the complexity through, <code>r     rmapshaper::ms_simplify(aez, keep = 0.1, keep_shapes = FALSE)</code></p></li>
 <li><p>Internal GRDC Agroecoregions object uses the same simplified GPKG and is saved using “xz” compression to save more file space.</p></li>
+<li><p>Use {roxyglobals} for tracking global objects in the package in a tidier fashion.</p></li>
 </ul></div>
 </div>
     <div class="section level2">
