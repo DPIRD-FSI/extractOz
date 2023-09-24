@@ -1,4 +1,6 @@
-# extractOz (development version)
+# extractOz 1.1.2
+
+-    Updates {vcr} cassettes for latest {weatherOz}.
 
 # extractOz 1.1.1
 
