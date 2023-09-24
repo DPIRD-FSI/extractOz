@@ -75,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `C:\Users\ASparks\AppData\Local\Temp\RtmpYflNNY\SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/ch/8fqkzddj1kj_qb5ddfdd3p1w0000gn/T/RtmpePjwxl/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
@@ -136,18 +136,18 @@ left_join(z, three_sites, by = c(
 
     ## Joining with `by = join_by(location, x, y)`
 
-    ##       location      x      y       ae_zone station_code station_name year  day
-    ##    1: Corrigin 117.87 -32.33    WA Central       010536           NA 2020 2020
-    ##    2: Corrigin 117.87 -32.33    WA Central       010536           NA 2020 2020
-    ##    3: Corrigin 117.87 -32.33    WA Central       010536           NA 2020 2020
-    ##    4: Corrigin 117.87 -32.33    WA Central       010536           NA 2020 2020
-    ##    5: Corrigin 117.87 -32.33    WA Central       010536           NA 2020 2020
-    ##   ---                                                                         
-    ## 1094: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA 2020 2020
-    ## 1095: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA 2020 2020
-    ## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA 2020 2020
-    ## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA 2020 2020
-    ## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA 2020 2020
+    ##       location      x      y       ae_zone station_code station_name month  day
+    ##    1: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
+    ##    2: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
+    ##    3: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
+    ##    4: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
+    ##    5: Corrigin 117.87 -32.33    WA Central       010536           NA  2020 2020
+    ##   ---                                                                          
+    ## 1094: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
+    ## 1095: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
+    ## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
+    ## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
+    ## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325           NA  2020 2020
     ##             date air_tmax air_tmax_source air_tmin air_tmin_source  elev_m
     ##    1: 2020-01-01     37.4              25     15.3              25 295.0 m
     ##    2: 2020-01-02     23.0               0     16.0              25 295.0 m
@@ -209,17 +209,17 @@ left_join(z, three_sites, by = c(
     ## 1097:       4.3               25              4.4                      26
     ## 1098:       5.0               25              4.6                      26
     ##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted
-    ##    1:      9.5              25     11.0              26 2023-08-23
-    ##    2:     10.4               0      6.4              26 2023-08-23
-    ##    3:      8.0               0      7.9              26 2023-08-23
-    ##    4:      8.0               0      9.8              26 2023-08-23
-    ##    5:     10.6               0     10.6              26 2023-08-23
+    ##    1:      9.5              25     11.0              26 2023-08-24
+    ##    2:     10.4               0      6.4              26 2023-08-24
+    ##    3:      8.0               0      7.9              26 2023-08-24
+    ##    4:      8.0               0      9.8              26 2023-08-24
+    ##    5:     10.6               0     10.6              26 2023-08-24
     ##   ---                                                             
-    ## 1094:      5.5              25      6.9              26 2023-08-23
-    ## 1095:      3.6              25      4.3              26 2023-08-23
-    ## 1096:      2.6              25      5.1              26 2023-08-23
-    ## 1097:      4.3              25      5.0              26 2023-08-23
-    ## 1098:      5.0              25      5.9              26 2023-08-23
+    ## 1094:      5.5              25      6.9              26 2023-08-24
+    ## 1095:      3.6              25      4.3              26 2023-08-24
+    ## 1096:      2.6              25      5.1              26 2023-08-24
+    ## 1097:      4.3              25      5.0              26 2023-08-24
+    ## 1098:      5.0              25      5.9              26 2023-08-24
     ##       station_latitude station_longitude   mslp mslp_source radiation
     ##    1:         -32.3292          117.8733 1012.7          25      30.1
     ##    2:         -32.3292          117.8733 1010.8           0      21.1
