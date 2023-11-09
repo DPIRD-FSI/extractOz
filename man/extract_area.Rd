@@ -20,8 +20,8 @@ derive location information from.}
 \item{area}{the field in \code{spatial} that should be returned.}
 }
 \value{
-A \code{data.table} with the provided \acronym{GPS} coordinates and the
-respective \code{area} value from \code{spatial}.
+A \link[data.table:data.table]{data.table::data.table} with the provided \acronym{GPS}
+coordinates and the respective \code{area} value from \code{spatial}.
 }
 \description{
 A generic function to extract an area of interest for user-provided

@@ -24,10 +24,10 @@ Value is optional.  All future requests will use the cached data unless
 \code{remove_cache()} is used to remove the cached file.}
 }
 \value{
-A \code{data.table} with the provided \acronym{GPS} coordinates and the
-respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
-"Spatial Data Conversion of the Atlas of Australian Soils to the Australian
-Soil Classification v01".
+A \link[data.table:data.table]{data.table::data.table} with the provided \acronym{GPS}
+coordinates and the respective Digital Atlas of Australian Soils
+(\acronym{DAAS} soil order), "Spatial Data Conversion of the Atlas of
+Australian Soils to the Australian Soil Classification v01".
 }
 \description{
 Extracts the major soil order at the GPS points provided.
