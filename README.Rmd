@@ -15,7 +15,7 @@ Extract the GRDC agroecological zone, major soil order and weather data from you
 Datasets for the GRDC agroecological zones and functions that automatically download modified data from the Digital Atlas of Australian Soils are included in this package for ease of use.
 You may also use your own geospatial vector format file to extract similar information using the generic function, `extract_area()`.
 
-## Quick start
+## Quick Start
 
 You can install {extractOz} like so.
 
@@ -52,7 +52,7 @@ See `?extract_ae_zone()` for more help on how to use this function.
 z <- extract_ae_zone(x = locs)
 ```
 
-## Extract the soil order
+## Extract the Soil Order
 
 See `?extract_soil_order()` for more help on how to use this function.
 
