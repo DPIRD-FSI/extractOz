@@ -16,12 +16,13 @@
 
 #' Create a data.table Object From a Named List
 #'
-#' Take a named list and convert it into a `data.table` by creating a
+#' Take a named list and convert it into a \CRANpkg{data.table} by creating a
 #' long-format object and converting to a wide-format object and returning it.
 #'
-#' @param x `List` with named locations to convert into a `data.table` object
+#' @param x `List` with named locations to convert into a \CRANpkg{data.table}
+#'  object.
 #'
-#' @return A `data.table` object
+#' @return A \CRANpkg{data.table} object.
 #'
 #' @examples
 #' locs <- list(
