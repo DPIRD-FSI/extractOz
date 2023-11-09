@@ -1,5 +1,5 @@
 
-#' Convert a data.frame or Tibble to a list suitable for use in extractOz
+#' Convert a Data Frame Object to a List Suitable for Use in extractOz
 #'
 #' A helper function to convert `data.frames` or objects inheriting from
 #'  `data.frame`, *e.g.* [tibble::tibble()] or [data.table::data.table()] into

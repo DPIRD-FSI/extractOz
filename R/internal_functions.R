@@ -1,5 +1,5 @@
 
-#' Add %notin% function
+#' Add %notin%
 #'
 #' Negates `%in%` for easier (mis)matching.
 #'
@@ -14,7 +14,7 @@
   match(x, table, nomatch = 0L) == 0L
 }
 
-#' Create a data.table object from a named list
+#' Create a data.table Object From a Named List
 #'
 #' Take a named list and convert it into a `data.table` by creating a
 #' long-format object and converting to a wide-format object and returning it.

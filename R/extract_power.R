@@ -120,7 +120,8 @@
 #' }
 #'
 #'
-#' @return A `data.table` with data from the \acronym{POWER} \acronym{API}.
+#' @return A [data.table::data.table] with data from the \acronym{POWER}
+#'   \acronym{API}.
 #'
 #' @source <https://power.larc.nasa.gov/>
 #'
