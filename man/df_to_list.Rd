@@ -2,7 +2,7 @@
 % Please edit documentation in R/df_to_list.R
 \name{df_to_list}
 \alias{df_to_list}
-\title{Convert a data.frame or Tibble to a list suitable for use in extractOz}
+\title{Convert a Data Frame Object to a List Suitable For Use}
 \usage{
 df_to_list(x, names = 1, lonlat = 2:3)
 }

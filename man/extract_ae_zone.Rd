@@ -15,8 +15,8 @@ of the individual \code{vectors} and will be included in a "location" column of
 the output.}
 }
 \value{
-A \code{data.table} with the provided \acronym{GPS} coordinates and the
-respective \acronym{GRDC} agroecological zone.
+A \link[data.table:data.table]{data.table::data.table} with the provided \acronym{GPS}
+coordinates and the respective \acronym{GRDC} agroecological zone.
 }
 \description{
 Extract GRDC Agroecological Zones Using Australian GPS Coordinates

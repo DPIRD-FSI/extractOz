@@ -15,14 +15,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Load libraries
+## Load Libraries
 
 ```{r setup, message=FALSE}
 library(extractOz)
 library(tidyverse)
 ```
 
-## Create locations in WA and NSW
+## Create Locations in WA and NSW
 
 ```{r create-location}
 # create a list of locations for use in testing
@@ -41,7 +41,7 @@ See `?extract_ae_zone()` for more help on how to use this function.
 z <- extract_ae_zone(x = locs)
 ```
 
-## Extract the soil order
+## Extract the Soil Order
 
 See `?extract_daas_soil_order()` for more help on how to use this function.
 

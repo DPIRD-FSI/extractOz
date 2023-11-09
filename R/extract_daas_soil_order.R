@@ -14,10 +14,10 @@
 #' soils data.  If `cache = TRUE`, any use after this will be much faster due to
 #' the locally cached geospatial soils data.
 #'
-#' @return A `data.table` with the provided \acronym{GPS} coordinates and the
-#'  respective Digital Atlas of Australian Soils (\acronym{DAAS} soil order),
-#'  "Spatial Data Conversion of the Atlas of Australian Soils to the Australian
-#'  Soil Classification v01".
+#' @return A [data.table::data.table] with the provided \acronym{GPS}
+#'  coordinates and the respective Digital Atlas of Australian Soils
+#'  (\acronym{DAAS} soil order), "Spatial Data Conversion of the Atlas of
+#'  Australian Soils to the Australian Soil Classification v01".
 #'
 #' @source <https://data.gov.au/dataset/ds-dga-5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/distribution/dist-dga-56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/details?q=>
 #'

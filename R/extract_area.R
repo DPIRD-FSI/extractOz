@@ -10,8 +10,8 @@
 #'  derive location information from.
 #' @param area the field in `spatial` that should be returned.
 #'
-#' @return A `data.table` with the provided \acronym{GPS} coordinates and the
-#'  respective `area` value from `spatial`.
+#' @return A [data.table::data.table] with the provided \acronym{GPS}
+#'  coordinates and the respective `area` value from `spatial`.
 #'
 #' @examples
 #' # load the `aez` data included in the package for use in example only.

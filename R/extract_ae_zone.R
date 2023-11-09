@@ -1,3 +1,4 @@
+
 #' Extract GRDC Agroecological Zones Using Australian GPS Coordinates
 #'
 #' @param x `List`. An object with names containing `vector` pairings of
@@ -7,8 +8,8 @@
 #'  of the individual `vectors` and will be included in a "location" column of
 #'  the output.
 #'
-#' @return A `data.table` with the provided \acronym{GPS} coordinates and the
-#'  respective \acronym{GRDC} agroecological zone.
+#' @return A [data.table::data.table] with the provided \acronym{GPS}
+#'  coordinates and the respective \acronym{GRDC} agroecological zone.
 #'
 #' @examples
 #'

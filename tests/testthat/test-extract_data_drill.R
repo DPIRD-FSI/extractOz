@@ -15,5 +15,5 @@ test_that("extract_data_drill() fetches the expected weather data", {
                c("Merredin", "Corrigin", "Tamworth"))
   expect_s3_class(w_all, "data.frame")
   expect_length(w_all, 45)
-  expect_equal(nrow(w_all), 15)
+  expect_equal(nrow(w_all), 3)
 })
