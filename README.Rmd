@@ -34,7 +34,7 @@ library(extractOz)
 library(dplyr)
 ```
 
-## Create locations in WA and NSW
+## Create Locations in WA and NSW
 
 ```{r create-locs}
 locs <- list(
@@ -60,7 +60,7 @@ See `?extract_soil_order()` for more help on how to use this function.
 s <- extract_daas_soil_order(x = locs)
 ```
 
-## Get Weather Data for these Locations in 2020
+## Get Weather Data for These Locations in 2020
 
 Using the previously used list of GPS points, fetch weather data from SILO for 2020.
 This is just a non-working example, replace `your_api_key` with your email address below.

@@ -48,7 +48,7 @@ library(dplyr)
     ## 
     ##     intersect, setdiff, setequal, union
 
-## Create locations in WA and NSW
+## Create Locations in WA and NSW
 
 ``` r
 locs <- list(
@@ -75,7 +75,7 @@ s <- extract_daas_soil_order(x = locs)
 ```
 
     ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/gn/jsls6gwj7yj5svyykn8vvsfw0000gp/T/RtmpUBwyKF/SoilAtlas2M_ASC_Conversion_v01' 
+    ##   `/private/var/folders/gn/jsls6gwj7yj5svyykn8vvsfw0000gp/T/Rtmp1Caet8/SoilAtlas2M_ASC_Conversion_v01' 
     ##   using driver `ESRI Shapefile'
     ## Simple feature collection with 22584 features and 7 fields
     ## Geometry type: POLYGON
@@ -83,7 +83,7 @@ s <- extract_daas_soil_order(x = locs)
     ## Bounding box:  xmin: 112.8959 ymin: -43.63287 xmax: 153.6362 ymax: -10.49096
     ## Geodetic CRS:  GDA94
 
-## Get Weather Data for these Locations in 2020
+## Get Weather Data for These Locations in 2020
 
 Using the previously used list of GPS points, fetch weather data from
 SILO for 2020. This is just a non-working example, replace
