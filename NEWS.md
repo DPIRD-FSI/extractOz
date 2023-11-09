@@ -1,3 +1,11 @@
+# extractOz 1.1.3
+
+## Minor changes
+
+-   Tidy documentation.
+
+-   Format headings in README and Vignette.
+
 # extractOz 1.1.2
 
 -    Updates {vcr} cassettes for latest {weatherOz}.
