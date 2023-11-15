@@ -91,7 +91,7 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
     "dataset/5ccb44bf-93f2-4f94-8ae2-4c3f699ea4e7/resource/56ba5f25-2324-43b5-8df8-b9c69ae2ea0b/download/"
   filename <- "6f804e8b-2de9-4c88-adfa-918ec327c32f.zip"
 
-  url <- paste0(u_remote, d_remote, filename)
+  url <- sprintf("%s%s%s", u_remote, d_remote, filename)
   tryCatch(
     # check for an http error b4 proceeding
     if (!httr::http_error(url)) {
