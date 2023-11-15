@@ -1,4 +1,12 @@
 
+# extractOz 1.1.4
+
+## Minor changes
+
+-  Internal changes only including swapping `paste0()` for `sprintf()` and redocumenting.
+
+-  Update WORDLIST.
+
 # extractOz 1.1.3
 
 ## Minor changes
