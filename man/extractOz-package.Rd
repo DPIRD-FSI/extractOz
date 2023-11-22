@@ -19,7 +19,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Adam H. Sparks \email{adam.sparks@dpird.wa.gov.au} (\href{https://orcid.org/0000-0002-0061-8359}{ORCID})
+\strong{Maintainer}: Rodrigo Pires \email{rodrigo.pires@dpird.wa.gov.au} (\href{https://orcid.org/0000-0001-7384-6849}{ORCID})
+
+Authors:
+\itemize{
+  \item Adam H. Sparks \email{adam.sparks@dpird.wa.gov.au} (\href{https://orcid.org/0000-0002-0061-8359}{ORCID}) [conceptor]
+}
 
 Other contributors:
 \itemize{
