@@ -1,4 +1,10 @@
 
+# extractOz 1.1.5
+
+## Minor changes
+
+-  @bozaah is now the maintainer.
+
 # extractOz 1.1.4
 
 ## Minor changes

@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/DPIRD-FSI/extractOz",
   "issueTracker": "https://github.com/DPIRD-FSI/extractOz/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -21,6 +21,13 @@
       "familyName": "Sparks",
       "email": "adam.sparks@dpird.wa.gov.au",
       "@id": "https://orcid.org/0000-0002-0061-8359"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Rodrigo",
+      "familyName": "Pires",
+      "email": "rodrigo.pires@dpird.wa.gov.au",
+      "@id": "https://orcid.org/0000-0001-7384-6849"
     }
   ],
   "copyrightHolder": [
@@ -42,10 +49,10 @@
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Adam H.",
-      "familyName": "Sparks",
-      "email": "adam.sparks@dpird.wa.gov.au",
-      "@id": "https://orcid.org/0000-0002-0061-8359"
+      "givenName": "Rodrigo",
+      "familyName": "Pires",
+      "email": "rodrigo.pires@dpird.wa.gov.au",
+      "@id": "https://orcid.org/0000-0001-7384-6849"
     }
   ],
   "softwareSuggestions": [
@@ -252,7 +259,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1349.791KB",
+  "fileSize": "1348.858KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
