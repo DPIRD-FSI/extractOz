@@ -1,19 +1,4 @@
 
-#' Add %notin%
-#'
-#' Negates `%in%` for easier (mis)matching.
-#'
-#' @param x A character string to match.
-#' @param table A table containing values to match `x` against.
-#'
-#' @return A logical vector, indicating if a mismatch was located for any
-#'  element of x: thus the values are TRUE or FALSE and never NA.
-#' @keywords internal
-#' @noRd
-`%notin%` <- function(x, table) {
-  match(x, table, nomatch = 0L) == 0L
-}
-
 #' Create a data.table Object From a Named List
 #'
 #' Take a named list and convert it into a \CRANpkg{data.table} by creating a
