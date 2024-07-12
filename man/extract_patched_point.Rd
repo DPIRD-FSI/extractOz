@@ -70,7 +70,7 @@ Column names are converted from the default returns of the API to be
 snake_case formatted and where appropriate, the names of the values that
 are analogous between \acronym{SILO} and \acronym{DPIRD} data are named
 using the same name for ease of interoperability, \emph{e.g.}, using
-\code{rbind()} to create a \code{data.table} that contains data from both APIs.
+\link{rbind} to create a \code{data.table} that contains data from both APIs.
 
 The \acronym{SILO} documentation provides the following information
 for the PatchedPoint data.

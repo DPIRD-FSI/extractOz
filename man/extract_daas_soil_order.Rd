@@ -21,7 +21,7 @@ the output.}
 the downloaded files are removed when \R session is closed. To take advantage
 of cached files in future sessions, use \code{cache = TRUE}.  Defaults to \code{FALSE}.
 Value is optional.  All future requests will use the cached data unless
-\code{remove_cache()} is used to remove the cached file.}
+\link{remove_cache} is used to remove the cached file.}
 }
 \value{
 A \link[data.table:data.table]{data.table::data.table} with the provided \acronym{GPS}

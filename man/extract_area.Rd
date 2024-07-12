@@ -14,7 +14,7 @@ order, each individual \code{vectors}' items should be named "x" (longitude) and
 of the individual \code{vectors} and will be included in a "location" column of
 the output.}
 
-\item{spatial}{a user-supplied \link{sf} object that contains information to
+\item{spatial}{a user-supplied \link[sf:sf]{sf::sf} object that contains information to
 derive location information from.}
 
 \item{area}{the field in \code{spatial} that should be returned.}

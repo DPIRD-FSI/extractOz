@@ -8,7 +8,7 @@
 #' the downloaded files are removed when \R session is closed. To take advantage
 #' of cached files in future sessions, use `cache = TRUE`.  Defaults to `FALSE`.
 #' Value is optional.  All future requests will use the cached data unless
-#' `remove_cache()` is used to remove the cached file.
+#' [remove_cache] is used to remove the cached file.
 #'
 #' @note The first run will take additional time to download and extract the
 #' soils data.  If `cache = TRUE`, any use after this will be much faster due to

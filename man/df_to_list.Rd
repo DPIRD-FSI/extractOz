@@ -23,7 +23,7 @@ in \pkg{extractOz}.
 }
 \description{
 A helper function to convert \code{data.frames} or objects inheriting from
-\code{data.frame}, \emph{e.g.} \code{\link[tibble:tibble]{tibble::tibble()}} or \code{\link[data.table:data.table]{data.table::data.table()}} into
+\code{data.frame}, \emph{e.g.} \link[tibble:tibble]{tibble::tibble} or \code{\link[data.table:data.table]{data.table::data.table()}} into
 a list suitable for use in \pkg{extractOz} functions.
 }
 \examples{

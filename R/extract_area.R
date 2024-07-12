@@ -6,7 +6,7 @@
 #'
 #' @inheritParams extract_ae_zone
 #'
-#' @param spatial a user-supplied [sf] object that contains information to
+#' @param spatial a user-supplied [sf::sf] object that contains information to
 #'  derive location information from.
 #' @param area the field in `spatial` that should be returned.
 #'

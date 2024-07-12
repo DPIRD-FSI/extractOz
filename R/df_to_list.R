@@ -2,7 +2,7 @@
 #' Convert a Data Frame Object to a List Suitable For Use
 #'
 #' A helper function to convert `data.frames` or objects inheriting from
-#'  `data.frame`, *e.g.* [tibble::tibble()] or [data.table::data.table()] into
+#'  `data.frame`, *e.g.* [tibble::tibble] or [data.table::data.table()] into
 #'  a list suitable for use in \pkg{extractOz} functions.
 #'
 #' @param x `data.frame`. A three column object with the first column being the

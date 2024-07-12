@@ -15,7 +15,7 @@ The Australian Grains Research and Development Corporation,
 aez
 }
 \description{
-An \code{\link[sf:sf]{sf::sf()}} object for displaying GRDC Australian Grains Agroecological
+An \link[sf:sf]{sf::sf} object for displaying GRDC Australian Grains Agroecological
 Zones
 }
 \section{Coordinate Reference System}{

@@ -1,7 +1,7 @@
 
 #' GRDC Australian Grains Agroecological Zones
 #'
-#' An [sf::sf()] object for displaying GRDC Australian Grains Agroecological
+#' An [sf::sf] object for displaying GRDC Australian Grains Agroecological
 #'  Zones
 #'
 #' @section Coordinate Reference System:
