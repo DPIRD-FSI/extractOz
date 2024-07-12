@@ -1,7 +1,7 @@
-
 #' Extract Soil Order From DAAS Using Australian GPS Coordinates
 #'
-#' Extracts the major soil order at the GPS points provided.
+#' Extracts the major soil order at the GPS points provided assuming that they
+#' are land-based coordinates.
 #'
 #' @inheritParams extract_ae_zone
 #' @param cache `Boolean`.  Store soil data locally for later use?  If `FALSE`,
@@ -9,6 +9,10 @@
 #' of cached files in future sessions, use `cache = TRUE`.  Defaults to `FALSE`.
 #' Value is optional.  All future requests will use the cached data unless
 #' [remove_cache()] is used to remove the cached file.
+#' @param aez_only `Boolean`.  Only use soils in the GRDC agroecozones?  Use
+#' `aez = FALSE` to extract soil data from anywhere in Australia. Use
+#' `aez = TRUE` to only work with soils in the GRDC agroecozones. Defaults to
+#' `TRUE`.
 #'
 #' @note The first run will take additional time to download and extract the
 #' soils data.  If `cache = TRUE`, any use after this will be much faster due to
@@ -26,12 +30,16 @@
 #'   "Merredin" = c(x = 118.28, y = -31.48),
 #'   "Corrigin" = c(x = 117.87, y = -32.33),
 #'   "Tamworth" = c(x = 150.84, y = -31.07)
-#'   )
+#' )
 #'
 #' extract_daas_soil_order(x = locs, cache = FALSE)
+#'
+#' # extract soils data for Mt. Isa, Qld (not in the GRDC AEZ)
+#' locs <- list("Mt_Isa" = c(x = 139.4930, y = -20.7264))
+#' extract_daas_soil_order(x = locs, aez = FALSE)
 #' @export
 
-extract_daas_soil_order <- function(x, cache = FALSE) {
+extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
   # check if the DAAS data exists in the local cache and if not, download and
   # mask it before saving in the user cache
 
@@ -42,13 +50,19 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
   } else {
     if (isTRUE(cache)) {
       message("This is the first time using caching, a cache will be created.")
-      daas <- .get_daas_data(.cache = cache)
+      daas <- .get_daas_data(.cache = cache, .aez = aez)
     } else {
-      daas <- .get_daas_data(.cache = cache)
+      daas <- .get_daas_data(.cache = cache, .aez = aez)
     }
   }
 
   x <- .create_dt(x)
+
+  if (isTRUE(aez)) {
+    sf::st_agr(daas) <- "constant"
+    sf::st_agr(aez_only) <- "constant"
+    daas <- sf::st_intersection(daas, aez)
+  }
 
   points_sf <- sf::st_as_sf(
     x = x,
@@ -58,7 +72,8 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
 
   intersection <- as.integer(sf::st_intersects(points_sf, daas))
   soil <- data.table::data.table(ifelse(is.na(intersection), "",
-                                        as.character(daas$SOIL[intersection])))
+    as.character(daas$SOIL[intersection])
+  ))
 
   out <- cbind(x, soil)
   data.table::setnames(out, old = "V1", new = "daas_soil_order")
@@ -72,19 +87,19 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
 
 #' @noRd
 .get_cache_dir <- function() {
-  R_user_dir = utils::getFromNamespace("R_user_dir", "tools")
+  R_user_dir <- utils::getFromNamespace("R_user_dir", "tools")
   R_user_dir("extractOz", which = "cache")
 }
 
 .get_cache_file <- function() {
-  dir = .get_cache_dir()
-  path = file.path(dir, "daas.RData")
+  dir <- .get_cache_dir()
+  path <- file.path(dir, "daas.RData")
   return(path)
 }
 
 #' @noRd
 # nocov start
-.get_daas_data <- function(.cache) {
+.get_daas_data <- function(.cache, .aez) {
   u_remote <-
     "https://data.gov.au/data/"
   d_remote <-
@@ -108,19 +123,20 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
       utils::unzip(file.path(tempdir(), filename), exdir = tempdir())
 
       x <-
-        sf::st_read(dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
-                    layer = "soilAtlas2M_ASC_Conversion")
-      x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"),]
+        sf::st_read(
+          dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
+          layer = "soilAtlas2M_ASC_Conversion"
+        )
+      x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"), ]
       x <- sf::st_transform(x, crs = sf::st_crs(aez))
-      sf::st_agr(x) = "constant"
-      sf::st_agr(aez) = "constant"
-      daas <- sf::st_intersection(x, aez)
+      return(x)
     },
-    error = function(x)
+    error = function(x) {
       stop(
         call. = FALSE,
         "\nThe file download for DAAS has failed. Please try again.\n"
       )
+    }
   )
 
   if (isTRUE(.cache)) {
@@ -132,7 +148,7 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
     }
   }
   return(daas)
-} #nocov end
+} # nocov end
 
 #' Remove DAAS Soil Order Cache
 #'
@@ -140,9 +156,10 @@ extract_daas_soil_order <- function(x, cache = FALSE) {
 #'
 #' @return `NULL`, called for its side-effects
 #' @export
-remove_cache = function() {
-  path = .get_cache_file()
-  if (file.exists(path))
+remove_cache <- function() {
+  path <- .get_cache_file()
+  if (file.exists(path)) {
     file.remove(path)
+  }
   return(invisible(NULL))
 }
