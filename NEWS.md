@@ -1,3 +1,12 @@
+# extractOz 1.1.17
+
+-  You can now extract soil order information anywhere in AU, not just within the AE Zones
+
+# extractOz 1.1.16
+
+## Minor changes
+
+-  Australia lat lon checks now align with {weatherOz} checks
 
 # extractOz 1.1.5
 
