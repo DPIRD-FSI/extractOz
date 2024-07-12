@@ -8,7 +8,7 @@
 #'  object.
 #'
 #' @return A \CRANpkg{data.table} object.
-#'
+#' @keywords Internal
 #' @examples
 #' locs <- list(
 #'   "Merredin" = c(x = 118.28, y = -31.48),
@@ -26,12 +26,12 @@
   return(data.table::dcast(x, location ~ ind, value.var = "values"))
 }
 
-#' Check user-input longitude and latitude values for validity
+#' Check User-input Longitude and Latitude Values for Validity
 #'
-#' @param longitude user provided numeric value as decimal degrees
-#' @param latitude user provided numeric value as decimal degrees
+#' @param x user provided `list`` of numeric values as decimal degrees
 #' @noRd
 #' @autoglobal
+#' @keywords Internal
 #' @return invisible `NULL`, called for its side-effects
 
 .check_lonlat <- function(x) {
@@ -45,7 +45,7 @@
       stop(call. = FALSE,
            "The vectors of lon/lat must be named 'x' and 'y', respectively")
     }
-    if (i[["x"]] < 114.5 || i[["x"]] > 152.5) {
+    if (i[["x"]] < 112 || i[["x"]] > 154) {
       stop(
         call. = FALSE,
         "Please check your longitude, `",
@@ -53,7 +53,7 @@
         "`, to be sure it is valid for Australian data.\n"
       )
     }
-    if (i[["y"]] < -38.5 || i[["y"]] > -23) {
+    if (i[["y"]] < -44 || i[["y"]] > -10) {
       stop(
         call. = FALSE,
         "Please check your latitude, `",
