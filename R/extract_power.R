@@ -3,7 +3,7 @@
 #'
 #' Extracts satellite and modelled weather data from the \acronym{NASA}
 #'  \acronym{POWER} \acronym{API} at the GPS points provided.  This is a wrapper
-#'  for [nasapower::get_power] that will only work with Australian locations.
+#'  for [nasapower::get_power()] that will only work with Australian locations.
 #'
 #' @inheritParams extract_ae_zone
 #' @param start_date `Integer`. A string representing the start date of the query in

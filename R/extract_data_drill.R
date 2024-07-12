@@ -1,7 +1,7 @@
 
 #' Extract Weather From SILO Data Drill Using Australian GPS Coordinates
 #'
-#' A modified wrapper version of [weatherOz::get_data_drill] that allows
+#' A modified wrapper version of [weatherOz::get_data_drill()] that allows
 #'  for fetching many geophysical points or a single geophysical point.
 #'  Extracts interpolated weather data from the \acronym{SILO} \acronym{API}
 #'  from the gridded data, PatchedPointData, data set.

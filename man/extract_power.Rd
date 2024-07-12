@@ -85,7 +85,7 @@ A \link[data.table:data.table]{data.table::data.table} with data from the \acron
 \description{
 Extracts satellite and modelled weather data from the \acronym{NASA}
 \acronym{POWER} \acronym{API} at the GPS points provided.  This is a wrapper
-for \link[nasapower:get_power]{nasapower::get_power} that will only work with Australian locations.
+for \code{\link[nasapower:get_power]{nasapower::get_power()}} that will only work with Australian locations.
 }
 \section{Argument details for \dQuote{community}}{
  there are three valid

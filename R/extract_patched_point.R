@@ -12,7 +12,7 @@
 #'    snake_case formatted and where appropriate, the names of the values that
 #'    are analogous between \acronym{SILO} and \acronym{DPIRD} data are named
 #'    using the same name for ease of interoperability, _e.g._, using
-#'    [rbind] to create a `data.table` that contains data from both APIs.
+#'    [rbind()] to create a `data.table` that contains data from both APIs.
 #'
 #' @details The \acronym{SILO} documentation provides the following information
 #'   for the PatchedPoint data.

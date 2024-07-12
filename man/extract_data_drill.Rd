@@ -46,7 +46,7 @@ always be:
 }
 }
 \description{
-A modified wrapper version of \link[weatherOz:get_data_drill]{weatherOz::get_data_drill} that allows
+A modified wrapper version of \code{\link[weatherOz:get_data_drill]{weatherOz::get_data_drill()}} that allows
 for fetching many geophysical points or a single geophysical point.
 Extracts interpolated weather data from the \acronym{SILO} \acronym{API}
 from the gridded data, PatchedPointData, data set.
