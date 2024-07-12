@@ -1,6 +1,6 @@
 Package: extractOz
 Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
-Version: 1.1.5
+Version: 1.1.6
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
                     email = "adam.sparks@dpird.wa.gov.au",
                     role = c("aut", "ccp"),
@@ -21,7 +21,7 @@ Description: Extracts point data for a given GPS coordinate that includes major
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
     "roxyglobals::global_roclet"))
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports:
   curl,
   data.table,
