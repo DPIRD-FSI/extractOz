@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="extractoz-a-unified-approach-to-extracting-data-about-australian-locations-using-gps-points-">{extractOz}:
+A Unified Approach to Extracting Data About Australian Locations Using
+GPS Points <img role="img" src="data:image/png;base64,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" align="right" /></h1>
+<!-- badges: start -->
+
+<p><a href="https://codecov.io/gh/DPIRD-FSI/extractOz"><img role="img" aria-label="codecov" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTIiIGhlaWdodD0iMjAiPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiIiB4Mj0iMCIgeTI9IjEwMCUiPgogICAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIgLz4KICAgICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPG1hc2sgaWQ9ImEiPgogICAgICAgIDxyZWN0IHdpZHRoPSIxMTIiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIiAvPgogICAgPC9tYXNrPgogICAgPGcgbWFzaz0idXJsKCNhKSI+CiAgICAgICAgPHBhdGggZmlsbD0iIzU1NSIgZD0iTTAgMGg3M3YyMEgweiIgLz4KICAgICAgICA8cGF0aCBmaWxsPSIjNWZjYzBiIiBkPSJNNzMgMGgzOXYyMEg3M3oiIC8+CiAgICAgICAgPHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTAgMGgxMTJ2MjBIMHoiIC8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSI+CiAgICAgICAgPHRleHQgeD0iNDYiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5jb2RlY292PC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjQ2IiB5PSIxNCI+Y29kZWNvdjwvdGV4dD4KICAgICAgICA8dGV4dCB4PSI5MyIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPjk4JTwvdGV4dD4KICAgICAgICA8dGV4dCB4PSI5MyIgeT0iMTQiPjk4JTwvdGV4dD4KICAgIDwvZz4KICAgIDxzdmcgdmlld0JveD0iMTIwIC04IDYwIDYwIj4KICAgICAgICA8cGF0aCBkPSJNMjMuMDEzIDBDMTAuMzMzLjAwOS4wMSAxMC4yMiAwIDIyLjc2MnYuMDU4bDMuOTE0IDIuMjc1LjA1My0uMDM2YTExLjI5MSAxMS4yOTEgMCAwIDEgOC4zNTItMS43NjcgMTAuOTExIDEwLjkxMSAwIDAgMSA1LjUgMi43MjZsLjY3My42MjQuMzgtLjgyOGMuMzY4LS44MDIuNzkzLTEuNTU2IDEuMjY0LTIuMjQuMTktLjI3Ni4zOTgtLjU1NC42MzctLjg1MWwuMzkzLS40OS0uNDg0LS40MDRhMTYuMDggMTYuMDggMCAwIDAtNy40NTMtMy40NjYgMTYuNDgyIDE2LjQ4MiAwIDAgMC03LjcwNS40NDlDNy4zODYgMTAuNjgzIDE0LjU2IDUuMDE2IDIzLjAzIDUuMDFjNC43NzkgMCA5LjI3MiAxLjg0IDEyLjY1MSA1LjE4IDIuNDEgMi4zODIgNC4wNjkgNS4zNSA0LjgwNyA4LjU5MWExNi41MyAxNi41MyAwIDAgMC00Ljc5Mi0uNzIzbC0uMjkyLS4wMDJhMTYuNzA3IDE2LjcwNyAwIDAgMC0xLjkwMi4xNGwtLjA4LjAxMmMtLjI4LjAzNy0uNTI0LjA3NC0uNzQ4LjExNS0uMTEuMDE5LS4yMTguMDQxLS4zMjcuMDYzLS4yNTcuMDUyLS41MS4xMDgtLjc1LjE2OWwtLjI2NS4wNjdhMTYuMzkgMTYuMzkgMCAwIDAtLjkyNi4yNzZsLS4wNTYuMDE4Yy0uNjgyLjIzLTEuMzYuNTExLTIuMDE2LjgzOGwtLjA1Mi4wMjZjLS4yOS4xNDUtLjU4NC4zMDUtLjg5OS40OWwtLjA2OS4wNGExNS41OTYgMTUuNTk2IDAgMCAwLTQuMDYxIDMuNDY2bC0uMTQ1LjE3NWMtLjI5LjM2LS41MjEuNjY2LS43MjMuOTYtLjE3LjI0Ny0uMzQuNTEzLS41NTIuODY0bC0uMTE2LjE5OWMtLjE3LjI5Mi0uMzIuNTctLjQ0OS44MjRsLS4wMy4wNTdhMTYuMTE2IDE2LjExNiAwIDAgMC0uODQzIDIuMDI5bC0uMDM0LjEwMmExNS42NSAxNS42NSAwIDAgMC0uNzg2IDUuMTc0bC4wMDMuMjE0YTIxLjUyMyAyMS41MjMgMCAwIDAgLjA0Ljc1NGMuMDA5LjExOS4wMi4yMzcuMDMyLjM1NS4wMTQuMTQ1LjAzMi4yOS4wNDkuNDMybC4wMS4wOGMuMDEuMDY3LjAxNy4xMzMuMDI2LjE5Ny4wMzQuMjQyLjA3NC40OC4xMTkuNzIuNDYzIDIuNDE5IDEuNjIgNC44MzYgMy4zNDUgNi45OWwuMDc4LjA5OC4wOC0uMDk1Yy42ODgtLjgxIDIuMzk1LTMuMzggMi41MzktNC45MjJsLjAwMy0uMDI5LS4wMTQtLjAyNWExMC43MjcgMTAuNzI3IDAgMCAxLTEuMjI2LTQuOTU2YzAtNS43NiA0LjU0NS0xMC41NDQgMTAuMzQzLTEwLjg5bC4zODEtLjAxNGExMS40MDMgMTEuNDAzIDAgMCAxIDYuNjUxIDEuOTU3bC4wNTQuMDM2IDMuODYyLTIuMjM3LjA1LS4wM3YtLjA1NmMuMDA2LTYuMDgtMi4zODQtMTEuNzkzLTYuNzI5LTE2LjA4OUMzNC45MzIgMi4zNjEgMjkuMTYgMCAyMy4wMTMgMCIgZmlsbD0iI0YwMUY3QSIgZmlsbC1ydWxlPSJldmVub2RkIi8+CiAgICA8L3N2Zz4KPC9zdmc+" alt="codecov" /></a> <a href="https://www.repostatus.org/#active"><img role="img" aria-label="Project Status: Active – The project has reached a stable, usable state and is being actively developed." src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTE2IiBoZWlnaHQ9IjIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9InJlcG8gc3RhdHVzOiBBY3RpdmUiPjx0aXRsZT5yZXBvIHN0YXR1czogQWN0aXZlPC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSIxMTYiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjcikiPjxyZWN0IHdpZHRoPSI3MyIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHg9IjczIiB3aWR0aD0iNDMiIGhlaWdodD0iMjAiIGZpbGw9IiM0YzEiLz48cmVjdCB3aWR0aD0iMTE2IiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjM3NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNjMwIj5yZXBvIHN0YXR1czwvdGV4dD48dGV4dCB4PSIzNzUiIHk9IjE0MCIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIGZpbGw9IiNmZmYiIHRleHRMZW5ndGg9IjYzMCI+cmVwbyBzdGF0dXM8L3RleHQ+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjkzNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzMwIj5BY3RpdmU8L3RleHQ+PHRleHQgeD0iOTM1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIzMzAiPkFjdGl2ZTwvdGV4dD48L2c+PC9zdmc+" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
+<a href="https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml"><img role="img" aria-label="R-CMD-check" src="data:text/plain; charset=utf-8;charset=utf-8,Not%20Found" alt="R-CMD-check" /></a></p>
+<!-- badges: end -->
+
+<p>Extract the GRDC agroecological zone, major soil order and weather
+data from your GPS sampling points. Datasets for the GRDC agroecological
+zones and functions that automatically download modified data from the
+Digital Atlas of Australian Soils are included in this package for ease
+of use. You may also use your own geospatial vector format file to
+extract similar information using the generic function,
+<code>extract_area()</code>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<p>You can install {extractOz} like so.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;remotes&quot;</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;DPIRD-FSI/extractOz&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Load the packages necessary to execute the examples that follow.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(extractOz)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<h2 id="create-locations-in-wa-and-nsw">Create Locations in WA and
+NSW</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>locs <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="st">&quot;Merredin&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="fl">118.28</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">31.48</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="st">&quot;Corrigin&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="fl">117.87</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">32.33</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="st">&quot;Tamworth&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="fl">150.84</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">31.07</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>)</span></code></pre></div>
+<h2 id="extract-the-grdc-agroecological-zones">Extract the GRDC
+AgroEcological Zones</h2>
+<p>See <code>?extract_ae_zone()</code> for more help on how to use this
+function.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">extract_ae_zone</span>(<span class="at">x =</span> locs)</span></code></pre></div>
+<h2 id="extract-the-soil-order">Extract the Soil Order</h2>
+<p>See <code>?extract_soil_order()</code> for more help on how to use
+this function.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">extract_daas_soil_order</span>(<span class="at">x =</span> locs)</span></code></pre></div>
+<h2 id="get-weather-data-for-these-locations-in-2020">Get Weather Data
+for These Locations in 2020</h2>
+<p>Using the previously used list of GPS points, fetch weather data from
+SILO for 2020. This is just a non-working example, replace
+<code>your_api_key</code> with your email address below. See
+<code>?extract_patched_point()</code> for more help on how to use this
+function.</p>
+<h3 id="a-note-on-api-keys">A Note on API Keys</h3>
+<p>The examples in this README assume that you have stored your API key
+in your .Renviron file. See <a href="https://rstats.wtf/r-startup.html#renviron">Chapter 8</a> in “What
+They Forgot to Teach You About R” by Bryan <em>et al.</em> for more on
+storing details in your .Renviron if you are unfamiliar.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>three_sites <span class="ot">&lt;-</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="fu">extract_patched_point</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    <span class="at">x =</span> locs,</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="at">start_date =</span> <span class="st">&quot;20200101&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="at">end_date =</span> <span class="st">&quot;20201231&quot;</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">&quot;SILO_API_KEY&quot;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## You have requested station observation data but some rows in this
+## dataset have data codes for interpolated data.
+## Check the &#39;data_source&#39; columns and `get_patched_point()` or
+## `get_data_drill()` documentation for further details on codes and
+## references.
+## 
+## You have requested station observation data but some rows in this
+## dataset have data codes for interpolated data.
+## Check the &#39;data_source&#39; columns and `get_patched_point()` or
+## `get_data_drill()` documentation for further details on codes and
+## references.</code></pre>
+<h2 id="join-the-weather-data-with-ae-zone-soil-order-and-site-information">Join
+the Weather Data with AE Zone, Soil Order and Site Information</h2>
+<p>Now using <code>dplyr::left_join()</code>, create a single
+<code>data.frame()</code> of the location, GPS coordinates,
+agroecological zone and weather data.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">left_join</span>(z, three_sites, <span class="at">by =</span> <span class="fu">c</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="st">&quot;location&quot;</span> <span class="ot">=</span> <span class="st">&quot;location&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="st">&quot;x&quot;</span> <span class="ot">=</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="st">&quot;y&quot;</span> <span class="ot">=</span> <span class="st">&quot;y&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="fu">left_join</span>(s)</span></code></pre></div>
+<pre><code>## Joining with `by = join_by(location, x, y)`
+
+## Key: &lt;location&gt;
+##       location      x      y       ae_zone station_code         station_name
+##         &lt;char&gt;  &lt;num&gt;  &lt;num&gt;        &lt;char&gt;       &lt;char&gt;               &lt;char&gt;
+##    1: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
+##    2: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
+##    3: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
+##    4: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
+##    5: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
+##   ---                                                                       
+## 1094: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
+## 1095: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
+## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
+## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
+## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
+##        year   day       date air_tmax air_tmax_source air_tmin air_tmin_source
+##       &lt;num&gt; &lt;int&gt;     &lt;Date&gt;    &lt;num&gt;           &lt;int&gt;    &lt;num&gt;           &lt;int&gt;
+##    1:  2020     1 2020-01-01     37.4              25     15.3              25
+##    2:  2020     2 2020-01-02     23.0               0     16.0              25
+##    3:  2020     3 2020-01-03     26.0               0     12.5               0
+##    4:  2020     4 2020-01-04     34.0               0      8.0               0
+##    5:  2020     5 2020-01-05     38.0               0     12.0               0
+##   ---                                                                         
+## 1094:  2020    27 2020-12-27     29.8               0     15.0               0
+## 1095:  2020    28 2020-12-28     26.8               0     18.3               0
+## 1096:  2020    29 2020-12-29     28.9               0     17.5               0
+## 1097:  2020    30 2020-12-30     29.4               0     14.9               0
+## 1098:  2020    31 2020-12-31     30.0               0     16.1               0
+##        elev_m et_morton_actual et_morton_actual_source et_morton_potential
+##        &lt;char&gt;            &lt;num&gt;                   &lt;int&gt;               &lt;num&gt;
+##    1: 295.0 m              3.3                      26                11.0
+##    2: 295.0 m              6.4                      26                 6.4
+##    3: 295.0 m              3.4                      26                 7.3
+##    4: 295.0 m              4.6                      26                 8.4
+##    5: 295.0 m              7.4                      26                 8.8
+##   ---                                                                     
+## 1094: 394.9 m              5.5                      26                 6.9
+## 1095: 394.9 m              4.1                      26                 4.9
+## 1096: 394.9 m              2.6                      26                 5.3
+## 1097: 394.9 m              6.6                      26                 6.6
+## 1098: 394.9 m              6.2                      26                 8.1
+##       et_morton_potential_source et_morton_wet et_morton_wet_source
+##                            &lt;int&gt;         &lt;num&gt;                &lt;int&gt;
+##    1:                         26           7.2                   26
+##    2:                         26           6.4                   26
+##    3:                         26           5.4                   26
+##    4:                         26           6.5                   26
+##    5:                         26           8.1                   26
+##   ---                                                              
+## 1094:                         26           6.2                   26
+## 1095:                         26           4.5                   26
+## 1096:                         26           3.9                   26
+## 1097:                         26           6.6                   26
+## 1098:                         26           7.1                   26
+##       et_short_crop et_short_crop_source et_tall_crop et_tall_crop_source
+##               &lt;num&gt;                &lt;int&gt;        &lt;num&gt;               &lt;int&gt;
+##    1:           8.0                   26         10.4                  26
+##    2:           4.4                   26          4.7                  26
+##    3:           5.4                   26          6.7                  26
+##    4:           7.0                   26          8.9                  26
+##    5:           7.3                   26          9.0                  26
+##   ---                                                                    
+## 1094:           5.3                   26          6.3                  26
+## 1095:           3.5                   26          4.2                  26
+## 1096:           3.8                   26          4.8                  26
+## 1097:           5.2                   26          5.9                  26
+## 1098:           6.0                   26          7.1                  26
+##       evap_comb evap_comb_source evap_morton_lake evap_morton_lake_source
+##           &lt;num&gt;            &lt;int&gt;            &lt;num&gt;                   &lt;int&gt;
+##    1:       9.5               25              8.1                      26
+##    2:      10.4                0              6.6                      26
+##    3:       8.0                0              6.2                      26
+##    4:       8.0                0              7.5                      26
+##    5:      10.6                0              8.4                      26
+##   ---                                                                    
+## 1094:       5.5               25              6.3                      26
+## 1095:       3.6               25              4.5                      26
+## 1096:       2.6               25              4.0                      26
+## 1097:       4.3               25              6.8                      26
+## 1098:       5.0               25              7.3                      26
+##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted
+##          &lt;num&gt;           &lt;int&gt;    &lt;num&gt;           &lt;int&gt;     &lt;Date&gt;
+##    1:      9.5              25     11.1              26 2024-07-15
+##    2:     10.4               0      7.2              26 2024-07-15
+##    3:      8.0               0      8.3              26 2024-07-15
+##    4:      8.0               0     10.1              26 2024-07-15
+##    5:     10.6               0     10.4              26 2024-07-15
+##   ---                                                             
+## 1094:      5.5              25      6.7              26 2024-07-15
+## 1095:      3.6              25      4.5              26 2024-07-15
+## 1096:      2.6              25      5.1              26 2024-07-15
+## 1097:      4.3              25      6.5              26 2024-07-15
+## 1098:      5.0              25      7.5              26 2024-07-15
+##       station_latitude station_longitude   mslp mslp_source radiation
+##                  &lt;num&gt;             &lt;num&gt;  &lt;num&gt;       &lt;int&gt;     &lt;num&gt;
+##    1:         -32.3292          117.8733 1012.7          25      31.0
+##    2:         -32.3292          117.8733 1010.8           0      27.1
+##    3:         -32.3292          117.8733 1017.2           0      26.8
+##    4:         -32.3292          117.8733 1020.9           0      30.9
+##    5:         -32.3292          117.8733 1015.9           0      30.8
+##   ---                                                                
+## 1094:         -31.0742          150.8362 1015.7           0      24.9
+## 1095:         -31.0742          150.8362 1012.7           0      15.7
+## 1096:         -31.0742          150.8362 1011.4           0      14.0
+## 1097:         -31.0742          150.8362 1014.2           0      26.4
+## 1098:         -31.0742          150.8362 1015.8           0      28.7
+##       radiation_source rainfall rainfall_source rh_tmax rh_tmax_source rh_tmin
+##                  &lt;int&gt;    &lt;num&gt;           &lt;int&gt;   &lt;num&gt;          &lt;int&gt;   &lt;num&gt;
+##    1:               42      0.0               0    22.6             26    83.5
+##    2:               42      0.0               0    71.2             26   100.0
+##    3:               42      0.0               0    37.5             26    87.0
+##    4:               42      0.0               0    26.3             26   100.0
+##    5:               42      0.0               0    33.4             26   100.0
+##   ---                                                                         
+## 1094:               42      2.0               0    46.5             26   100.0
+## 1095:               42     10.2               0    61.9             26   100.0
+## 1096:               42      1.0               0    50.0             26    99.6
+## 1097:               42     18.8               0    52.7             26   100.0
+## 1098:               42      0.0               0    44.5             26   100.0
+##       rh_tmin_source    vp vp_deficit vp_deficit_source vp_source
+##                &lt;int&gt; &lt;num&gt;      &lt;num&gt;             &lt;int&gt;     &lt;int&gt;
+##    1:             26  14.5       32.7                26        25
+##    2:             26  20.0        5.2                26         0
+##    3:             26  12.6       14.9                26         0
+##    4:             26  14.0       22.7                26         0
+##    5:             26  22.1       24.1                26         0
+##   ---                                                            
+## 1094:             26  19.5       14.3                26         0
+## 1095:             26  21.8        9.3                26         0
+## 1096:             26  19.9       13.8                26         0
+## 1097:             26  21.6       11.6                26         0
+## 1098:             26  18.9       15.8                26         0
+##       daas_soil_order
+##                &lt;char&gt;
+##    1:         Sodosol
+##    2:         Sodosol
+##    3:         Sodosol
+##    4:         Sodosol
+##    5:         Sodosol
+##   ---                
+## 1094:        Dermosol
+## 1095:        Dermosol
+## 1096:        Dermosol
+## 1097:        Dermosol
+## 1098:        Dermosol</code></pre>
+<h2 id="code-of-conduct">Code of Conduct</h2>
+<p>Please note that the {extractOz} project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor
+Code of Conduct</a>. By contributing to this project, you agree to abide
+by its terms.</p>
+
+</body>
+</html>

@@ -7,6 +7,7 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Extract the GRDC agroecological zone, major soil order and weather data
