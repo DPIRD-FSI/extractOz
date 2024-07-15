@@ -32,6 +32,15 @@
 #' @export
 #'
 df_to_list <- function(x, names = 1, lonlat = 2:3) {
+
+  if (inherits(x, "data.table")) {
+    x <- as.data.frame(x)
+  }
+
+  if (any(names(x[, lonlat]) != c("x", "y"))) {
+    names(x)[lonlat] <- c("x", "y")
+  }
+
   y <- asplit(x[, lonlat], 1)
 
   names(y) <- unlist(x[, names])
