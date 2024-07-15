@@ -1,60 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/extractOz.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/aez.html</loc>
-  </url>
-  <url>
-    <loc>/reference/df_to_list.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extractOz-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_ae_zone.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_area.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_daas_soil_order.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_data_drill.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_patched_point.html</loc>
-  </url>
-  <url>
-    <loc>/reference/extract_power.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/remove_cache.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://dpird-fsi.github.io/extractOz/404.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/LICENSE.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/articles/extractOz.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/articles/index.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/authors.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/index.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/news/index.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/aez.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/df_to_list.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extractOz-package.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_ae_zone.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_area.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_daas_soil_order.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_data_drill.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_patched_point.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/extract_power.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/index.html</loc></url>
+<url><loc>https://dpird-fsi.github.io/extractOz/reference/remove_cache.html</loc></url>
 </urlset>
+
