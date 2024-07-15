@@ -172,7 +172,7 @@
 #'   )
 #' }
 #'
-#' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
+#' @author Adam H. Sparks, \email{adamhsparks@gmail.com}
 #'
 #' @family weather data
 #' @family SILO

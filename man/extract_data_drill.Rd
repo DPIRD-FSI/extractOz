@@ -172,7 +172,7 @@ Other SILO:
 \code{\link{extract_patched_point}()}
 }
 \author{
-Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+Adam H. Sparks, \email{adamhsparks@gmail.com}
 }
 \concept{SILO}
 \concept{weather data}

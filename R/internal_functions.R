@@ -17,7 +17,7 @@
 #'
 #' .create_dt(x = locs)
 #'
-#' @author Adam H. Sparks, \email{adam,sparks@@dpird.wa.gov.au}
+#' @author Adam H. Sparks, \email{adamhsparks@gmail.com}
 #' @autoglobal
 #' @noRd
 .create_dt <- function(x) {

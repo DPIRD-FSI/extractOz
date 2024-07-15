@@ -196,6 +196,6 @@ Other weather data:
 \code{\link{extract_patched_point}()}
 }
 \author{
-Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+Adam H. Sparks, \email{adamhsparks@gmail.com}
 }
 \concept{weather data}

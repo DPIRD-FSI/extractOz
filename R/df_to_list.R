@@ -24,7 +24,7 @@
 #' )) |>
 #'   df_to_list(names = 1, lonlat = 2:3)
 #'
-#' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
+#' @author Adam H. Sparks, \email{adamhsparks@gmail.com}
 #'
 #' @return A `list` object suitable for use in any of the `extract` functions
 #'  in \pkg{extractOz}.

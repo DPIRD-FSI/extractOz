@@ -39,5 +39,5 @@ read_csv(system.file(
 
 }
 \author{
-Adam H. Sparks, \email{adam.sparks@dpird.wa.gov.au}
+Adam H. Sparks, \email{adamhsparks@gmail.com}
 }
