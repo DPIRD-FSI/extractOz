@@ -1,3 +1,25 @@
+# extractOz 1.1.17
+
+## Bug Fixes 
+
+-  Fixes caching for DAAS data
+
+## Minor Changes
+
+-  `df_to_list()` now supports {data.table} objects.
+-  `df_to_list()` now supports columns not named "x" and "y" for the longitude and latitude values in the df to transform.
+
+# extractOz 1.1.17
+
+## Minor Changes
+
+-  You can now extract soil order information anywhere in AU, not just within the AE Zones.
+
+# extractOz 1.1.16
+
+## Minor changes
+
+-  Australia lat lon checks now align with {weatherOz} checks
 
 # extractOz 1.1.5
 

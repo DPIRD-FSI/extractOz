@@ -11,3 +11,6 @@ LICENSE.md
 ^tic\.R$
 ^\.covrignore$
 ^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

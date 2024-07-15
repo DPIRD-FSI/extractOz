@@ -3,11 +3,11 @@
 
 <!-- badges: start -->
 
-[![tic](https://github.com/adamhsparks/extractOz/workflows/tic/badge.svg?branch=main)](https://github.com/DPIRD-FSI/extractOz/actions)
 [![codecov](https://codecov.io/gh/DPIRD-FSI/extractOz/branch/main/graph/badge.svg?token=PBtL3rNIYb)](https://codecov.io/gh/DPIRD-FSI/extractOz)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Extract the GRDC agroecological zone, major soil order and weather data
@@ -74,15 +74,6 @@ See `?extract_soil_order()` for more help on how to use this function.
 s <- extract_daas_soil_order(x = locs)
 ```
 
-    ## Reading layer `soilAtlas2M_ASC_Conversion' from data source 
-    ##   `/private/var/folders/gn/jsls6gwj7yj5svyykn8vvsfw0000gp/T/RtmpzHWczY/SoilAtlas2M_ASC_Conversion_v01' 
-    ##   using driver `ESRI Shapefile'
-    ## Simple feature collection with 22584 features and 7 fields
-    ## Geometry type: POLYGON
-    ## Dimension:     XY
-    ## Bounding box:  xmin: 112.8959 ymin: -43.63287 xmax: 153.6362 ymax: -10.49096
-    ## Geodetic CRS:  GDA94
-
 ## Get Weather Data for These Locations in 2020
 
 Using the previously used list of GPS points, fetch weather data from
@@ -136,7 +127,9 @@ left_join(z, three_sites, by = c(
 
     ## Joining with `by = join_by(location, x, y)`
 
+    ## Key: <location>
     ##       location      x      y       ae_zone station_code         station_name
+    ##         <char>  <num>  <num>        <char>       <char>               <char>
     ##    1: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
     ##    2: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
     ##    3: Corrigin 117.87 -32.33    WA Central       010536             Corrigin
@@ -148,19 +141,21 @@ left_join(z, three_sites, by = c(
     ## 1096: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
     ## 1097: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
     ## 1098: Tamworth 150.84 -31.07 NSW NE/Qld SE       055325 Tamworth Airport AWS
-    ##       year day       date air_tmax air_tmax_source air_tmin air_tmin_source
-    ##    1: 2020   1 2020-01-01     37.4              25     15.3              25
-    ##    2: 2020   2 2020-01-02     23.0               0     16.0              25
-    ##    3: 2020   3 2020-01-03     26.0               0     12.5               0
-    ##    4: 2020   4 2020-01-04     34.0               0      8.0               0
-    ##    5: 2020   5 2020-01-05     38.0               0     12.0               0
-    ##   ---                                                                      
-    ## 1094: 2020  27 2020-12-27     29.8               0     15.0               0
-    ## 1095: 2020  28 2020-12-28     26.8               0     18.3               0
-    ## 1096: 2020  29 2020-12-29     28.9               0     17.5               0
-    ## 1097: 2020  30 2020-12-30     29.4               0     14.9               0
-    ## 1098: 2020  31 2020-12-31     30.0               0     16.1               0
+    ##        year   day       date air_tmax air_tmax_source air_tmin air_tmin_source
+    ##       <num> <int>     <Date>    <num>           <int>    <num>           <int>
+    ##    1:  2020     1 2020-01-01     37.4              25     15.3              25
+    ##    2:  2020     2 2020-01-02     23.0               0     16.0              25
+    ##    3:  2020     3 2020-01-03     26.0               0     12.5               0
+    ##    4:  2020     4 2020-01-04     34.0               0      8.0               0
+    ##    5:  2020     5 2020-01-05     38.0               0     12.0               0
+    ##   ---                                                                         
+    ## 1094:  2020    27 2020-12-27     29.8               0     15.0               0
+    ## 1095:  2020    28 2020-12-28     26.8               0     18.3               0
+    ## 1096:  2020    29 2020-12-29     28.9               0     17.5               0
+    ## 1097:  2020    30 2020-12-30     29.4               0     14.9               0
+    ## 1098:  2020    31 2020-12-31     30.0               0     16.1               0
     ##        elev_m et_morton_actual et_morton_actual_source et_morton_potential
+    ##        <char>            <num>                   <int>               <num>
     ##    1: 295.0 m              3.3                      26                11.0
     ##    2: 295.0 m              6.4                      26                 6.4
     ##    3: 295.0 m              3.4                      26                 7.3
@@ -173,6 +168,7 @@ left_join(z, three_sites, by = c(
     ## 1097: 394.9 m              6.6                      26                 6.6
     ## 1098: 394.9 m              6.2                      26                 8.1
     ##       et_morton_potential_source et_morton_wet et_morton_wet_source
+    ##                            <int>         <num>                <int>
     ##    1:                         26           7.2                   26
     ##    2:                         26           6.4                   26
     ##    3:                         26           5.4                   26
@@ -185,6 +181,7 @@ left_join(z, three_sites, by = c(
     ## 1097:                         26           6.6                   26
     ## 1098:                         26           7.1                   26
     ##       et_short_crop et_short_crop_source et_tall_crop et_tall_crop_source
+    ##               <num>                <int>        <num>               <int>
     ##    1:           8.0                   26         10.4                  26
     ##    2:           4.4                   26          4.7                  26
     ##    3:           5.4                   26          6.7                  26
@@ -197,6 +194,7 @@ left_join(z, three_sites, by = c(
     ## 1097:           5.2                   26          5.9                  26
     ## 1098:           6.0                   26          7.1                  26
     ##       evap_comb evap_comb_source evap_morton_lake evap_morton_lake_source
+    ##           <num>            <int>            <num>                   <int>
     ##    1:       9.5               25              8.1                      26
     ##    2:      10.4                0              6.6                      26
     ##    3:       8.0                0              6.2                      26
@@ -209,18 +207,20 @@ left_join(z, three_sites, by = c(
     ## 1097:       4.3               25              6.8                      26
     ## 1098:       5.0               25              7.3                      26
     ##       evap_pan evap_pan_source evap_syn evap_syn_source  extracted
-    ##    1:      9.5              25     11.1              26 2023-11-15
-    ##    2:     10.4               0      7.2              26 2023-11-15
-    ##    3:      8.0               0      8.3              26 2023-11-15
-    ##    4:      8.0               0     10.1              26 2023-11-15
-    ##    5:     10.6               0     10.4              26 2023-11-15
+    ##          <num>           <int>    <num>           <int>     <Date>
+    ##    1:      9.5              25     11.1              26 2024-07-15
+    ##    2:     10.4               0      7.2              26 2024-07-15
+    ##    3:      8.0               0      8.3              26 2024-07-15
+    ##    4:      8.0               0     10.1              26 2024-07-15
+    ##    5:     10.6               0     10.4              26 2024-07-15
     ##   ---                                                             
-    ## 1094:      5.5              25      6.7              26 2023-11-15
-    ## 1095:      3.6              25      4.5              26 2023-11-15
-    ## 1096:      2.6              25      5.1              26 2023-11-15
-    ## 1097:      4.3              25      6.5              26 2023-11-15
-    ## 1098:      5.0              25      7.5              26 2023-11-15
+    ## 1094:      5.5              25      6.7              26 2024-07-15
+    ## 1095:      3.6              25      4.5              26 2024-07-15
+    ## 1096:      2.6              25      5.1              26 2024-07-15
+    ## 1097:      4.3              25      6.5              26 2024-07-15
+    ## 1098:      5.0              25      7.5              26 2024-07-15
     ##       station_latitude station_longitude   mslp mslp_source radiation
+    ##                  <num>             <num>  <num>       <int>     <num>
     ##    1:         -32.3292          117.8733 1012.7          25      31.0
     ##    2:         -32.3292          117.8733 1010.8           0      27.1
     ##    3:         -32.3292          117.8733 1017.2           0      26.8
@@ -233,6 +233,7 @@ left_join(z, three_sites, by = c(
     ## 1097:         -31.0742          150.8362 1014.2           0      26.4
     ## 1098:         -31.0742          150.8362 1015.8           0      28.7
     ##       radiation_source rainfall rainfall_source rh_tmax rh_tmax_source rh_tmin
+    ##                  <int>    <num>           <int>   <num>          <int>   <num>
     ##    1:               42      0.0               0    22.6             26    83.5
     ##    2:               42      0.0               0    71.2             26   100.0
     ##    3:               42      0.0               0    37.5             26    87.0
@@ -244,19 +245,21 @@ left_join(z, three_sites, by = c(
     ## 1096:               42      1.0               0    50.0             26    99.6
     ## 1097:               42     18.8               0    52.7             26   100.0
     ## 1098:               42      0.0               0    44.5             26   100.0
-    ##       rh_tmin_source   vp vp_deficit vp_deficit_source vp_source
-    ##    1:             26 14.5       32.7                26        25
-    ##    2:             26 20.0        5.2                26         0
-    ##    3:             26 12.6       14.9                26         0
-    ##    4:             26 14.0       22.7                26         0
-    ##    5:             26 22.1       24.1                26         0
-    ##   ---                                                           
-    ## 1094:             26 19.5       14.3                26         0
-    ## 1095:             26 21.8        9.3                26         0
-    ## 1096:             26 19.9       13.8                26         0
-    ## 1097:             26 21.6       11.6                26         0
-    ## 1098:             26 18.9       15.8                26         0
+    ##       rh_tmin_source    vp vp_deficit vp_deficit_source vp_source
+    ##                <int> <num>      <num>             <int>     <int>
+    ##    1:             26  14.5       32.7                26        25
+    ##    2:             26  20.0        5.2                26         0
+    ##    3:             26  12.6       14.9                26         0
+    ##    4:             26  14.0       22.7                26         0
+    ##    5:             26  22.1       24.1                26         0
+    ##   ---                                                            
+    ## 1094:             26  19.5       14.3                26         0
+    ## 1095:             26  21.8        9.3                26         0
+    ## 1096:             26  19.9       13.8                26         0
+    ## 1097:             26  21.6       11.6                26         0
+    ## 1098:             26  18.9       15.8                26         0
     ##       daas_soil_order
+    ##                <char>
     ##    1:         Sodosol
     ##    2:         Sodosol
     ##    3:         Sodosol

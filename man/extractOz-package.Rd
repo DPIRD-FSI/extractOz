@@ -14,6 +14,7 @@ Extracts point data for a given GPS coordinate that includes major soil order, w
 Useful links:
 \itemize{
   \item \url{https://github.com/DPIRD-FSI/extractOz}
+  \item \url{https://dpird-fsi.github.io/extractOz/}
   \item Report bugs at \url{https://github.com/DPIRD-FSI/extractOz/issues}
 }
 

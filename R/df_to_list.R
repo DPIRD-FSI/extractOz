@@ -24,7 +24,7 @@
 #' )) |>
 #'   df_to_list(names = 1, lonlat = 2:3)
 #'
-#' @author Adam H. Sparks, \email{adam.sparks@@dpird.wa.gov.au}
+#' @author Adam H. Sparks, \email{adamhsparks@gmail.com}
 #'
 #' @return A `list` object suitable for use in any of the `extract` functions
 #'  in \pkg{extractOz}.
@@ -32,6 +32,15 @@
 #' @export
 #'
 df_to_list <- function(x, names = 1, lonlat = 2:3) {
+
+  if (inherits(x, "data.table")) {
+    x <- as.data.frame(x)
+  }
+
+  if (any(names(x[, lonlat]) != c("x", "y"))) {
+    names(x)[lonlat] <- c("x", "y")
+  }
+
   y <- asplit(x[, lonlat], 1)
 
   names(y) <- unlist(x[, names])

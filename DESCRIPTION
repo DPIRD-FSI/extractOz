@@ -1,6 +1,6 @@
 Package: extractOz
 Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
-Version: 1.1.7
+Version: 1.1.8
 Authors@R: c(person(given = "Adam H.", family = "Sparks",
                     email = "adam.sparks@dpird.wa.gov.au",
                     role = c("aut", "ccp"),
@@ -51,7 +51,7 @@ Language: en-US
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: agriculture, Australia, agroecology, soils, weather, weather-data, soils-data, agriculture-research
 X-schema.org-isPartOf: https://www.dpird.wa.gov.au/
-URL: https://github.com/DPIRD-FSI/extractOz
+URL: https://github.com/DPIRD-FSI/extractOz, https://dpird-fsi.github.io/extractOz/
 BugReports: https://github.com/DPIRD-FSI/extractOz/issues
 LazyData: true
 LazyDataCompression: xz
