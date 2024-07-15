@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   extractOz: extractOz.html
-last_built: 2024-07-15T09:13Z
+last_built: 2024-07-15T09:15Z
 urls:
   reference: https://dpird-fsi.github.io/extractOz/reference
   article: https://dpird-fsi.github.io/extractOz/articles
