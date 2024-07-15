@@ -48,12 +48,7 @@ extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
   if (file.exists(.get_cache_file())) {
     load(.get_cache_file())
   } else {
-    if (isTRUE(cache)) {
-      message("This is the first time using caching, a cache will be created.")
-      daas <- .get_daas_data(.cache = cache, .aez = aez)
-    } else {
-      daas <- .get_daas_data(.cache = cache, .aez = aez)
-    }
+    daas <- .get_daas_data(.cache = cache)
   }
 
   x <- .create_dt(x)
@@ -81,7 +76,6 @@ extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
   return(out[])
 }
 
-
 # general functions for using the user cache taken from:
 # https://github.com/sonatype-nexus-community/oysteR/blob/master/R/cache.R
 
@@ -99,7 +93,7 @@ extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
 
 #' @noRd
 # nocov start
-.get_daas_data <- function(.cache, .aez) {
+.get_daas_data <- function(.cache) {
   u_remote <-
     "https://data.gov.au/data/"
   d_remote <-
@@ -122,14 +116,13 @@ extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
 
       utils::unzip(file.path(tempdir(), filename), exdir = tempdir())
 
-      x <-
+      daas <-
         sf::st_read(
           dsn = file.path(tempdir(), "SoilAtlas2M_ASC_Conversion_v01"),
           layer = "soilAtlas2M_ASC_Conversion"
         )
-      x <- x[with(x, SOIL != "Nodata" | SOIL != "Lake"), ]
-      x <- sf::st_transform(x, crs = sf::st_crs(aez))
-      return(x)
+      daas <- daas[with(daas, SOIL != "Nodata" | SOIL != "Lake"), ]
+      daas <- sf::st_transform(daas, crs = sf::st_crs(aez))
     },
     error = function(x) {
       stop(
@@ -144,7 +137,7 @@ extract_daas_soil_order <- function(x, cache = FALSE, aez_only = TRUE) {
       if (!dir.exists(.get_cache_dir())) {
         dir.create(path = .get_cache_dir(), recursive = TRUE)
       }
-      save(daas, file = .get_cache_file())
+      save(object = daas, file = .get_cache_file())
     }
   }
   return(daas)
